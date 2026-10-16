@@ -47,7 +47,7 @@ Tablet / telefon (768×1024, 414×896, 390×844, 375×812, 375×667, 320×568): 
   | Bakır küçük metin (hizmet numaraları) — `#C47A4A` / beyaz | 3.37 | `#995F3A` → 5.18 |
   | Üzerine gelince düğme: beyaz / bakır | 3.37 | düğme bakırı `#A4663E` → 4.63 |
   | Pasif dil düğmesi (TR/EN, %55 saydam) | 3.01 | saydamlık %75 |
-  Logo renkleri, büyük başlıklar ve odak çerçevesi (3:1 yeterli) değişmez. **Marka sahibinin kararı bekleniyor.**
+  Logo renkleri, büyük başlıklar ve odak çerçevesi (3:1 yeterli) değişmez. **Karar (2026-10-16): marka sahibi prototip renklerinin aynen kalmasını seçti (B).** Bu küçük metinler bilinçli olarak WCAG AA altında kalır.
 - ⚠ Form kutularında odak, prototipteki gibi kenar çizgisinin koyulaşmasıyla gösteriliyor (çerçeve yok). Klavye kullanıcıları için bakır çerçeve eklenebilir.
 - ⚠ Görüntüleyici açılınca odağın "Kapat"a gitmesi kodda var; test tarayıcısı penceresi odakta olmadığı için otomatik doğrulanamadı → elle kontrol önerilir (Tab tuşu).
 

@@ -86,7 +86,9 @@ for (const url of pages.keys()) {
   if (!sitemap.includes(`${url}</loc>`)) errors.push(`[${url}] site haritasında yok`);
 }
 const robots = await readFile(join(DIST, 'robots.txt'), 'utf8').catch(() => '');
-if (!/Sitemap: https?:\/\/\S+sitemap-index\.xml/.test(robots)) errors.push('robots.txt site haritası adresi eksik');
+const site = JSON.parse(await readFile('src/data/site.json', 'utf8'));
+if (site.domain && !/Sitemap: https?:\/\/\S+sitemap-index\.xml/.test(robots)) errors.push('robots.txt site haritası adresi eksik');
+if (!site.domain) warnings.push('Alan adı yok: geçici yayın arama motorlarına kapalı (robots.txt Disallow + noindex) — beklenen');
 
 console.log(`\n${pages.size} sayfa kontrol edildi. Dış bağlantılar (elle kontrol edilir):`);
 for (const e of external) console.log('  · ' + e);
