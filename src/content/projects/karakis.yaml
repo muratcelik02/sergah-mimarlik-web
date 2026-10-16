@@ -8,6 +8,6 @@ gallery:
     alt: { tr: "Karakış Konutları, gri ve beyaz cepheli apartman blokları", en: "Karakış Residences, apartment blocks with grey and white façades" }
 imageType: render
 featured: true
-featuredOrder: 2
+featuredOrder: 3
 order: 5
 toVerify: [type]

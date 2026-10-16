@@ -32,6 +32,7 @@
 6. Sayfayı geciktiren CSS dosyaları (≈0.9 s) → stiller sayfaya gömüldü (`inlineStylesheets: 'always'`).
 7. "Eklenecek" yazıları soluk görünüyordu (kontrast 3.3) → soluklaştırma kaldırıldı (yalnızca italik).
 8. Adres çubuğunda yalnızca `#bölüm` değişince panel değişmiyordu → değişiyor.
+9. **Hizmet kartları (alçak ekranlar, ör. %125 ölçekli 1920 ekran = 1536×695):** görsel 120 px'e eziliyor, liste kartın beyaz zemininden taşıyordu (prototipte de vardı) → yazı hiç kesilmez, görsel kalan alanı doldurur (en az 150 px), alçak ekranlarda kart içi sıkılaştırıldı. 1536×695: görsel 174 px, kayma yok.
 
 ## Ekran boyutu taraması
 Masaüstü (1920×1080, 1440×900, 1366×650, 1280×800, 1180×820, 1024×768): her 5 panel tek ekrana sığıyor, üst menü öğeleri çakışmıyor.

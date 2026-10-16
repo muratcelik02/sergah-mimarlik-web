@@ -31,7 +31,7 @@
 ## Görsel incelemesi (2026-10-16)
 - 10 proje, 16 render. Kaynak genişlikleri 1447–3840 px (web için yeterli).
 - O.B Evi'nin 5 görselinde eski "SM" logosu var.
-- Mis Plaza, Mis Elit, Torkum (belirgin), Karakış, A.Y, F.Y (soluk) görsellerinde yeni SerGah logosu filigran olarak var — şimdilik kabul edildi.
+- Mis Plaza, Mis Elit, Torkum (belirgin), Karakış, A.Y, F.Y (soluk) görsellerinde yeni Sergah logosu filigran olarak var — şimdilik kabul edildi.
 - Logo PNG'si 4134×4134; beyaz zemin üzerinde. Vektör sürümü yok.
 
 ## Form ve barındırma araştırması (2026-10-16, Aşama 5)

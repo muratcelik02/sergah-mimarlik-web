@@ -1,12 +1,12 @@
-# Proje Özeti — SerGah Mimarlık Web Sitesi
+# Proje Özeti — Sergah Mimarlık Web Sitesi
 
 ## Amaç
-Yeni kurulan SerGah Mimarlık ofisi için iki dilli (TR varsayılan, EN), hızlı, yayına hazır bir tanıtım sitesi. Sitenin görevi; projeleri göstermek, hizmetleri anlatmak ve ziyaretçiyi iletişime (form / WhatsApp) yönlendirmek.
+Yeni kurulan Sergah Mimarlık ofisi için iki dilli (TR varsayılan, EN), hızlı, yayına hazır bir tanıtım sitesi. Sitenin görevi; projeleri göstermek, hizmetleri anlatmak ve ziyaretçiyi iletişime (form / WhatsApp) yönlendirmek.
 
 ## Marka
-- **Ad:** SerGah Mimarlık (İngilizce sayfalarda da marka adı "SerGah Mimarlık" olarak kalır; açıklama metinlerinde "SerGah Architecture" kullanılmaz — bkz. karar kaydı).
+- **Ad:** Sergah Mimarlık (İngilizce sayfalarda da marka adı "Sergah Mimarlık" olarak kalır; açıklama metinlerinde "Sergah Architecture" kullanılmaz — bkz. karar kaydı).
 - **Hizmetler:** mimari tasarım ve projelendirme · iç mimarlık · inşaat süreci takibi ve proje koordinasyonu.
-- **Verilmeyen hizmetler:** müteahhitlik, yüklenicilik, anahtar teslim inşaat. Sitede bu hizmetler varmış gibi dil **kullanılmaz**. "SerGah Mimarlık müteahhitlik hizmeti vermez; inşaatı işverenin seçtiği yüklenici yapar." notu korunur.
+- **Verilmeyen hizmetler:** müteahhitlik, yüklenicilik, anahtar teslim inşaat. Sitede bu hizmetler varmış gibi dil **kullanılmaz**. "Sergah Mimarlık müteahhitlik hizmeti vermez; inşaatı işverenin seçtiği yüklenici yapar." notu korunur.
 - **Hedef kitle:** villa yaptırmak isteyen bireyler · konut müteahhitleri ve geliştiriciler · iç mimari hizmet arayanlar.
 - **Instagram:** https://www.instagram.com/sergahmimarlik/
 
@@ -32,8 +32,8 @@ Telefon · WhatsApp · e-posta · ofis adresi · Hakkımızda metni · kurucu bi
 | 2026-10-16 | O.B Evi renderları (eski "SM" logolu) logosuzları gelene kadar kullanılır → yapılacaklar listesinde. |
 | 2026-10-16 | İngilizce sürüm ayrı adreste (`/en/`); dil düğmesi o adrese gider, bulunulan bölüm korunur. |
 | 2026-10-16 | Yazı tipleri siteyle birlikte barındırılır (Google'a istek gitmez; KVKK ve hız). |
-| 2026-10-16 | Ana sayfa slayt sırası prototipteki gibi (`featuredOrder`): M.E → Karakış → M.A → Mis Plaza → O.B → F.Y. |
-| 2026-10-16 | İngilizce sayfalarda da marka adı "SerGah Mimarlık" (çevrilmez). |
+| 2026-10-16 | Ana sayfa slaytı Mis Plaza ile açılır (marka sahibi isteği), sonra prototip sırası: Mis Plaza → M.E → Karakış → M.A → O.B → F.Y (`featuredOrder`). |
+| 2026-10-16 | Marka adının yazımı **Sergah Mimarlık** (yalnızca baş harf büyük; marka sahibi düzeltmesi). İngilizce sayfalarda da çevrilmez. |
 | 2026-10-16 | Görüntüleyici açıkken adres çubuğu projenin gerçek sayfasını gösterir (paylaşılabilir). |
 | 2026-10-16 | Form, Aşama 5 bağlanana kadar "henüz bağlı değil" mesajı verir. |
 | 2026-10-16 | İletişim formu: Web3Forms (ayda 250 ücretsiz gönderim; panel sergahmim@gmail.com ile, mesajlar bu adrese gelir); spam için görünmez tuzak alan; KVKK onayı zorunlu. |

@@ -1,12 +1,12 @@
-// Arayüz metinleri (prototipten aynen). Marka adı her iki dilde "SerGah Mimarlık".
+// Arayüz metinleri (prototipten aynen). Marka adı her iki dilde "Sergah Mimarlık".
 // Site geneli bilinmeyen bilgiler burada değil, src/data/site.json içindedir.
 export type Lang = 'tr' | 'en';
 
 const tr = {
   // Menü ve gezinme
   n0: 'Ana Sayfa', n1: 'Projeler', n2: 'Hizmetler', n3: 'Hakkımızda', n4: 'İletişim',
-  skip: 'Geçmek için tıklayın', loading: 'SerGah Mimarlık yükleniyor',
-  homeLabel: 'SerGah Mimarlık — Ana sayfa', mainMenu: 'Ana menü', mobileMenu: 'Mobil menü', menu: 'Menü',
+  skip: 'Geçmek için tıklayın', loading: 'Sergah Mimarlık yükleniyor',
+  homeLabel: 'Sergah Mimarlık — Ana sayfa', mainMenu: 'Ana menü', mobileMenu: 'Mobil menü', menu: 'Menü',
   sections: 'Bölümler', language: 'Dil', otherLang: 'English', skipToContent: 'İçeriğe geç',
 
   // Ana sayfa paneli
@@ -31,7 +31,7 @@ const tr = {
   's2.a': 'Mekân kurgusu', 's2.b': 'Malzeme ve renk', 's2.c': 'Sabit mobilya', 's2.d': 'Aydınlatma',
   's3.h': 'İnşaat süreci takibi', 's3.p': 'Uygulamanın projeye uygunluğunu işveren adına takip eder, ekipleri koordine ederiz.',
   's3.a': 'Şantiye ziyaretleri', 's3.b': 'Raporlama', 's3.c': 'Koordinasyon', 's3.d': 'Teslim kontrolü',
-  's.note': 'SerGah Mimarlık müteahhitlik hizmeti vermez; inşaatı işverenin seçtiği yüklenici yapar.',
+  's.note': 'Sergah Mimarlık müteahhitlik hizmeti vermez; inşaatı işverenin seçtiği yüklenici yapar.',
 
   // Hakkımızda
   'a.lbl': 'Ofis', 'a.h': 'Yere, ihtiyaca ve bütçeye göre tasarım.',
@@ -66,9 +66,9 @@ const tr = {
   'st.insaat': 'İnşaat aşamasında', 'st.tamamlandi': 'Tamamlandı',
 
   // Sayfa başlıkları
-  'meta.home.title': 'SerGah Mimarlık — Mimari Tasarım ve İç Mimarlık',
-  'meta.home.desc': 'SerGah Mimarlık: villa, konut ve ticari yapılar için mimari tasarım, iç mimarlık ve inşaat süreci takibi.',
-  'meta.project.desc': '{name}: SerGah Mimarlık {type} projesi. {count} {kind} görseli.',
+  'meta.home.title': 'Sergah Mimarlık — Mimari Tasarım ve İç Mimarlık',
+  'meta.home.desc': 'Sergah Mimarlık: villa, konut ve ticari yapılar için mimari tasarım, iç mimarlık ve inşaat süreci takibi.',
+  'meta.project.desc': '{name}: Sergah Mimarlık {type} projesi. {count} {kind} görseli.',
   '404.title': 'Sayfa bulunamadı', '404.p': 'Aradığınız sayfa taşınmış ya da hiç var olmamış olabilir.',
   '404.home': 'Ana sayfaya dön', '404.projects': 'Projeleri inceleyin',
 } as const;
@@ -77,8 +77,8 @@ export type UIKey = keyof typeof tr;
 
 const en: Record<UIKey, string> = {
   n0: 'Home', n1: 'Projects', n2: 'Services', n3: 'About', n4: 'Contact',
-  skip: 'Click to skip', loading: 'SerGah Mimarlık is loading',
-  homeLabel: 'SerGah Mimarlık — Home', mainMenu: 'Main menu', mobileMenu: 'Mobile menu', menu: 'Menu',
+  skip: 'Click to skip', loading: 'Sergah Mimarlık is loading',
+  homeLabel: 'Sergah Mimarlık — Home', mainMenu: 'Main menu', mobileMenu: 'Mobile menu', menu: 'Menu',
   sections: 'Sections', language: 'Language', otherLang: 'Türkçe', skipToContent: 'Skip to content',
 
   'h.lbl': 'Architecture · Interiors · Project supervision',
@@ -100,7 +100,7 @@ const en: Record<UIKey, string> = {
   's2.a': 'Spatial planning', 's2.b': 'Materials and colour', 's2.c': 'Built-in joinery', 's2.d': 'Lighting',
   's3.h': 'Construction supervision', 's3.p': 'We check on the client’s behalf that construction follows the design, and coordinate the teams.',
   's3.a': 'Site visits', 's3.b': 'Reporting', 's3.c': 'Coordination', 's3.d': 'Handover check',
-  's.note': 'SerGah Mimarlık does not act as a contractor; construction is carried out by the client’s chosen builder.',
+  's.note': 'Sergah Mimarlık does not act as a contractor; construction is carried out by the client’s chosen builder.',
 
   'a.lbl': 'Studio', 'a.h': 'Design shaped by site, needs and budget.',
   'a.ph': 'Short founder biographies and the studio’s approach will be added.',
@@ -131,9 +131,9 @@ const en: Record<UIKey, string> = {
   'st.konsept': 'Concept', 'st.proje': 'In design', 'st.ruhsat': 'In permitting',
   'st.insaat': 'Under construction', 'st.tamamlandi': 'Completed',
 
-  'meta.home.title': 'SerGah Mimarlık — Architecture and Interior Design',
-  'meta.home.desc': 'SerGah Mimarlık: architectural design, interior design and construction supervision for villas, housing and commercial buildings.',
-  'meta.project.desc': '{name}: a {type} project by SerGah Mimarlık. {count} {kind} images.',
+  'meta.home.title': 'Sergah Mimarlık — Architecture and Interior Design',
+  'meta.home.desc': 'Sergah Mimarlık: architectural design, interior design and construction supervision for villas, housing and commercial buildings.',
+  'meta.project.desc': '{name}: a {type} project by Sergah Mimarlık. {count} {kind} images.',
   '404.title': 'Page not found', '404.p': 'The page you are looking for may have moved or never existed.',
   '404.home': 'Back to home', '404.projects': 'View projects',
 };

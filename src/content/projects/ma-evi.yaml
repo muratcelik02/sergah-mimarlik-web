@@ -10,6 +10,6 @@ gallery:
     alt: { tr: "M.A Evi, cam korkuluklu balkon ve peyzajlı giriş", en: "M.A Evi, glass-railed balcony above a landscaped entrance" }
 imageType: render
 featured: true
-featuredOrder: 3
+featuredOrder: 4
 order: 3
 toVerify: [type]
