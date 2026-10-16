@@ -36,6 +36,7 @@ Telefon · WhatsApp · e-posta · ofis adresi · Hakkımızda metni · kurucu bi
 | 2026-10-16 | İngilizce sayfalarda da marka adı "SerGah Mimarlık" (çevrilmez). |
 | 2026-10-16 | Görüntüleyici açıkken adres çubuğu projenin gerçek sayfasını gösterir (paylaşılabilir). |
 | 2026-10-16 | Form, Aşama 5 bağlanana kadar "henüz bağlı değil" mesajı verir. |
+| 2026-10-16 | Açılış ekranı logosu küçültüldü (marka sahibi isteği): işaret 96px, yazı 170px, çizgi 150px; telefonda en çok ekranın %22 / %44 / %40'ı. |
 
 ## Yapılacaklar (marka sahibinden beklenenler)
 - [ ] Telefon, WhatsApp, e-posta, ofis adresi

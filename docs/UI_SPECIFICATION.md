@@ -8,7 +8,7 @@ Kural: **prototip neyse o.** Aşağıdakiler prototipten farkları ve sayfa baz�
 - **Odak** her zaman görünür; tüm kontroller klavyeyle kullanılabilir.
 
 ## Açılış ekranı
-Prototipteki sıralama aynen. Ek: aynı tarayıcı oturumunda ikinci ziyarette **gösterilmez** (`sessionStorage`). Sayfa çizilmeden önce karar verilir, yanıp sönme olmaz. Hareketi azalt açıksa animasyonsuz ve kısa.
+Prototipteki sıralama aynen; logo boyutu küçültüldü (işaret 96px, yazı 170px — karar kaydı). Ek: aynı tarayıcı oturumunda ikinci ziyarette **gösterilmez** (`sessionStorage`). Sayfa çizilmeden önce karar verilir, yanıp sönme olmaz. Hareketi azalt açıksa animasyonsuz ve kısa.
 
 ## Ana sayfa — tek ekran, 5 panel (tüm ekran boyutlarında)
 Geçiş: menü · noktalar · tekerlek · klavye (↑ ↓ PageUp PageDown) · dokunma kaydırması. Panel içeriği taşarsa önce panelin içi kayar, kenara gelince sonraki panele geçilir (prototipteki gibi; mobilde de aynı).

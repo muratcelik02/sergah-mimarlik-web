@@ -7,7 +7,7 @@
 ## Prototipten çıkarılan davranışlar (korunacak)
 | Davranış | Prototipteki değer |
 |---|---|
-| Açılış ekranı | İşaret alttan belirir (1.2 s, 0.2 s gecikme) → yazı (0.8 s, 1.1 s gecikme) → bakır çizgi → ekran yukarı kalkar (1 s). En az 2.2 s, en çok 6 s. Tıklayınca geçilir. |
+| Açılış ekranı | (Boyut sitede küçültüldü: işaret 96px, yazı 170px.) İşaret alttan belirir (1.2 s, 0.2 s gecikme) → yazı (0.8 s, 1.1 s gecikme) → bakır çizgi → ekran yukarı kalkar (1 s). En az 2.2 s, en çok 6 s. Tıklayınca geçilir. |
 | Panel geçişi | `transform` 1.05 s, `cubic-bezier(.7,0,.2,1)`; tekerlekte 40 birim eşik; dokunmada 60 px eşik |
 | Slayt | 6 s, görsel 7 s boyunca 1.06 → 1 yakınlaşma, 1.4 s geçiş |
 | Proje ızgarası | >1180 px: 8 kart (4×2) · 981–1180 px: 6 kart (3×2) · ≤980 px: tümü |
