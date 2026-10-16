@@ -1,6 +1,6 @@
 # Yayına Alma Rehberi
 
-Kod GitHub'da **özel (private)** bir depoda durur. **Cloudflare Pages** depoya bağlanır; her `git push` sonrası site otomatik derlenip yayınlanır. Ücretsiz plan (2026-10): ayda 500 derleme, trafik limiti belirtilmemiş.
+Kod GitHub'da **özel (private)** bir depoda durur (`muratcelik02/sergah-mimarlik-web`). **Cloudflare** (Workers, statik site) depoya bağlanır; her `git push` sonrası site otomatik derlenip yayınlanır.
 
 ## 1. GitHub deposu (bir kez)
 1. https://github.com → hesabınızla giriş yapın (yoksa **Sign up**).
@@ -14,24 +14,23 @@ Kod GitHub'da **özel (private)** bir depoda durur. **Cloudflare Pages** depoya 
    ```
    İlk gönderimde tarayıcıda GitHub girişi açılır (Git Credential Manager); onaylayın.
 
-## 2. Cloudflare Pages (bir kez)
-1. https://dash.cloudflare.com → hesap açın / giriş yapın (ücretsiz).
-2. **Workers & Pages** → **Create application** → **Pages** → **Connect to Git** → **GitHub** → yetki verin (yalnızca `sergah-mimarlik-web` deposunu seçmeniz yeterli) → **Install & Authorize** → depoyu seçin → **Begin setup**.
-3. **Set up builds and deployments:**
+## 2. Cloudflare (bir kez) — Workers, statik site
+Projede `wrangler.jsonc` var: Cloudflare yalnızca `dist` klasörünü yayınlar, sunucu eklentisi eklemez. Ücretsiz plan: statik dosya istekleri sınırsız, derleme ayda 3.000 dakika (bir derleme ≈ 4–5 dk).
+
+1. https://dash.cloudflare.com → **Workers & Pages** → **Create application**.
+2. Var olan bir GitHub deposunu içe aktarın (**Import a repository** / **Continue with GitHub**). "Clone / template / Deploy to Cloudflare" seçenekleri **kullanılmaz** — bunlar GitHub'da depo kopyası açar (2026-10-16'da `sergah-mimarlik-web1` böyle oluştu).
+3. Depo: **`sergah-mimarlik-web`**.
+4. Ayarlar:
    | Alan | Değer |
    |---|---|
-   | Project name | `sergah-mimarlik` (geçici adres: `sergah-mimarlik.pages.dev`) |
-   | Production branch | `main` |
-   | Framework preset | `Astro` |
+   | Project / Worker name | `sergah-mimarlik` (`wrangler.jsonc` içindeki `name` ile **aynı** olmalı) |
    | Build command | `npm run build` |
-   | Build output directory | `dist` |
-4. **Environment variables** (Production):
-   | Ad | Değer |
-   |---|---|
-   | `PUBLIC_WEB3FORMS_KEY` | Web3Forms erişim anahtarı (`.env` dosyasındaki) |
-   | `SITE_URL` | `https://sergah-mimarlik.pages.dev` (alan adı gelince değişir) |
-   | `NODE_VERSION` | `24` (yedek; `.nvmrc` zaten 24 — Cloudflare varsayılanı 22.16, Astro 7 için yetmez) |
-5. **Save and Deploy**. Derleme ~1–2 dk.
+   | Deploy command | `npx wrangler deploy` |
+   | Build variables | `PUBLIC_WEB3FORMS_KEY` = Web3Forms anahtarı · `SITE_URL` = yayın adresi (ilk yayından sonra öğrenilir, ör. `https://sergah-mimarlik.<hesap>.workers.dev`) |
+5. **Deploy**. Node sürümü `.nvmrc`'den (24) okunur; Cloudflare varsayılanı Astro 7 için yetmez.
+6. Yayın adresi Worker sayfasında görünür (`….workers.dev`). `SITE_URL`'yi bu adresle güncelleyip yeniden derleyin (**Deployments** → **Retry** veya yeni `git push`).
+
+> Not: Klasik **Pages** akışı da çalışır (Build command `npm run build`, output `dist`); o durumda `wrangler.jsonc` yok sayılır.
 
 ## Güncelleme akışı
 Kodda değişiklik → `git push` → Cloudflare otomatik yayınlar. Panelde **Deployments** listesinde her yayın ve geri alma (rollback) düğmesi görünür.
