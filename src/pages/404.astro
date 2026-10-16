@@ -1,0 +1,26 @@
+---
+// Özel 404 sayfası (iki dilli; barındırma tüm bulunamayan adreslerde bunu gösterir).
+import SimplePage from '../components/SimplePage.astro';
+import { ui } from '../i18n/ui';
+---
+<SimplePage lang="tr" title={`404 · ${ui.tr['404.title']}`} description={ui.tr['404.p']} noindex>
+  <section class="nf">
+    <p class="lbl">404</p>
+    <h1>{ui.tr['404.title']}</h1>
+    <p>{ui.tr['404.p']}</p>
+    <div class="row"><a class="btn solid" href="/">{ui.tr['404.home']}</a><a class="btn" href="/#projeler">{ui.tr['404.projects']}</a></div>
+  </section>
+  <section class="nf" lang="en">
+    <p class="lbl">404</p>
+    <h2>{ui.en['404.title']}</h2>
+    <p>{ui.en['404.p']}</p>
+    <div class="row"><a class="btn" href="/en/">{ui.en['404.home']}</a><a class="btn" href="/en/#projects">{ui.en['404.projects']}</a></div>
+  </section>
+</SimplePage>
+
+<style>
+  .nf + .nf { margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--line); }
+  .nf h2 { font-size: clamp(32px, 4vw, 48px); margin: 10px 0 16px; }
+  .row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+  .row a { text-decoration: none; }
+</style>

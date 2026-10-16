@@ -1,0 +1,37 @@
+/* Proje görüntüleyici — prototipten. Ana sayfada katman (.viewer), proje sayfasında tam sayfa (.viewer.page). */
+.viewer { position: fixed; inset: 0; z-index: 60; background: var(--navy-deep); color: var(--white); display: grid; grid-template-columns: 1fr 360px; opacity: 0; visibility: hidden; transition: opacity .5s, visibility 0s .5s; }
+.viewer.open, .viewer.page { opacity: 1; visibility: visible; transition: opacity .5s; }
+.v-stage { position: relative; min-width: 0; min-height: 0; display: grid; grid-template-rows: 1fr auto; padding: max(20px, env(safe-area-inset-top, 0px)) 0 16px max(20px, env(safe-area-inset-left, 0px)); }
+.v-img { position: relative; min-height: 0; overflow: hidden; }
+.v-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; transition: opacity .45s; }
+.v-img img.fade { opacity: 0; }
+.v-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 52px; height: 52px; background: rgba(18,40,58,.6); border: 1px solid rgba(255,255,255,.3); cursor: pointer; display: grid; place-items: center; color: var(--white); }
+.v-nav:hover { background: var(--copper); border-color: var(--copper); }
+.v-nav.prev { left: 12px; } .v-nav.next { right: 12px; }
+.v-thumbs { display: flex; gap: 8px; padding-top: 14px; overflow-x: auto; }
+.v-thumbs button { flex: 0 0 96px; height: 60px; padding: 0; border: 2px solid transparent; background: none; cursor: pointer; opacity: .55; }
+.v-thumbs button[aria-current="true"] { border-color: var(--copper); opacity: 1; }
+.v-thumbs img { width: 100%; height: 100%; object-fit: cover; }
+.v-info { border-left: 1px solid rgba(255,255,255,.12); padding: max(28px, env(safe-area-inset-top, 0px)) max(28px, env(safe-area-inset-right, 0px)) 28px 28px; display: flex; flex-direction: column; gap: 18px; overflow-y: auto; }
+.v-close { align-self: flex-end; background: none; border: 1px solid rgba(255,255,255,.3); color: var(--white); padding: 8px 14px; cursor: pointer; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; }
+.v-close:hover { border-color: var(--copper); color: var(--copper-light); }
+.v-info .lbl { color: var(--copper-light); }
+.v-info h2, .v-info h1 { font-size: 46px; }
+.v-info .sum { margin: 0; color: rgba(255,255,255,.82); font-size: 15px; }
+.v-info dl { margin: 0; display: grid; grid-template-columns: auto 1fr; font-size: 14px; }
+.v-info dt, .v-info dd { margin: 0; padding: 10px 0; border-top: 1px solid rgba(255,255,255,.12); }
+.v-info dt { color: rgba(255,255,255,.6); padding-right: 18px; }
+.v-info .btn { justify-content: center; }
+.v-pn { display: flex; justify-content: space-between; gap: 12px; margin-top: auto; font-size: 13px; }
+.v-pn button, .v-pn a { background: none; border: 0; cursor: pointer; color: rgba(255,255,255,.75); padding: 6px 0; text-align: left; text-decoration: none; }
+.v-pn > :last-child { text-align: right; }
+.v-pn button:hover, .v-pn a:hover { color: var(--white); }
+.v-pn b { display: block; font: 500 18px var(--serif); color: var(--white); }
+@media (max-width: 980px) {
+  .viewer { grid-template-columns: 1fr; grid-template-rows: 56vh 1fr; }
+  .v-stage { padding: max(12px, env(safe-area-inset-top, 0px)) 12px 10px; }
+  .v-info { border-left: 0; border-top: 1px solid rgba(255,255,255,.12); padding: 18px 20px 28px; }
+  .v-close { position: absolute; top: max(14px, env(safe-area-inset-top, 0px)); right: 14px; z-index: 3; background: rgba(18,40,58,.75); }
+  .v-info h2, .v-info h1 { font-size: 36px; }
+  .v-nav { width: 42px; height: 42px; }
+}

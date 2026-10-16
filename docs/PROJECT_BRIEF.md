@@ -32,6 +32,10 @@ Telefon · WhatsApp · e-posta · ofis adresi · Hakkımızda metni · kurucu bi
 | 2026-10-16 | O.B Evi renderları (eski "SM" logolu) logosuzları gelene kadar kullanılır → yapılacaklar listesinde. |
 | 2026-10-16 | İngilizce sürüm ayrı adreste (`/en/`); dil düğmesi o adrese gider, bulunulan bölüm korunur. |
 | 2026-10-16 | Yazı tipleri siteyle birlikte barındırılır (Google'a istek gitmez; KVKK ve hız). |
+| 2026-10-16 | Ana sayfa slayt sırası prototipteki gibi (`featuredOrder`): M.E → Karakış → M.A → Mis Plaza → O.B → F.Y. |
+| 2026-10-16 | İngilizce sayfalarda da marka adı "SerGah Mimarlık" (çevrilmez). |
+| 2026-10-16 | Görüntüleyici açıkken adres çubuğu projenin gerçek sayfasını gösterir (paylaşılabilir). |
+| 2026-10-16 | Form, Aşama 5 bağlanana kadar "henüz bağlı değil" mesajı verir. |
 
 ## Yapılacaklar (marka sahibinden beklenenler)
 - [ ] Telefon, WhatsApp, e-posta, ofis adresi

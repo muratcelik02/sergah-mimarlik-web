@@ -33,3 +33,11 @@ Açık zemin, üst menü + sade metin sütunu. 404: kısa mesaj + ana sayfa ve p
 
 ## Dil
 TR/EN düğmesi diğer dildeki **aynı sayfaya** gider ve bulunulan bölümü korur (ör. `/#projeler` → `/en/#projects`).
+
+## Uygulama notları (Aşama 4)
+- Kartlar, slaytlar ve hizmet görselleri sunucuda üretilir (AVIF + WebP, birden çok genişlik). Kartlar gerçek bağlantıdır: JavaScript kapalıyken veya Ctrl/orta tıkla proje sayfası açılır.
+- Görüntüleyici açıkken arkadaki sayfa `inert` yapılır (klavye odağı görüntüleyicide kalır).
+- Proje sayfasında görüntüleyicinin sağ sütununa küçük logo ve TR/EN eklendi; "Kapat" yerine "← Tüm projeler".
+- Alt bilgi: "© yıl SerGah Mimarlık · KVKK ve Gizlilik" (prototipteki "KVKK · Çerez politikası" yerine; site çerez kullanmadığı için tek sayfa).
+- Prototipteki görüntüleyici notu ("bilgiler eklenecek") kaldırıldı; künyede yalnızca dolu alanlar görünür.
+- Öne çıkan proje etiketi görsel türünü projeden alır ("Öne çıkan proje · Render").

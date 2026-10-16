@@ -1,0 +1,108 @@
+---
+// Proje sayfası: ana sayfadaki görüntüleyiciyle aynı görünüm, bağımsız ve paylaşılabilir sayfa.
+import { Image, Picture, getImage } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+import { useT, sectionIds, homePath, type Lang } from '../i18n/ui';
+import { getProjects, projectUrl, projectName, projectFacts, pick, type Project } from '../lib/projects';
+import { widthsFor } from '../lib/images';
+import markWhite from '../assets/brand/logo-mark-white.png';
+import wordWhite from '../assets/brand/logo-word-white.png';
+import '../styles/viewer.css';
+
+interface Props { lang: Lang; project: Project }
+const { lang, project: p } = Astro.props;
+const t = useT(lang);
+const all = await getProjects();
+const k = all.findIndex((x) => x.id === p.id);
+const prevP = all[(k - 1 + all.length) % all.length];
+const nextP = all[(k + 1) % all.length];
+const name = projectName(p, lang);
+const summary = pick(p.data.summary, lang);
+const gallery = p.data.gallery.length ? p.data.gallery : [{ image: p.data.cover, alt: { tr: name, en: name } }];
+const thumbs = await Promise.all(gallery.map((g) => getImage({ src: g.image, width: 192, format: 'webp', quality: 70 })));
+const og = await getImage({ src: p.data.cover, width: 1200, height: 630, fit: 'cover', format: 'jpg', quality: 80 });
+const projectsHash = homePath[lang] + '#' + sectionIds[lang][1];
+const contactHash = homePath[lang] + '#' + sectionIds[lang][4];
+const description = summary ?? t('meta.project.desc', { name, type: t(`c.${p.data.type}`).toLocaleLowerCase(lang === 'tr' ? 'tr-TR' : 'en-GB'), count: gallery.length, kind: t(p.data.imageType).toLocaleLowerCase(lang === 'tr' ? 'tr-TR' : 'en-GB') });
+---
+<Base lang={lang} title={`${name} — ${t(`c.${p.data.type}`)}`} description={description}
+  alternates={{ tr: projectUrl(p.id, 'tr'), en: projectUrl(p.id, 'en') }} image={og.src}>
+  <Fragment slot="head">
+    <script is:inline>document.documentElement.classList.add('js')</script>
+  </Fragment>
+  <main class="viewer page" id="project">
+    <div class="v-stage">
+      <div class="v-img" id="pv-img">
+        {gallery.map((g, i) => (
+          <figure class={i === 0 ? 'on' : undefined} data-i={i}>
+            <Picture src={g.image} formats={['avif', 'webp']} fallbackFormat="webp" widths={widthsFor(g.image, [800, 1280, 1920, 2560])}
+              sizes="(max-width: 980px) 100vw, calc(100vw - 380px)" alt={g.alt[lang]}
+              loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} />
+          </figure>
+        ))}
+        {gallery.length > 1 && <>
+          <button class="v-nav prev" type="button" id="pv-prev" aria-label={t('prevImg')}>←</button>
+          <button class="v-nav next" type="button" id="pv-next" aria-label={t('nextImg')}>→</button>
+        </>}
+      </div>
+      {gallery.length > 1 && (
+        <div class="v-thumbs" id="pv-thumbs" role="group" aria-label={t('gallery')}>
+          {thumbs.map((th, i) => <button type="button" data-vi={i} aria-label={String(i + 1)} aria-current={i === 0 ? 'true' : 'false'}><img src={th.src} alt="" loading="lazy" width="96" height="60" /></button>)}
+        </div>
+      )}
+    </div>
+    <aside class="v-info">
+      <div class="v-top">
+        <a class="v-brand" href={homePath[lang]} aria-label={t('homeLabel')}>
+          <Image src={markWhite} alt="" height={64} /><Image class="w" src={wordWhite} alt="" height={36} />
+        </a>
+        <div class="lang" role="group" aria-label={t('language')}>
+          <a href={projectUrl(p.id, 'tr')} hreflang="tr" lang="tr" aria-current={lang === 'tr' ? 'true' : undefined}>TR</a>
+          <a href={projectUrl(p.id, 'en')} hreflang="en" lang="en" aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
+        </div>
+      </div>
+      <a class="v-close" href={projectsHash}>{t('v.all')}</a>
+      <span class="lbl">{t(`c.${p.data.type}`)}</span>
+      <h1>{name}</h1>
+      {summary && <p class="sum">{summary}</p>}
+      <dl>{projectFacts(p, lang).map(([dt, dd]) => <><dt>{dt}</dt><dd>{dd}</dd></>)}</dl>
+      <a class="btn" href={contactHash}>{t('v.cta')}</a>
+      <nav class="v-pn" aria-label={t('n1')}>
+        <a href={projectUrl(prevP.id, lang)} rel="prev">← {t('prev')}<b>{projectName(prevP, lang)}</b></a>
+        <a href={projectUrl(nextP.id, lang)} rel="next">{t('next')} →<b>{projectName(nextP, lang)}</b></a>
+      </nav>
+      <p class="copy">© {new Date().getFullYear()} {site.brand}</p>
+    </aside>
+  </main>
+</Base>
+
+<style>
+  :global(html), :global(body) { overflow: hidden; height: 100%; }
+  .v-img figure { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity .45s; }
+  .v-img figure.on { opacity: 1; }
+  .v-img :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+  .v-img .v-nav { z-index: 2; }
+  /* JavaScript kapalıysa tüm görseller alt alta */
+  :global(html:not(.js)) .v-img { overflow-y: auto; }
+  :global(html:not(.js)) .v-img figure { position: static; opacity: 1; margin-bottom: 12px; }
+  :global(html:not(.js)) .v-img :global(img) { position: static; height: auto; }
+  :global(html:not(.js)) .v-nav, :global(html:not(.js)) .v-thumbs { display: none; }
+  .v-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .v-brand { display: flex; align-items: center; gap: 10px; }
+  .v-brand :global(img) { height: 32px; width: auto; }
+  .v-brand :global(.w) { height: 18px; }
+  .lang { display: flex; font-size: 13px; }
+  .lang a { padding: 4px 6px; opacity: .55; text-decoration: none; }
+  .lang a:hover { opacity: .85; }
+  .lang [aria-current="true"] { opacity: 1; font-weight: 600; }
+  .copy { margin: 0; font-size: 12px; color: rgba(255,255,255,.5); }
+  @media (max-width: 980px) {
+    :global(html), :global(body) { overflow: hidden; }
+    .v-close { top: max(14px, env(safe-area-inset-top, 0px)); }
+  }
+</style>
+
+<script>
+  import '../scripts/project';
+</script>

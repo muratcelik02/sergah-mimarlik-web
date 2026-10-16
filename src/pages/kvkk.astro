@@ -1,0 +1,37 @@
+---
+// KVKK aydınlatma metni — TASLAK. Marka sahibi / hukukçu onayı gerekir (data-placeholder ile işaretli).
+import SimplePage from '../components/SimplePage.astro';
+import site from '../data/site.json';
+---
+<SimplePage lang="tr" title="KVKK ve Gizlilik" description="SerGah Mimarlık kişisel verilerin korunması ve gizlilik bilgilendirmesi." alternates={{ tr: '/kvkk/', en: '/en/privacy/' }}>
+  <p class="lbl">KVKK</p>
+  <h1>Kişisel verilerin korunması ve gizlilik</h1>
+  <p data-placeholder><strong>Taslak:</strong> Bu metin genel bir şablondur. Yayından önce marka sahibi ve bir hukukçu tarafından gözden geçirilmeli; eksik bilgiler tamamlanmalıdır.</p>
+
+  <h2>Veri sorumlusu</h2>
+  <p>{site.brand}<br />
+    Adres: {site.address.tr ?? <span data-placeholder>Ofis adresi eklenecek</span>}<br />
+    E-posta: {site.email ? <a href={`mailto:${site.email}`}>{site.email}</a> : <span data-placeholder>E-posta adresi eklenecek</span>}</p>
+
+  <h2>Hangi verileri işliyoruz?</h2>
+  <p>İletişim formunu doldurduğunuzda ad soyad, telefon, proje türü, arsa veya mekân konumu ve mesajınızı; WhatsApp, telefon ya da e-postayla bize ulaştığınızda ise ilettiğiniz bilgileri işleriz.</p>
+
+  <h2>Hangi amaçla?</h2>
+  <p>Yalnızca talebinize yanıt vermek, görüşme ve teklif sürecini yürütmek için. Verileriniz pazarlama amacıyla kullanılmaz ve satılmaz.</p>
+
+  <h2>Hukuki sebep</h2>
+  <p>Verileriniz 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun 5. maddesinde sayılan hukuki sebeplere, özellikle bir sözleşmenin kurulmasıyla doğrudan ilgili olmasına dayanılarak işlenir. İletişim formunda ayrıca açık onayınız alınır.</p>
+
+  <h2>Kimlere aktarılır?</h2>
+  <p>Form gönderimleri, formu e-postamıza ileten hizmet sağlayıcısı üzerinden iletilir: <span data-placeholder>Form hizmet sağlayıcısı ve sunucu konumu eklenecek (Aşama 5)</span>. Bunun dışında yasal zorunluluklar hariç üçüncü kişilere aktarılmaz.</p>
+
+  <h2>Ne kadar süre saklanır?</h2>
+  <p><span data-placeholder>Saklama süresi marka sahibi tarafından belirlenecek</span></p>
+
+  <h2>Çerezler</h2>
+  <p>Bu site çerez ve ziyaretçi izleme aracı kullanmaz. Açılış ekranının aynı ziyarette tekrar gösterilmemesi için tarayıcınızın oturum belleğine kişisel veri içermeyen küçük bir işaret yazılır; tarayıcıyı kapattığınızda silinir. Yazı tipleri sitemizle birlikte sunulur, üçüncü taraf sunuculara istek gönderilmez.</p>
+
+  <h2>Haklarınız</h2>
+  <p>Kanun'un 11. maddesi uyarınca kişisel verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, işlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme, aktarıldığı kişileri bilme, eksik veya yanlış işlenmişse düzeltilmesini, silinmesini veya yok edilmesini isteme, itiraz etme ve zararın giderilmesini talep etme haklarına sahipsiniz.</p>
+  <p>Başvurularınızı {site.email ? <a href={`mailto:${site.email}`}>{site.email}</a> : <span data-placeholder>e-posta adresi eklenecek</span>} adresine iletebilirsiniz.</p>
+</SimplePage>

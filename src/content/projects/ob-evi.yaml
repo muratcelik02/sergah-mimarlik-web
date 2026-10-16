@@ -16,5 +16,6 @@ gallery:
     alt: { tr: "O.B Evi, çit boyunca uzanan yan cephe ve üst kat terası", en: "O.B Evi, side elevation along the fence with upper terrace" }
 imageType: render
 featured: true
+featuredOrder: 5
 order: 2
 toVerify: [type]

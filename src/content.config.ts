@@ -27,6 +27,7 @@ const projects = defineCollection({
       status: z.enum(PROJECT_STATUSES).optional(),
       imageType: z.enum(['render', 'fotograf']).default('render'),
       featured: z.boolean().default(false),
+      featuredOrder: z.number().optional(), // slayt sırası (yoksa order kullanılır)
       order: z.number().default(100),
       toVerify: z.array(z.string()).default([]),
     }),

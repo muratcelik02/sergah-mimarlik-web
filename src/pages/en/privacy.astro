@@ -1,0 +1,37 @@
+---
+// Privacy notice — DRAFT. Needs review by the owner / a lawyer (marked with data-placeholder).
+import SimplePage from '../../components/SimplePage.astro';
+import site from '../../data/site.json';
+---
+<SimplePage lang="en" title="Privacy" description="How SerGah Mimarlık handles personal data." alternates={{ tr: '/kvkk/', en: '/en/privacy/' }}>
+  <p class="lbl">Privacy</p>
+  <h1>Personal data and privacy</h1>
+  <p data-placeholder><strong>Draft:</strong> This is a general template. It must be reviewed by the owner and a lawyer, and missing details completed, before launch.</p>
+
+  <h2>Data controller</h2>
+  <p>{site.brand}<br />
+    Address: {site.address.en ?? <span data-placeholder>Office address to be added</span>}<br />
+    Email: {site.email ? <a href={`mailto:${site.email}`}>{site.email}</a> : <span data-placeholder>Email address to be added</span>}</p>
+
+  <h2>What we process</h2>
+  <p>When you use the contact form we process your name, phone number, project type, site or space location and message; when you reach us by WhatsApp, phone or email, we process the information you send.</p>
+
+  <h2>Why</h2>
+  <p>Only to answer your enquiry and to run the meeting and quotation process. Your data is not used for marketing and is never sold.</p>
+
+  <h2>Legal basis</h2>
+  <p>Your data is processed under the legal grounds in Article 5 of the Turkish Personal Data Protection Law No. 6698 (KVKK), in particular because it is directly related to entering into a contract. The contact form also asks for your explicit consent.</p>
+
+  <h2>Who receives it</h2>
+  <p>Form submissions are delivered to our inbox through a form service provider: <span data-placeholder>Form provider and server location to be added (Stage 5)</span>. Apart from legal obligations, data is not shared with third parties.</p>
+
+  <h2>How long we keep it</h2>
+  <p><span data-placeholder>Retention period to be set by the owner</span></p>
+
+  <h2>Cookies</h2>
+  <p>This site uses no cookies or visitor tracking. To avoid replaying the intro screen during the same visit, a small marker with no personal data is stored in your browser’s session storage and deleted when you close the browser. Fonts are served from our own site; no requests are made to third-party servers.</p>
+
+  <h2>Your rights</h2>
+  <p>Under Article 11 of the KVKK you may ask whether your data is processed, request information about it, learn the purpose of processing and whether it is used accordingly, know who it has been shared with, ask for incomplete or inaccurate data to be corrected, deleted or destroyed, object, and claim compensation for damage.</p>
+  <p>Send requests to {site.email ? <a href={`mailto:${site.email}`}>{site.email}</a> : <span data-placeholder>email address to be added</span>}.</p>
+</SimplePage>

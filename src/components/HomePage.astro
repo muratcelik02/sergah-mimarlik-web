@@ -1,0 +1,276 @@
+---
+// Ana sayfa: açılış ekranı + 5 tam ekran panel + proje görüntüleyici. Prototipteki yapı aynen korunur.
+// "/" ve "/en/" aynı bileşeni kullanır.
+import { Image, Picture } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+import { useT, sectionIds, homePath, privacyPath, type Lang } from '../i18n/ui';
+import { getProjects, getFeatured, projectUrl, projectName, projectFacts, pick, type Project } from '../lib/projects';
+import { viewerImage, widthsFor } from '../lib/images';
+import { PROJECT_TYPES } from '../content.config';
+import mark from '../assets/brand/logo-mark.png';
+import word from '../assets/brand/logo-word.png';
+import markWhite from '../assets/brand/logo-mark-white.png';
+import wordWhite from '../assets/brand/logo-word-white.png';
+import '../styles/home.css';
+import '../styles/viewer.css';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useT(lang);
+const other: Lang = lang === 'tr' ? 'en' : 'tr';
+const ids = sectionIds[lang];
+const navKeys = ['n0', 'n1', 'n2', 'n3', 'n4'] as const;
+
+const projects = await getProjects();
+const featured = await getFeatured();
+const byId = (id: string) => projects.find((p) => p.id === id) as Project;
+const counts: Record<string, number> = { all: projects.length };
+for (const ty of PROJECT_TYPES) counts[ty] = projects.filter((p) => p.data.type === ty).length;
+
+// Hizmet ve Hakkımızda görselleri (prototiptekiyle aynı)
+const svcImgs = [byId('karakis').data.cover, byId('me-evi').data.cover, byId('torkum').data.cover];
+const aboutImg = byId('ma-evi').data.gallery[1]?.image ?? byId('ma-evi').data.cover;
+
+// Görüntüleyici verisi (proje sayfasıyla aynı kayıtlar)
+const data = {
+  lang,
+  ids,
+  names: navKeys.map((k) => t(k)),
+  home: homePath[lang],
+  other: { lang: other, home: homePath[other], ids: sectionIds[other] },
+  t: { images: t('images'), prev: t('prev'), next: t('next'), formOk: t('form.ok'), formErr: t('form.err') },
+  hero: featured.map((p) => p.id),
+  projects: await Promise.all(
+    projects.map(async (p) => ({
+      id: p.id,
+      name: projectName(p, lang),
+      type: p.data.type,
+      typeLabel: t(`c.${p.data.type}`),
+      kind: t(p.data.imageType),
+      url: projectUrl(p.id, lang),
+      summary: pick(p.data.summary, lang) ?? null,
+      facts: projectFacts(p, lang),
+      imgs: await Promise.all(p.data.gallery.map((g) => viewerImage(g.image, g.alt[lang]))),
+    })),
+  ),
+};
+const json = JSON.stringify(data).replace(/</g, '\\u003c');
+
+// İletişim bilgileri (bilinmiyorsa yer tutucu)
+function formatTr(digits: string) {
+  const m = digits.match(/^90(\d{3})(\d{3})(\d{2})(\d{2})$/);
+  return m ? `+90 ${m[1]} ${m[2]} ${m[3]} ${m[4]}` : `+${digits}`;
+}
+const waHref = site.whatsapp ? `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(site.whatsappMessage[lang])}` : undefined;
+const about = site.about[lang];
+const address = site.address[lang];
+const year = new Date().getFullYear();
+
+// Organizasyon bilgisi (arama motorları için; yalnızca bilinen alanlar)
+const orgLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: site.brand,
+  url: new URL(homePath[lang], Astro.site).href,
+  logo: new URL('/icon-512.png', Astro.site).href,
+  sameAs: [site.instagram],
+  ...(site.email ? { email: site.email } : {}),
+  ...(site.phone ? { telephone: site.phone } : {}),
+};
+---
+<Base lang={lang} title={t('meta.home.title')} description={t('meta.home.desc')} alternates={{ tr: homePath.tr, en: homePath.en }}>
+  <Fragment slot="head">
+    <script is:inline>try{if(sessionStorage.getItem('sg-intro'))document.documentElement.classList.add('intro-seen')}catch(e){}</script>
+    <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />
+  </Fragment>
+
+  <div id="loader" role="status" aria-label={t('loading')}>
+    <div class="inner">
+      <Image class="mark" src={mark} alt="" height={300} loading="eager" />
+      <Image class="word" src={word} alt={site.brand} width={520} loading="eager" />
+      <div class="bar"><i id="loadbar"></i></div>
+    </div>
+    <p class="skip lbl">{t('skip')}</p>
+  </div>
+
+  <header class="gutter">
+    <button class="brand" type="button" data-go="0" aria-label={t('homeLabel')}>
+      <Image class="on-light" src={mark} alt="" height={88} loading="eager" /><Image class="on-light w" src={word} alt="" height={52} loading="eager" />
+      <Image class="on-dark" src={markWhite} alt="" height={88} loading="eager" /><Image class="on-dark w" src={wordWhite} alt="" height={52} loading="eager" />
+    </button>
+    <nav class="main" aria-label={t('mainMenu')}>
+      {navKeys.map((k, i) => <button type="button" data-go={i}>{t(k)}</button>)}
+    </nav>
+    <div class="tools">
+      <div class="lang" role="group" aria-label={t('language')}>
+        <a href={homePath.tr} hreflang="tr" lang="tr" data-lang-link="tr" aria-current={lang === 'tr' ? 'true' : undefined}>TR</a>
+        <a href={homePath.en} hreflang="en" lang="en" data-lang-link="en" aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
+      </div>
+      <a class="ig" href={site.instagram} target="_blank" rel="noopener" aria-label="Instagram: sergahmimarlik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+    </div>
+    <button class="burger" type="button" aria-label={t('menu')} aria-expanded="false" aria-controls="mnav"><i></i><i></i></button>
+  </header>
+
+  <nav class="mnav" id="mnav" aria-label={t('mobileMenu')}>
+    {navKeys.map((k, i) => <button type="button" data-go={i}>{t(k)}</button>)}
+    <div class="tools" style="display:flex">
+      <div class="lang" role="group" aria-label={t('language')}>
+        <a href={homePath.tr} hreflang="tr" lang="tr" data-lang-link="tr" aria-current={lang === 'tr' ? 'true' : undefined}>TR</a>
+        <a href={homePath.en} hreflang="en" lang="en" data-lang-link="en" aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
+      </div>
+      <a class="ig" href={site.instagram} target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+    </div>
+  </nav>
+
+  <nav class="dots" aria-label={t('sections')}>
+    {navKeys.map((k, i) => <button type="button" data-go={i}><i></i><span>{t(k)}</span></button>)}
+  </nav>
+  <div class="counter" aria-hidden="true"><b id="cnt">01</b><i></i><span id="cnt-name">{t('n0').toLocaleUpperCase(lang === 'tr' ? 'tr-TR' : 'en-GB')}</span></div>
+
+  <main id="deck">
+    <!-- 1. Ana sayfa -->
+    <section class="panel active" id="p-home" data-tone="dark" aria-label={t('n0')}>
+      <div class="slides" id="slides">
+        {featured.map((p, i) => (
+          <div class={i === 0 ? 'slide on' : 'slide'} data-id={p.id}>
+            <Picture src={p.data.cover} formats={['avif', 'webp']} fallbackFormat="webp" widths={widthsFor(p.data.cover, [800, 1280, 1920, 2560])} sizes="100vw"
+              alt={p.data.gallery[0]?.alt[lang] ?? ''} loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'low'} />
+          </div>
+        ))}
+      </div>
+      <div class="home-copy gutter">
+        <div>
+          <p class="lbl reveal" style="color:rgba(255,255,255,.8);--d:0">{t('h.lbl')}</p>
+          <h1 class="reveal" style="--d:1"><span>{t('h.a')}</span> <em>{t('h.b')}</em></h1>
+          <p class="reveal" style="--d:2">{t('h.p')}</p>
+          <div class="reveal" style="--d:3;display:flex;gap:12px;flex-wrap:wrap"><button class="btn" type="button" data-go="1">{t('h.cta')}</button><button class="btn" type="button" data-go="4" style="border-color:transparent">{t('h.cta2')}</button></div>
+        </div>
+        <div class="now reveal" style="--d:4">
+          <button type="button" id="now-open"><span class="lbl">{t('h.now')} · <span id="now-kind">{t(featured[0]?.data.imageType ?? 'render')}</span></span><span class="name" id="now-name">{featured[0] && projectName(featured[0], lang)}</span></button>
+          <div class="progress"><i id="prog"></i></div>
+          <div class="slide-ctrl"><button type="button" id="s-prev" aria-label={t('prevImg')}>←</button><button type="button" id="s-next" aria-label={t('nextImg')}>→</button></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Projeler -->
+    <section class="panel" id="p-projects" data-tone="light" aria-label={t('n1')}>
+      <div class="scroller"><div class="p-wrap gutter">
+        <div class="p-side">
+          <p class="lbl reveal">{t('p.lbl')}</p>
+          <h2 class="reveal" style="--d:1">{t('n1')}</h2>
+          <p class="reveal" style="--d:2">{t('p.p')}</p>
+          <div class="filters reveal" style="--d:3" role="group" aria-label={t('projectType')}>
+            <button type="button" data-filter="all" aria-pressed="true"><span>{t('c.all')}</span><sup>{counts.all}</sup></button>
+            {PROJECT_TYPES.map((ty) => (
+              <button type="button" data-filter={ty} aria-pressed="false"><span>{t(`c.${ty}`)}</span><sup>{counts[ty]}</sup></button>
+            ))}
+          </div>
+          <div class="pager reveal top" style="--d:4"><button type="button" id="pg-prev" aria-label={t('prevPage')}>←</button><span id="pg-info">1 / 1</span><button type="button" id="pg-next" aria-label={t('nextPage')}>→</button></div>
+        </div>
+        <div class="grid reveal" style="--d:2" id="grid">
+          {projects.map((p, i) => (
+            <a class="card" href={projectUrl(p.id, lang)} data-open={p.id} data-type={p.data.type} style={`--i:${i}`}>
+              <Picture src={p.data.cover} formats={['avif', 'webp']} fallbackFormat="webp" widths={widthsFor(p.data.cover, [400, 640, 960])}
+                sizes="(max-width: 560px) 100vw, (max-width: 980px) 50vw, 25vw" alt="" loading="lazy" />
+              {p.data.gallery.length > 1 && <span class="count">{p.data.gallery.length} {t('images')}</span>}
+              <span class="cap"><span>{t(`c.${p.data.type}`)}</span><b>{projectName(p, lang)}</b></span>
+            </a>
+          ))}
+        </div>
+      </div></div>
+    </section>
+
+    <!-- 3. Hizmetler -->
+    <section class="panel" id="p-services" data-tone="light" aria-label={t('n2')}>
+      <div class="scroller"><div class="s-wrap gutter">
+        <div class="s-head">
+          <div><p class="lbl reveal">{t('s.lbl')}</p><h2 class="reveal" style="--d:1">{t('n2')}</h2></div>
+          <p class="reveal" style="--d:2">{t('s.p')}</p>
+        </div>
+        <div class="svc">
+          {(['s1', 's2', 's3'] as const).map((s, i) => (
+            <article class="reveal" style={`--d:${i + 2}`}>
+              <div class="ph"><Picture src={svcImgs[i]} formats={['avif', 'webp']} fallbackFormat="webp" widths={widthsFor(svcImgs[i], [480, 800, 1100])} sizes="(max-width: 980px) 100vw, 33vw" alt="" loading="lazy" style={i === 1 ? 'object-position:50% 70%' : undefined} /></div>
+              <div class="tx"><span class="lbl">0{i + 1}</span><h3>{t(`${s}.h`)}</h3><p>{t(`${s}.p`)}</p>
+                <ul>{(['a', 'b', 'c', 'd'] as const).map((x) => <li>{t(`${s}.${x}`)}</li>)}</ul></div>
+            </article>
+          ))}
+        </div>
+        <p class="s-note reveal" style="--d:5">{t('s.note')}</p>
+      </div></div>
+    </section>
+
+    <!-- 4. Hakkımızda -->
+    <section class="panel" id="p-about" data-tone="dark" aria-label={t('n3')}>
+      <div class="scroller"><div class="a-wrap gutter">
+        <div class="a-img reveal"><Picture src={aboutImg} formats={['avif', 'webp']} fallbackFormat="webp" widths={widthsFor(aboutImg, [640, 960, 1400])} sizes="(max-width: 980px) 100vw, 50vw" alt="" loading="lazy" /></div>
+        <div>
+          <p class="lbl reveal" style="--d:1">{t('a.lbl')}</p>
+          <h2 class="reveal" style="--d:2">{t('a.h')}</h2>
+          {about ? <p class="reveal" style="--d:3">{about}</p> : <p class="reveal" style="--d:3" data-placeholder>{t('a.ph')}</p>}
+          <ol class="steps reveal" style="--d:4">
+            {([1, 2, 3, 4, 5, 6] as const).map((n) => <li><b>{t(`t${n}`)}</b><span>{t(`t${n}s`)}</span></li>)}
+          </ol>
+        </div>
+      </div></div>
+    </section>
+
+    <!-- 5. İletişim -->
+    <section class="panel" id="p-contact" data-tone="light" aria-label={t('n4')}>
+      <div class="scroller"><div class="c-wrap gutter">
+        <div>
+          <p class="lbl reveal">{t('k.lbl')}</p>
+          <h2 class="reveal" style="--d:1">{t('k.h')}</h2>
+          <a class="wa reveal" style="--d:2" id="wa-link" href={waHref ?? '#'} target={waHref ? '_blank' : undefined} rel={waHref ? 'noopener' : undefined} aria-disabled={waHref ? undefined : 'true'}>
+            <span><span class="lbl" style="color:rgba(255,255,255,.7)">WhatsApp</span>
+              {site.whatsapp ? <strong>{formatTr(site.whatsapp)}</strong> : <strong data-placeholder>{t('ph.phone')}</strong>}</span>
+            <span>{t('k.wa')}</span>
+          </a>
+          <div class="chan reveal" style="--d:3">
+            <div><span class="lbl">{t('k.tel')}</span>{site.phone ? <a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a> : <strong data-placeholder>{t('ph.phone')}</strong>}</div>
+            <div><span class="lbl">{t('k.mail')}</span>{site.email ? <a href={`mailto:${site.email}`}>{site.email}</a> : <strong data-placeholder>{t('ph.email')}</strong>}</div>
+            <div><span class="lbl">Instagram</span><a href={site.instagram} target="_blank" rel="noopener">@sergahmimarlik</a></div>
+            <div><span class="lbl">{t('k.addr')}</span>{address ? <strong>{address}</strong> : <strong data-placeholder>{t('ph.addr')}</strong>}</div>
+          </div>
+        </div>
+        <form class="reveal" style="--d:3" id="form" novalidate>
+          <h3>{t('f.h')}</h3>
+          <label for="f-name"><span>{t('f.name')}</span><input id="f-name" name="name" autocomplete="name" /></label>
+          <label for="f-phone"><span>{t('f.phone')}</span><input id="f-phone" name="phone" type="tel" autocomplete="tel" /></label>
+          <label for="f-type"><span>{t('f.type')}</span><select id="f-type" name="type">
+            <option value="mustakil-ev">{t('c.mustakil-ev')}</option><option value="konut">{t('c.konut')}</option><option value="ic-mimarlik">{t('f.ic')}</option><option value="ticari">{t('c.ticari')}</option>
+          </select></label>
+          <label for="f-loc"><span>{t('f.loc')}</span><input id="f-loc" name="loc" /></label>
+          <label class="full" for="f-msg"><span>{t('f.msg')}</span><textarea id="f-msg" name="msg"></textarea></label>
+          <div class="submit"><button class="btn solid" type="submit">{t('f.send')}</button><span id="form-msg" role="status"></span></div>
+        </form>
+      </div>
+      <div class="foot gutter"><span>© {year} {site.brand}</span><a href={privacyPath[lang]}>{t('privacy')}</a></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="viewer" class="viewer" role="dialog" aria-modal="true" aria-labelledby="v-title">
+    <div class="v-stage">
+      <div class="v-img"><img id="v-img" alt="" /><button class="v-nav prev" type="button" id="v-prev" aria-label={t('prevImg')}>←</button><button class="v-nav next" type="button" id="v-next" aria-label={t('nextImg')}>→</button></div>
+      <div class="v-thumbs" id="v-thumbs" role="group" aria-label={t('gallery')}></div>
+    </div>
+    <aside class="v-info">
+      <button class="v-close" type="button" id="v-close">{t('v.close')}</button>
+      <span class="lbl" id="v-cat"></span>
+      <h2 id="v-title"></h2>
+      <p class="sum" id="v-sum" hidden></p>
+      <dl id="v-dl"></dl>
+      <button class="btn" type="button" id="v-contact">{t('v.cta')}</button>
+      <div class="v-pn"><button type="button" id="v-pp"></button><button type="button" id="v-np"></button></div>
+    </aside>
+  </div>
+
+  <script type="application/json" id="site-data" set:html={json} />
+</Base>
+
+<script>
+  import '../scripts/home';
+</script>

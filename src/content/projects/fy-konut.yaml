@@ -10,5 +10,6 @@ gallery:
     alt: { tr: "F.Y Konut Projesi, cam korkuluklu balkonları olan yüksek blok", en: "F.Y Housing Project, taller block with glass-railed balconies" }
 imageType: render
 featured: true
+featuredOrder: 6
 order: 6
 toVerify: [type]

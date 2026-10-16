@@ -1,0 +1,72 @@
+---
+// Sade metin sayfaları (KVKK, Gizlilik, 404) için ortak düzen: açık zemin, üst menü, tek metin sütunu.
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+import { useT, homePath, sectionIds, privacyPath, type Lang } from '../i18n/ui';
+import mark from '../assets/brand/logo-mark.png';
+import word from '../assets/brand/logo-word.png';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  alternates?: { tr: string; en: string };
+  noindex?: boolean;
+}
+const { lang, title, description, alternates, noindex } = Astro.props;
+const t = useT(lang);
+const navKeys = ['n0', 'n1', 'n2', 'n3', 'n4'] as const;
+---
+<Base lang={lang} title={title} description={description} alternates={alternates} noindex={noindex}>
+  <header class="sp-head gutter">
+    <a class="brand" href={homePath[lang]} aria-label={t('homeLabel')}>
+      <Image src={mark} alt="" height={88} /><Image class="w" src={word} alt="" height={52} />
+    </a>
+    <nav class="sp-nav" aria-label={t('mainMenu')}>
+      {navKeys.map((k, i) => <a href={`${homePath[lang]}#${sectionIds[lang][i]}`}>{t(k)}</a>)}
+    </nav>
+    {alternates && (
+      <div class="lang" role="group" aria-label={t('language')}>
+        <a href={alternates.tr} hreflang="tr" lang="tr" aria-current={lang === 'tr' ? 'true' : undefined}>TR</a>
+        <a href={alternates.en} hreflang="en" lang="en" aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
+      </div>
+    )}
+  </header>
+  <main class="sp gutter" id="content">
+    <slot />
+  </main>
+  <footer class="sp-foot gutter">
+    <span>© {new Date().getFullYear()} {site.brand}</span>
+    <a href={privacyPath[lang]}>{t('privacy')}</a>
+  </footer>
+</Base>
+
+<style>
+  .sp-head { height: var(--head); display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--line); }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand :global(img) { height: 44px; width: auto; }
+  .brand :global(.w) { height: 26px; }
+  .sp-nav { display: flex; gap: 30px; font-size: 14px; letter-spacing: .06em; }
+  .sp-nav a { text-decoration: none; padding: 6px 0; background: linear-gradient(var(--copper), var(--copper)) left bottom / 0 1px no-repeat; transition: background-size .4s var(--ease); }
+  .sp-nav a:hover { background-size: 100% 1px; }
+  .lang { display: flex; font-size: 13px; }
+  .lang a { padding: 4px 6px; opacity: .55; text-decoration: none; }
+  .lang a:hover { opacity: .85; }
+  .lang [aria-current="true"] { opacity: 1; font-weight: 600; }
+  .sp { max-width: calc(72ch + var(--gutter-l) + var(--gutter-r)); padding-block: 56px 72px; }
+  .sp :global(h1) { font-size: clamp(40px, 5vw, 64px); margin: 10px 0 24px; }
+  .sp :global(h2) { font-size: 30px; margin: 36px 0 10px; }
+  .sp :global(p), .sp :global(li) { color: var(--text-soft); }
+  .sp :global(ul) { padding-left: 20px; }
+  .sp :global(a) { color: var(--navy); text-decoration-color: var(--copper); text-underline-offset: 3px; }
+  .sp-foot { display: flex; gap: 24px; justify-content: space-between; padding-block: 24px 32px; border-top: 1px solid var(--line); font-size: 12px; color: var(--steel); }
+  .sp-foot a { text-decoration: none; }
+  .sp-foot a:hover { color: var(--copper); }
+  @media (max-width: 980px) {
+    .sp-nav { display: none; }
+    .brand :global(img) { height: 38px; }
+    .brand :global(.w) { height: 20px; }
+    .sp { padding-block: 36px 56px; }
+  }
+</style>

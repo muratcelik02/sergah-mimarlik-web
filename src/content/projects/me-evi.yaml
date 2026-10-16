@@ -8,5 +8,6 @@ gallery:
     alt: { tr: "M.E Evi, iki katlı villanın simetrik ön cephesi ve giriş merdiveni", en: "M.E Evi, symmetrical front façade of the two-storey villa with entrance steps" }
 imageType: render
 featured: true
+featuredOrder: 1
 order: 1
 toVerify: [type]

@@ -32,6 +32,7 @@ Dosya adı = adres (`ob-evi.yaml` → `/projeler/ob-evi/`). Küçük harf, Türk
 | `status` | hayır | `konsept` · `proje` · `ruhsat` · `insaat` · `tamamlandi` | iki dilde sabit çeviri |
 | `imageType` | hayır (vars. `render`) | `render` · `fotograf` | |
 | `featured` | hayır (vars. `false`) | evet/hayır | ana sayfa slaytında görünür |
+| `featuredOrder` | hayır | sayı | slayttaki sıra (yoksa `order`) |
 | `order` | hayır | sayı | küçük önce |
 | `toVerify[]` | hayır | alan adları listesi | ör. `[type]` → tür tahminidir |
 

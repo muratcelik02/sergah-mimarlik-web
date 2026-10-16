@@ -17,13 +17,13 @@ src/
   data/site.json        site ayarları ve yer tutucular
   i18n/                 arayüz metinleri (tr, en) + yardımcılar
   layouts/              Base.astro (head, meta, hreflang, yazı tipleri)
-  components/           Loader, Header, Panels, Viewer, ContactForm…
-  scripts/              tarayıcı tarafı TS (deck, slider, grid, viewer, form)
+  components/           HomePage (açılış + 5 panel + görüntüleyici), ProjectPage, SimplePage (KVKK/404)
+  scripts/              tarayıcı tarafı TS: home.ts (prototip etkileşimleri), project.ts (galeri)
   styles/tokens.css     tasarım belirteçleri (tek kaynak)
-  styles/global.css     prototip stilleri
+  styles/global.css     temel stiller · home.css (prototip) · viewer.css (görüntüleyici)
   pages/                adresler (aşağıda)
 public/                 favicon, robots.txt, site.webmanifest
-scripts/                Node betikleri: process-logo, process-renders, check-launch
+scripts/                Node betikleri: process-logo, process-renders, test-images, check-launch, serve-prototype
 reference/, assets-source/  kaynak (değiştirilmez; assets-source Git'e girmez)
 ```
 
@@ -51,6 +51,7 @@ Kaynak → `scripts/process-renders.mjs` → `src/assets/projects/<ad>/NN.jpg` (
 | `npm run dev` | Yerel önizleme (http://localhost:4321) |
 | `npm run build` | Yayın dosyalarını `dist/` içine üretir |
 | `npm run preview` | Üretilen siteyi yerelde açar |
+| `node scripts/serve-prototype.mjs` | Karşılaştırma için prototipi http://localhost:4400 adresinde açar |
 | `npm run assets:logo` | Logoyu parçalara ayırır, favicon üretir |
 | `npm run assets:renders` | Renderları işler |
 | `npm run test:images` | Proje görsellerini ve alt metinleri test eder |

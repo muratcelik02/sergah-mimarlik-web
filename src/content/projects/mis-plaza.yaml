@@ -8,5 +8,6 @@ gallery:
     alt: { tr: "Mis Plaza, eğik koyu taş kuleler arasında geniş camlı cephe, akşam ışığında", en: "Mis Plaza, wide glazed façade framed by angled dark stone piers at dusk" }
 imageType: render
 featured: true
+featuredOrder: 4
 order: 4
 toVerify: [type]
