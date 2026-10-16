@@ -1,0 +1,12 @@
+// Cloudflare yayın ayarı: site tamamen statiktir; yalnızca derlenmiş "dist" klasörü yayınlanır.
+// Bu dosya varken Cloudflare projeye sunucu eklentisi eklemeye çalışmaz.
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "sergah-mimarlik",
+  "compatibility_date": "2026-10-16",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}

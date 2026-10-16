@@ -19,3 +19,6 @@ desktop.ini
 assets-source/
 *.rar
 *.zip
+
+# Cloudflare yerel dosyaları
+.wrangler/
