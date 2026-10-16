@@ -6,7 +6,7 @@ Yeni kurulan Sergah Mimarlık ofisi için iki dilli (TR varsayılan, EN), hızl�
 ## Marka
 - **Ad:** Sergah Mimarlık (İngilizce sayfalarda da marka adı "Sergah Mimarlık" olarak kalır; açıklama metinlerinde "Sergah Architecture" kullanılmaz — bkz. karar kaydı).
 - **Hizmetler:** mimari tasarım ve projelendirme · iç mimarlık · inşaat süreci takibi ve proje koordinasyonu.
-- **Verilmeyen hizmetler:** müteahhitlik, yüklenicilik, anahtar teslim inşaat. Sitede bu hizmetler varmış gibi dil **kullanılmaz**. "Sergah Mimarlık müteahhitlik hizmeti vermez; inşaatı işverenin seçtiği yüklenici yapar." notu korunur.
+- **Verilmeyen hizmetler:** müteahhitlik, yüklenicilik, anahtar teslim inşaat. Sitede bu hizmetler varmış gibi dil **kullanılmaz**. Sitedeki "müteahhitlik hizmeti vermez" notu marka sahibinin isteğiyle kaldırıldı; yasak geçerli.
 - **Hedef kitle:** villa yaptırmak isteyen bireyler · konut müteahhitleri ve geliştiriciler · iç mimari hizmet arayanlar.
 - **Instagram:** https://www.instagram.com/sergahmimarlik/
 
@@ -32,6 +32,7 @@ Telefon · WhatsApp · e-posta · ofis adresi · Hakkımızda metni · kurucu bi
 | 2026-10-16 | O.B Evi renderları (eski "SM" logolu) logosuzları gelene kadar kullanılır → yapılacaklar listesinde. |
 | 2026-10-16 | İngilizce sürüm ayrı adreste (`/en/`); dil düğmesi o adrese gider, bulunulan bölüm korunur. |
 | 2026-10-16 | Yazı tipleri siteyle birlikte barındırılır (Google'a istek gitmez; KVKK ve hız). |
+| 2026-10-16 | Hizmetler panelindeki müteahhitlik notu ve proje kartlarındaki "N görsel" etiketi kaldırıldı (marka sahibi isteği). Müteahhitlik ima eden dil yasağı sürer. |
 | 2026-10-16 | Ana sayfa slaytı Mis Plaza ile açılır (marka sahibi isteği), sonra prototip sırası: Mis Plaza → M.E → Karakış → M.A → O.B → F.Y (`featuredOrder`). |
 | 2026-10-16 | Marka adının yazımı **Sergah Mimarlık** (yalnızca baş harf büyük; marka sahibi düzeltmesi). İngilizce sayfalarda da çevrilmez. |
 | 2026-10-16 | Görüntüleyici açıkken adres çubuğu projenin gerçek sayfasını gösterir (paylaşılabilir). |

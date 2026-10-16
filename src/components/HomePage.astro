@@ -179,7 +179,6 @@ const orgLd = {
             <a class="card" href={projectUrl(p.id, lang)} data-open={p.id} data-type={p.data.type} style={`--i:${i}`}>
               <Picture src={p.data.cover} formats={['avif', 'webp']} fallbackFormat="webp" widths={widthsFor(p.data.cover, [400, 640, 960])}
                 sizes="(max-width: 560px) 100vw, (max-width: 980px) 50vw, 25vw" alt="" loading="lazy" />
-              {p.data.gallery.length > 1 && <span class="count">{p.data.gallery.length} {t('images')}</span>}
               <span class="cap"><span>{t(`c.${p.data.type}`)}</span><b>{projectName(p, lang)}</b></span>
             </a>
           ))}
@@ -203,7 +202,6 @@ const orgLd = {
             </article>
           ))}
         </div>
-        <p class="s-note reveal" style="--d:5">{t('s.note')}</p>
       </div></div>
     </section>
 

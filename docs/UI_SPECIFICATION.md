@@ -15,8 +15,8 @@ Geçiş: menü · noktalar · tekerlek · klavye (↑ ↓ PageUp PageDown) · do
 Adres çubuğu: TR `#anasayfa #projeler #hizmetler #hakkimizda #iletisim`, EN `#home #projects #services #about #contact`.
 
 1. **Ana Sayfa:** öne çıkan projelerin renderları (6 s), öne çıkan proje adı, ← → düğmeleri ve ilerleme çizgisi. İlk görsel öncelikli yüklenir.
-2. **Projeler:** Tümü / Konut / Müstakil Ev / Ticari filtreleri + sayılar; 8 kart (4×2), fazlası sayfalı. Kartta tür, ad, görsel sayısı (>1 ise).
-3. **Hizmetler:** 3 kart + müteahhitlik notu.
+2. **Projeler:** Tümü / Konut / Müstakil Ev / Ticari filtreleri + sayılar; 8 kart (4×2), fazlası sayfalı. Kartta tür ve ad (görsel sayısı etiketi marka sahibi isteğiyle kaldırıldı).
+3. **Hizmetler:** 3 kart (müteahhitlik notu marka sahibi isteğiyle kaldırıldı).
 4. **Hakkımızda:** görsel + metin (yer tutucu, `site.json`) + 6 adımlı süreç.
 5. **İletişim:** WhatsApp kutusu, telefon, e-posta, Instagram, adres; form (+ KVKK onay kutusu, spam koruması); alt bilgide © ve KVKK bağlantısı.
 

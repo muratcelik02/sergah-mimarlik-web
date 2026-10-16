@@ -31,7 +31,6 @@ const tr = {
   's2.a': 'Mekân kurgusu', 's2.b': 'Malzeme ve renk', 's2.c': 'Sabit mobilya', 's2.d': 'Aydınlatma',
   's3.h': 'İnşaat süreci takibi', 's3.p': 'Uygulamanın projeye uygunluğunu işveren adına takip eder, ekipleri koordine ederiz.',
   's3.a': 'Şantiye ziyaretleri', 's3.b': 'Raporlama', 's3.c': 'Koordinasyon', 's3.d': 'Teslim kontrolü',
-  's.note': 'Sergah Mimarlık müteahhitlik hizmeti vermez; inşaatı işverenin seçtiği yüklenici yapar.',
 
   // Hakkımızda
   'a.lbl': 'Ofis', 'a.h': 'Yere, ihtiyaca ve bütçeye göre tasarım.',
@@ -100,7 +99,6 @@ const en: Record<UIKey, string> = {
   's2.a': 'Spatial planning', 's2.b': 'Materials and colour', 's2.c': 'Built-in joinery', 's2.d': 'Lighting',
   's3.h': 'Construction supervision', 's3.p': 'We check on the client’s behalf that construction follows the design, and coordinate the teams.',
   's3.a': 'Site visits', 's3.b': 'Reporting', 's3.c': 'Coordination', 's3.d': 'Handover check',
-  's.note': 'Sergah Mimarlık does not act as a contractor; construction is carried out by the client’s chosen builder.',
 
   'a.lbl': 'Studio', 'a.h': 'Design shaped by site, needs and budget.',
   'a.ph': 'Short founder biographies and the studio’s approach will be added.',
