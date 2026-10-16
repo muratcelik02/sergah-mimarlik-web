@@ -1,0 +1,105 @@
+---
+// GEÇİCİ: Aşama 2 tasarım sistemi önizlemesi. Aşama 4'te gerçek ana sayfa ile değiştirilecek.
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+import mark from '../assets/brand/logo-mark.png';
+import word from '../assets/brand/logo-word.png';
+import markWhite from '../assets/brand/logo-mark-white.png';
+import wordWhite from '../assets/brand/logo-word-white.png';
+
+const colors = [
+  ['--paper', '#F3F2EE', 'Kâğıt zemin'],
+  ['--navy', '#1E3C54', 'Logo laciverti'],
+  ['--navy-deep', '#12283A', 'Koyu lacivert'],
+  ['--steel', '#6C7880', 'İkincil metin'],
+  ['--copper', '#C47A4A', 'Tek vurgu'],
+  ['--copper-light', '#E6B28C', 'Koyu zeminde vurgu'],
+  ['--line', '#D8DAD6', 'Çizgiler'],
+  ['--white', '#FFFFFF', 'Form / kart'],
+];
+---
+<Base lang="tr" title="Tasarım sistemi" description="SerGah Mimarlık tasarım sistemi önizlemesi (geçici)." noindex>
+  <main class="ds gutter">
+    <header class="ds-head">
+      <div class="brand">
+        <Image src={mark} alt="" height={88} class="m" />
+        <Image src={word} alt="SerGah Mimarlık" width={300} class="w" />
+      </div>
+      <p class="lbl">Aşama 2 · Tasarım sistemi önizlemesi (geçici sayfa)</p>
+    </header>
+
+    <section>
+      <h2>Logo parçaları</h2>
+      <div class="logos">
+        <div class="on-paper"><Image src={mark} alt="İşaret" height={160} /><Image src={word} alt="Yazı" width={280} /></div>
+        <div class="on-dark"><Image src={markWhite} alt="İşaret (beyaz)" height={160} /><Image src={wordWhite} alt="Yazı (beyaz)" width={280} /></div>
+        <div class="on-navy"><Image src={mark} alt="İşaret, lacivert zeminde" height={160} /><img src="/favicon-32.png" alt="Site ikonu 32 piksel" width="32" height="32" /><img src="/apple-touch-icon.png" alt="Telefon ana ekran ikonu" width="90" height="90" /></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Renkler</h2>
+      <ul class="swatches">
+        {colors.map(([v, hex, use]) => (
+          <li><span class="chip" style={`background:var(${v})`}></span><b>{hex}</b><code>{v}</code><span>{use}</span></li>
+        ))}
+      </ul>
+    </section>
+
+    <section>
+      <h2>Yazı tipleri</h2>
+      <p class="lbl">Etiket · Mimari tasarım · İç mimarlık · Süreç takibi</p>
+      <h1 class="h1">Yaşanacak yapıları <em>birlikte tasarlayalım.</em></h1>
+      <h3 class="h3">Cormorant Garamond 500 — ĞÜŞİÖÇ ğüşıöç</h3>
+      <p>Hanken Grotesk gövde metni. Villa ve konut projelerinde fikirden ruhsata, ruhsattan şantiyeye kadar tasarımın arkasında duruyoruz. Türkçe karakterler: ğ ü ş ı ö ç İ Ğ Ü Ş Ö Ç.</p>
+    </section>
+
+    <section>
+      <h2>Düğmeler ve odak</h2>
+      <div class="row">
+        <button class="btn" type="button">Projeleri inceleyin</button>
+        <button class="btn solid" type="button">Gönder</button>
+        <a class="btn" href="#">Bağlantı düğmesi</a>
+      </div>
+      <p class="hint">Klavyede <kbd>Tab</kbd> tuşuna basın: odaklanan öğenin çevresinde bakır çerçeve görünür.</p>
+    </section>
+
+    <section>
+      <h2>Yer tutucu örneği</h2>
+      <p>Telefon: {site.phone ?? <span data-placeholder>Telefon eklenecek</span>}</p>
+      <p class="hint">Bilinmeyen bilgiler <code>src/data/site.json</code> içinde boş (<code>null</code>) durur ve bu şekilde işaretli görünür.</p>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .ds { max-width: 1200px; margin: 0 auto; padding-block: 40px 80px; overflow: auto; }
+  :global(body) { overflow: auto; }
+  .ds-head { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 24px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand .m { height: 44px; width: auto; }
+  .brand .w { height: 26px; width: auto; }
+  section { padding-block: 32px; border-bottom: 1px solid var(--line); }
+  h2 { font-size: 34px; margin-bottom: 20px; }
+  .logos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+  .logos > div { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 28px; min-height: 280px; }
+  .logos img { width: auto; height: auto; max-height: 160px; }
+  .on-paper { background: var(--white); }
+  .on-dark { background: var(--navy-deep); }
+  .on-navy { background: var(--paper); border: 1px solid var(--line); }
+  .swatches { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+  .swatches li { display: grid; gap: 2px; font-size: 14px; }
+  .chip { height: 72px; border: 1px solid var(--line); margin-bottom: 8px; }
+  code { font-size: 12px; color: var(--steel); }
+  .h1 { font-size: clamp(42px, 5.4vw, 84px); max-width: 14ch; margin: 12px 0 16px; }
+  .h1 em { color: var(--copper); font-style: italic; }
+  .h3 { font-size: 30px; margin-bottom: 12px; }
+  .row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hint { color: var(--steel); font-size: 14px; }
+  kbd { border: 1px solid var(--line); padding: 1px 6px; background: var(--white); }
+  @media (max-width: 980px) {
+    .logos { grid-template-columns: 1fr; }
+    .swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+</style>

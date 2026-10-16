@@ -6,7 +6,7 @@ Her aşamanın sonunda durulur; marka sahibinin onayı olmadan sonrakine geçilm
 |---|---|---|---|
 | 0 | Hazırlık | Node/Git kontrolü, prototip incelemesi, Git başlatma | ✅ 2026-10-16 |
 | 1 | Proje belgeleri | `docs/*`, `CLAUDE.md` | ✅ 2026-10-16 |
-| 2 | Astro iskeleti + tasarım sistemi | Proje kurulumu, `tokens.css`, yazı tipleri, logo parçaları, favicon, yerel önizleme | ⏳ |
+| 2 | Astro iskeleti + tasarım sistemi | Proje kurulumu, `tokens.css`, yazı tipleri, logo parçaları, favicon, yerel önizleme | ✅ 2026-10-16 (onay bekliyor) |
 | 3 | İçerik modeli + görseller | 10 proje kaydı, işlenmiş renderlar, otomatik görsel testi | |
 | 4 | Sayfalar | Açılış ekranı, 5 panel (masaüstü + mobil), görüntüleyici, proje sayfaları, KVKK, 404 — TR + EN | |
 | 5 | İletişim | Form (+spam koruması, KVKK onayı), WhatsApp, Instagram; deneme gönderimi | |

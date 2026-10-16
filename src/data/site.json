@@ -1,0 +1,15 @@
+{
+  "brand": "SerGah Mimarlık",
+  "domain": null,
+  "phone": null,
+  "whatsapp": null,
+  "whatsappMessage": {
+    "tr": "Merhaba, SerGah Mimarlık web sitesinden yazıyorum. Projem hakkında görüşmek istiyorum.",
+    "en": "Hello, I'm writing from the SerGah Mimarlık website. I'd like to talk about my project."
+  },
+  "email": null,
+  "address": { "tr": null, "en": null },
+  "instagram": "https://www.instagram.com/sergahmimarlik/",
+  "about": { "tr": null, "en": null },
+  "founders": []
+}
