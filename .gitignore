@@ -1,0 +1,21 @@
+# Bağımlılıklar ve derleme çıktıları
+node_modules/
+dist/
+.astro/
+
+# Gizli bilgiler (asla GitHub'a gönderilmez)
+.env
+.env.*
+!.env.example
+
+# İşletim sistemi / editör
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/*
+!.vscode/extensions.json
+
+# Büyük orijinal kaynak dosyalar (yerelde kalır, depoya girmez)
+assets-source/
+*.rar
+*.zip
