@@ -253,6 +253,8 @@ $('wa-link').addEventListener('click', (e) => { if ((e.currentTarget as HTMLElem
 /* ---------- Başlat + açılış ekranı ---------- */
 const start = D.ids.indexOf(location.hash.slice(1));
 go(start > 0 ? start : 0, true);
+// Adres çubuğunda yalnızca # kısmı değişirse (ör. #projeler) ilgili panele geç
+window.addEventListener('hashchange', () => { const n = D.ids.indexOf(location.hash.slice(1)); if (n >= 0 && !viewerOpen) go(n); });
 renderGrid(false);
 
 const loader = $('loader'), bar = $('loadbar');

@@ -37,7 +37,7 @@
 ## Form ve barındırma araştırması (2026-10-16, Aşama 5)
 | Seçenek | Ücretsiz koşul | Giriş | Kaynak |
 |---|---|---|---|
-| **Web3Forms** (seçildi) | Ayda 250 gönderim, sınırsız form; gönderim geçmişi 30 gün; dosya yükleme ücretli | Hesap yok — e-posta yazılır, erişim anahtarı e-postayla gelir | web3forms.com/pricing (resmî sayfa erişimi engelledi; arama sonuçları ve karşılaştırma siteleri) |
+| **Web3Forms** (seçildi) | Ayda 250 gönderim, sınırsız form; gönderim geçmişi 30 gün; dosya yükleme ücretli | E-posta ile giriş yapılan bir panel var (2026-10-16 kurulumda görüldü; aramadaki "hesap gerekmez" bilgisi eskiydi). Form oluşturulurken "Website URL" istenir | web3forms.com/pricing (resmî sayfa erişimi engelledi; arama sonuçları ve karşılaştırma siteleri) |
 | Formspree | Ayda 50 gönderim | Hesap gerekir | formspree.io/plans |
 | Netlify Forms | Kredi tabanlı planlarda "ücretsiz ve sınırsız" | Netlify hesabı; yalnızca Netlify'da | docs.netlify.com/manage/forms/usage-and-billing |
 | Netlify Free plan | Ayda 300 kredi; her yayın 15 kredi (≈20 yayın/ay), 1 GB trafik 20 kredi | GitHub / e-posta | netlify.com/pricing |

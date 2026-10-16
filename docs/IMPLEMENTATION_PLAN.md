@@ -9,7 +9,7 @@ Her aşamanın sonunda durulur; marka sahibinin onayı olmadan sonrakine geçilm
 | 2 | Astro iskeleti + tasarım sistemi | Proje kurulumu, `tokens.css`, yazı tipleri, logo parçaları, favicon, yerel önizleme | ✅ 2026-10-16 |
 | 3 | İçerik modeli + görseller | 10 proje kaydı, işlenmiş renderlar, otomatik görsel testi | ✅ 2026-10-16 |
 | 4 | Sayfalar | Açılış ekranı, 5 panel (masaüstü + mobil), görüntüleyici, proje sayfaları, KVKK, 404 — TR + EN | ✅ 2026-10-16 |
-| 5 | İletişim | Form (+spam koruması, KVKK onayı), WhatsApp, Instagram; deneme gönderimi | ⏳ gerçek deneme gönderimi anahtarı bekliyor |
+| 5 | İletişim | Form (+spam koruması, KVKK onayı), WhatsApp, Instagram; deneme gönderimi | ✅ 2026-10-16 (deneme gönderimi yapıldı; e-postanın ulaştığı marka sahibince doğrulanacak) |
 | 6 | Kalite kontrol | Masaüstü/tablet/telefon, kırık bağlantı, meta, yer tutucu, erişilebilirlik, Lighthouse raporu | |
 | 7 | Yayına alma | GitHub deposu, ücretsiz barındırma, geçici adres; alan adı talimatı | |
 | 8 | İçerik yönetimi | CMS karşılaştırması → seçim → kurulum → "Yeni proje nasıl eklenir" kılavuzu | |
