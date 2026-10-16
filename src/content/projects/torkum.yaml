@@ -1,0 +1,11 @@
+# Bilinmeyen alanlar (summary, scope, location, year, area, status) bilgi gelene kadar boş bırakılır.
+# toVerify: tür, prototipte dosya adından tahmin edildi; marka sahibi onaylayınca satır silinir.
+name: { tr: Torkum İnşaat Konut Projesi, en: Torkum İnşaat Housing Project }
+type: konut
+cover: ../../assets/projects/torkum/01.jpg
+gallery:
+  - image: ../../assets/projects/torkum/01.jpg
+    alt: { tr: "Torkum İnşaat Konut Projesi, koyu taş kaplı dikey şeritli apartman cephesi", en: "Torkum İnşaat Housing Project, apartment façade with dark stone-clad vertical bands" }
+imageType: render
+order: 10
+toVerify: [type]

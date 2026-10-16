@@ -23,4 +23,4 @@ Marka tarafı web geliştirme bilmiyor ve Windows kullanıyor. Teknik kararları
 - Aşamalar `docs/IMPLEMENTATION_PLAN.md`'de. Her aşamanın sonunda dur. Değişen dosyaları, yapılan testleri, sitenin nasıl açılacağını ve sıradaki aşamayı raporla. Onay sorularını toplu sor. Onay almadan sonraki aşamaya geçme.
 - Bir tasarım veya teknik karar değişirse ilgili `docs/` belgesini ve `docs/PROJECT_BRIEF.md` karar kaydını güncelle.
 - Hata çözülmediyse aşama bitmiş sayılmaz. Ne denendiğini basitçe anlat.
-- Komutlar: `npm run dev` (önizleme, http://localhost:4321) · `npm run build` · `npm run check:launch` · `npm run assets:logo` · `npm run assets:renders`
+- Komutlar: `npm run dev` (önizleme, http://localhost:4321) · `npm run build` · `npm run check:launch` · `npm run assets:logo` · `npm run assets:renders` · `npm run test:images`

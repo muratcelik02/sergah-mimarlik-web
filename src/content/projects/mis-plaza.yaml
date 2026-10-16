@@ -1,0 +1,12 @@
+# Bilinmeyen alanlar (summary, scope, location, year, area, status) bilgi gelene kadar boş bırakılır.
+# toVerify: tür, prototipte dosya adından tahmin edildi; marka sahibi onaylayınca satır silinir.
+name: { tr: Mis Plaza }
+type: ticari
+cover: ../../assets/projects/mis-plaza/01.jpg
+gallery:
+  - image: ../../assets/projects/mis-plaza/01.jpg
+    alt: { tr: "Mis Plaza, eğik koyu taş kuleler arasında geniş camlı cephe, akşam ışığında", en: "Mis Plaza, wide glazed façade framed by angled dark stone piers at dusk" }
+imageType: render
+featured: true
+order: 4
+toVerify: [type]

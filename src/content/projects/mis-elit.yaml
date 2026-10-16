@@ -1,0 +1,11 @@
+# Bilinmeyen alanlar (summary, scope, location, year, area, status) bilgi gelene kadar boş bırakılır.
+# toVerify: tür, prototipte dosya adından tahmin edildi; marka sahibi onaylayınca satır silinir.
+name: { tr: Mis Elit Konutları, en: Mis Elit Residences }
+type: konut
+cover: ../../assets/projects/mis-elit/01.jpg
+gallery:
+  - image: ../../assets/projects/mis-elit/01.jpg
+    alt: { tr: "Mis Elit Konutları, ahşap dokulu paneller ve koyu çerçeveli balkonlar", en: "Mis Elit Residences, timber-textured panels and dark-framed balconies" }
+imageType: render
+order: 8
+toVerify: [type]

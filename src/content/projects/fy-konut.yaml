@@ -1,0 +1,14 @@
+# Bilinmeyen alanlar (summary, scope, location, year, area, status) bilgi gelene kadar boş bırakılır.
+# toVerify: tür, prototipte dosya adından tahmin edildi; marka sahibi onaylayınca satır silinir.
+name: { tr: F.Y Konut Projesi, en: F.Y Housing Project }
+type: konut
+cover: ../../assets/projects/fy-konut/01.jpg
+gallery:
+  - image: ../../assets/projects/fy-konut/01.jpg
+    alt: { tr: "F.Y Konut Projesi, köşe parselde dört katlı apartman", en: "F.Y Housing Project, four-storey apartment building on a corner plot" }
+  - image: ../../assets/projects/fy-konut/02.jpg
+    alt: { tr: "F.Y Konut Projesi, cam korkuluklu balkonları olan yüksek blok", en: "F.Y Housing Project, taller block with glass-railed balconies" }
+imageType: render
+featured: true
+order: 6
+toVerify: [type]

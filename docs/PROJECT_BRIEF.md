@@ -28,7 +28,7 @@ Telefon · WhatsApp · e-posta · ofis adresi · Hakkımızda metni · kurucu bi
 |---|---|
 | 2026-10-16 | Altyapı: Astro 7 (statik). React/Next.js yok. |
 | 2026-10-16 | **Mobil (<981 px): prototipteki panel düzeni korunur** (uzun sayfa yapılmaz). |
-| 2026-10-16 | Filigranlı renderlar (Mis Plaza, Mis Elit, Torkum, Karakış, A.Y) şimdilik olduğu gibi kullanılır. |
+| 2026-10-16 | Filigranlı renderlar (Mis Plaza, Mis Elit, Torkum, Karakış, A.Y, F.Y) şimdilik olduğu gibi kullanılır. |
 | 2026-10-16 | O.B Evi renderları (eski "SM" logolu) logosuzları gelene kadar kullanılır → yapılacaklar listesinde. |
 | 2026-10-16 | İngilizce sürüm ayrı adreste (`/en/`); dil düğmesi o adrese gider, bulunulan bölüm korunur. |
 | 2026-10-16 | Yazı tipleri siteyle birlikte barındırılır (Google'a istek gitmez; KVKK ve hız). |
@@ -39,5 +39,6 @@ Telefon · WhatsApp · e-posta · ofis adresi · Hakkımızda metni · kurucu bi
 - [ ] Proje künyeleri (konum, yıl, m², durum, açıklama) ve türlerin onayı
 - [ ] O.B Evi renderlarının logosuz sürümleri
 - [ ] (İsteğe bağlı) Filigransız renderlar; vektör (SVG/PDF) logo dosyası
+- [ ] (İsteğe bağlı) M.A Evi, Mis Plaza, Mis Elit, Nergis, Torkum için ≥1920px genişlikte render
 - [ ] Alan adı
 - [ ] KVKK metninin marka sahibi / hukukçu tarafından onayı

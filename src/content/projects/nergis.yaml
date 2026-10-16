@@ -1,0 +1,11 @@
+# Bilinmeyen alanlar (summary, scope, location, year, area, status) bilgi gelene kadar boş bırakılır.
+# toVerify: tür, prototipte dosya adından tahmin edildi; marka sahibi onaylayınca satır silinir.
+name: { tr: Nergis Konutları, en: Nergis Residences }
+type: konut
+cover: ../../assets/projects/nergis/01.jpg
+gallery:
+  - image: ../../assets/projects/nergis/01.jpg
+    alt: { tr: "Nergis Konutları, zemin katında dükkânlar olan köşe blok", en: "Nergis Residences, corner block with shops on the ground floor" }
+imageType: render
+order: 9
+toVerify: [type]

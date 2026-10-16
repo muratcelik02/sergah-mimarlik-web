@@ -35,19 +35,19 @@ Dosya adı = adres (`ob-evi.yaml` → `/projeler/ob-evi/`). Küçük harf, Türk
 | `order` | hayır | sayı | küçük önce |
 | `toVerify[]` | hayır | alan adları listesi | ör. `[type]` → tür tahminidir |
 
-**Kural:** boş alan sayfada hiç görünmez. Uydurma değer yazılmaz. `toVerify` dolu bir proje varsa `check:launch` uyarı verir.
+**Kural:** boş alan sayfada hiç görünmez. Uydurma değer yazılmaz. `toVerify` dolu bir proje varsa `check:launch` hata verir (yayın durur).
 
 ## 3. Arayüz metinleri — `src/i18n/tr.ts`, `src/i18n/en.ts`
 Menü, düğme, hizmet ve süreç metinleri. Prototipteki çeviriler aynen taşınır.
 
 ## Örnek
 ```yaml
-name: { tr: O.B Evi, en: O.B House }
+name: { tr: O.B Evi }            # en boş → "O.B Evi" kullanılır
 type: mustakil-ev
 cover: ../../assets/projects/ob-evi/01.jpg
 gallery:
   - image: ../../assets/projects/ob-evi/01.jpg
-    alt: { tr: "O.B Evi, bahçeden geniş verandalı cephe", en: "O.B House, garden façade with deep veranda" }
+    alt: { tr: "O.B Evi, sütunlu girişi olan ön cephe", en: "O.B Evi, front façade with a columned entrance" }
 imageType: render
 featured: true
 order: 2

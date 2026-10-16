@@ -1,0 +1,11 @@
+# Bilinmeyen alanlar (summary, scope, location, year, area, status) bilgi gelene kadar boş bırakılır.
+# toVerify: tür, prototipte dosya adından tahmin edildi; marka sahibi onaylayınca satır silinir.
+name: { tr: A.Y Konut Projesi, en: A.Y Housing Project }
+type: konut
+cover: ../../assets/projects/ay-konut/01.jpg
+gallery:
+  - image: ../../assets/projects/ay-konut/01.jpg
+    alt: { tr: "A.Y Konut Projesi, alacakaranlıkta ahşap ve gri cepheli üç katlı yapı", en: "A.Y Housing Project, three-storey building with timber and grey façade at twilight" }
+imageType: render
+order: 7
+toVerify: [type]

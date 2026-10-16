@@ -7,6 +7,10 @@ import mark from '../assets/brand/logo-mark.png';
 import word from '../assets/brand/logo-word.png';
 import markWhite from '../assets/brand/logo-mark-white.png';
 import wordWhite from '../assets/brand/logo-word-white.png';
+import { getProjects, pick } from '../lib/projects';
+
+const projects = await getProjects();
+const typeTr = { konut: 'Konut', 'mustakil-ev': 'Müstakil Ev', ticari: 'Ticari' } as const;
 
 const colors = [
   ['--paper', '#F3F2EE', 'Kâğıt zemin'],
@@ -36,6 +40,23 @@ const colors = [
         <div class="on-dark"><Image src={markWhite} alt="İşaret (beyaz)" height={160} /><Image src={wordWhite} alt="Yazı (beyaz)" width={280} /></div>
         <div class="on-navy"><Image src={mark} alt="İşaret, lacivert zeminde" height={160} /><img src="/favicon-32.png" alt="Site ikonu 32 piksel" width="32" height="32" /><img src="/apple-touch-icon.png" alt="Telefon ana ekran ikonu" width="90" height="90" /></div>
       </div>
+    </section>
+
+    <section>
+      <h2>Proje kayıtları ({projects.length})</h2>
+      <p class="hint">Aşama 3: içerik dosyalarından okunur. Boş alanlar gösterilmez. "Doğrulanacak" etiketi tahmini bilgiyi işaretler.</p>
+      <ul class="pgrid">
+        {projects.map((p) => (
+          <li>
+            <Image src={p.data.cover} alt={p.data.gallery[0]?.alt.tr ?? ''} width={480} />
+            <div>
+              <span class="lbl">{typeTr[p.data.type]}{p.data.toVerify.includes('type') && <em class="verify"> · doğrulanacak</em>}</span>
+              <b>{pick(p.data.name, 'tr')}</b>
+              <small>EN: {pick(p.data.name, 'en')} · {p.data.gallery.length} görsel{p.data.featured && ' · slaytta'} · /projeler/{p.id}/</small>
+            </div>
+          </li>
+        ))}
+      </ul>
     </section>
 
     <section>
@@ -98,7 +119,15 @@ const colors = [
   .row { display: flex; gap: 12px; flex-wrap: wrap; }
   .hint { color: var(--steel); font-size: 14px; }
   kbd { border: 1px solid var(--line); padding: 1px 6px; background: var(--white); }
+  .pgrid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+  .pgrid li { background: var(--white); }
+  .pgrid img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+  .pgrid div { display: grid; gap: 2px; padding: 12px 14px 14px; }
+  .pgrid b { font: 500 22px/1.1 var(--serif); }
+  .pgrid small { color: var(--steel); font-size: 12px; }
+  .verify { color: var(--copper); font-style: normal; }
   @media (max-width: 980px) {
+    .pgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .logos { grid-template-columns: 1fr; }
     .swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }

@@ -1,0 +1,12 @@
+# Bilinmeyen alanlar (summary, scope, location, year, area, status) bilgi gelene kadar boş bırakılır.
+# toVerify: tür, prototipte dosya adından tahmin edildi; marka sahibi onaylayınca satır silinir.
+name: { tr: M.E Evi }
+type: mustakil-ev
+cover: ../../assets/projects/me-evi/01.jpg
+gallery:
+  - image: ../../assets/projects/me-evi/01.jpg
+    alt: { tr: "M.E Evi, iki katlı villanın simetrik ön cephesi ve giriş merdiveni", en: "M.E Evi, symmetrical front façade of the two-storey villa with entrance steps" }
+imageType: render
+featured: true
+order: 1
+toVerify: [type]
