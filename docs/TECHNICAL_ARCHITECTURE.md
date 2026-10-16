@@ -55,6 +55,7 @@ Kaynak → `scripts/process-renders.mjs` → `src/assets/projects/<ad>/NN.jpg` (
 | `npm run assets:logo` | Logoyu parçalara ayırır, favicon üretir |
 | `npm run assets:renders` | Renderları işler |
 | `npm run test:images` | Proje görsellerini ve alt metinleri test eder |
+| `npm run check:site` | Derlenmiş sitede kırık bağlantı ve eksik meta bilgisi kontrolü |
 | `npm run check:launch` | Yer tutucu / eksik bilgi kontrolü (yayın öncesi zorunlu) |
 
 ## Gizli bilgiler

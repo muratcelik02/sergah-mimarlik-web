@@ -11,6 +11,7 @@ export default defineConfig({
   site,
   output: 'static',
   trailingSlash: 'always',
-  build: { format: 'directory' },
+  // Stiller sayfaya gömülür: ayrı CSS dosyası beklenmeden sayfa çizilir (Lighthouse önerisi)
+  build: { format: 'directory', inlineStylesheets: 'always' },
   integrations: [sitemap()],
 });

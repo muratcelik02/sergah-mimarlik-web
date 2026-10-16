@@ -34,7 +34,8 @@ async function* htmlFiles(dir) {
 }
 try {
   for await (const f of htmlFiles('dist')) {
-    const n = ((await readFile(f, 'utf8')).match(/data-placeholder/g) || []).length;
+    // Yalnızca HTML öğelerindeki işaret sayılır (sayfaya gömülü CSS'teki [data-placeholder] kuralı değil)
+    const n = ((await readFile(f, 'utf8')).match(/<[a-z][^>]*\sdata-placeholder[\s=>]/gi) || []).length;
     if (n) problems.push(`${f.replace(/\\/g, '/')} → ${n} yer tutucu`);
   }
 } catch { problems.push('dist/ bulunamadı — önce "npm run build" çalıştırın'); }

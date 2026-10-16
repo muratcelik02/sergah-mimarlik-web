@@ -17,7 +17,7 @@ export interface Props {
 const { lang, title, description, alternates, image = '/og-default.jpg', noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const abs = (p: string) => new URL(p, Astro.site).href;
-const fullTitle = title === site.brand ? title : `${title} · ${site.brand}`;
+const fullTitle = title.startsWith(site.brand) ? title : `${title} · ${site.brand}`;
 ---
 <!doctype html>
 <html lang={lang}>
@@ -26,7 +26,7 @@ const fullTitle = title === site.brand ? title : `${title} · ${site.brand}`;
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical.href} />
+    {!noindex && <link rel="canonical" href={canonical.href} />}
     {alternates && (
       <>
         <link rel="alternate" hreflang="tr" href={abs(alternates.tr)} />

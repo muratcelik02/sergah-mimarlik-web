@@ -14,7 +14,8 @@
     "assets:logo": "node scripts/process-logo.mjs",
     "assets:renders": "node scripts/process-renders.mjs",
     "check:launch": "node scripts/check-launch.mjs",
-    "test:images": "node scripts/test-images.mjs"
+    "test:images": "node scripts/test-images.mjs",
+    "check:site": "node scripts/check-site.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

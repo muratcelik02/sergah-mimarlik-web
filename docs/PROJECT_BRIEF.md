@@ -37,6 +37,7 @@ Telefon · WhatsApp · e-posta · ofis adresi · Hakkımızda metni · kurucu bi
 | 2026-10-16 | Görüntüleyici açıkken adres çubuğu projenin gerçek sayfasını gösterir (paylaşılabilir). |
 | 2026-10-16 | Form, Aşama 5 bağlanana kadar "henüz bağlı değil" mesajı verir. |
 | 2026-10-16 | İletişim formu: Web3Forms (ayda 250 ücretsiz gönderim; panel sergahmim@gmail.com ile, mesajlar bu adrese gelir); spam için görünmez tuzak alan; KVKK onayı zorunlu. |
+| 2026-10-16 | Kısa telefon (≤700px yükseklik) ve alçak masaüstü (≤760px) ekranlar için ana sayfa yazısı ve form sıkılaştırıldı (prototipte taşma vardı). Stiller sayfaya gömülür. |
 | 2026-10-16 | Açılış ekranı logosu küçültüldü (marka sahibi isteği): işaret 96px, yazı 170px, çizgi 150px; telefonda en çok ekranın %22 / %44 / %40'ı. |
 
 ## Yapılacaklar (marka sahibinden beklenenler)

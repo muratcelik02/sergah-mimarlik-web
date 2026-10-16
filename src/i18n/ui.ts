@@ -66,7 +66,7 @@ const tr = {
   'st.insaat': 'İnşaat aşamasında', 'st.tamamlandi': 'Tamamlandı',
 
   // Sayfa başlıkları
-  'meta.home.title': 'SerGah Mimarlık',
+  'meta.home.title': 'SerGah Mimarlık — Mimari Tasarım ve İç Mimarlık',
   'meta.home.desc': 'SerGah Mimarlık: villa, konut ve ticari yapılar için mimari tasarım, iç mimarlık ve inşaat süreci takibi.',
   'meta.project.desc': '{name}: SerGah Mimarlık {type} projesi. {count} {kind} görseli.',
   '404.title': 'Sayfa bulunamadı', '404.p': 'Aradığınız sayfa taşınmış ya da hiç var olmamış olabilir.',
@@ -131,7 +131,7 @@ const en: Record<UIKey, string> = {
   'st.konsept': 'Concept', 'st.proje': 'In design', 'st.ruhsat': 'In permitting',
   'st.insaat': 'Under construction', 'st.tamamlandi': 'Completed',
 
-  'meta.home.title': 'SerGah Mimarlık',
+  'meta.home.title': 'SerGah Mimarlık — Architecture and Interior Design',
   'meta.home.desc': 'SerGah Mimarlık: architectural design, interior design and construction supervision for villas, housing and commercial buildings.',
   'meta.project.desc': '{name}: a {type} project by SerGah Mimarlık. {count} {kind} images.',
   '404.title': 'Page not found', '404.p': 'The page you are looking for may have moved or never existed.',

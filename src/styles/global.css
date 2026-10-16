@@ -27,7 +27,7 @@ h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 500; line-height
 .btn.solid:hover { background: var(--copper); border-color: var(--copper); }
 
 /* Yer tutucu: bilgi gelene kadar görünür, yayından önce check:launch yakalar */
-[data-placeholder] { font-style: italic; opacity: .7; }
+[data-placeholder] { font-style: italic; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0s !important; transition-duration: .01ms !important; transition-delay: 0s !important; scroll-behavior: auto !important; }

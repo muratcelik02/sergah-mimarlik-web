@@ -11,7 +11,7 @@ Bu belge Aşama 7'de adım adım (ekran ekran) doldurulacak. Şimdilik akış:
 
 ## Yayın öncesi zorunlu kontrol
 ```
-npm run check:launch
+npm run build && npm run check:site && npm run check:launch
 ```
 - `site.json` içinde `null` kalmışsa,
 - sayfalarda `data-placeholder` (eklenecek) yazısı varsa,
