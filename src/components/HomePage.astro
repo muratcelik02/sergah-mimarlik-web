@@ -4,7 +4,7 @@
 import { Image, Picture } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import site from '../data/site.json';
-import { useT, sectionIds, homePath, privacyPath, type Lang } from '../i18n/ui';
+import { useT, ui, sectionIds, homePath, privacyPath, type Lang } from '../i18n/ui';
 import { getProjects, getFeatured, projectUrl, projectName, projectFacts, pick, type Project } from '../lib/projects';
 import { viewerImage, widthsFor } from '../lib/images';
 import { PROJECT_TYPES } from '../content.config';
@@ -39,7 +39,11 @@ const data = {
   names: navKeys.map((k) => t(k)),
   home: homePath[lang],
   other: { lang: other, home: homePath[other], ids: sectionIds[other] },
-  t: { images: t('images'), prev: t('prev'), next: t('next'), formOk: t('form.ok'), formErr: t('form.err') },
+  t: {
+    images: t('images'), prev: t('prev'), next: t('next'),
+    formOk: t('form.ok'), formErr: t('form.err'), formSending: t('form.sending'), formFail: t('form.fail'), formOff: t('form.off'),
+    errName: t('form.errName'), errPhone: t('form.errPhone'), errConsent: t('form.errConsent'),
+  },
   hero: featured.map((p) => p.id),
   projects: await Promise.all(
     projects.map(async (p) => ({
@@ -66,6 +70,7 @@ const waHref = site.whatsapp ? `https://wa.me/${site.whatsapp}?text=${encodeURIC
 const about = site.about[lang];
 const address = site.address[lang];
 const year = new Date().getFullYear();
+const formKey = import.meta.env.PUBLIC_WEB3FORMS_KEY as string | undefined;
 
 // Organizasyon bilgisi (arama motorları için; yalnızca bilinen alanlar)
 const orgLd = {
@@ -235,16 +240,26 @@ const orgLd = {
             <div><span class="lbl">{t('k.addr')}</span>{address ? <strong>{address}</strong> : <strong data-placeholder>{t('ph.addr')}</strong>}</div>
           </div>
         </div>
-        <form class="reveal" style="--d:3" id="form" novalidate>
+        <form class="reveal" style="--d:3" id="form" novalidate method="post" action="https://api.web3forms.com/submit"
+          data-endpoint="https://api.web3forms.com/submit" data-connected={formKey ? 'true' : 'false'}>
           <h3>{t('f.h')}</h3>
-          <label for="f-name"><span>{t('f.name')}</span><input id="f-name" name="name" autocomplete="name" /></label>
-          <label for="f-phone"><span>{t('f.phone')}</span><input id="f-phone" name="phone" type="tel" autocomplete="tel" /></label>
-          <label for="f-type"><span>{t('f.type')}</span><select id="f-type" name="type">
-            <option value="mustakil-ev">{t('c.mustakil-ev')}</option><option value="konut">{t('c.konut')}</option><option value="ic-mimarlik">{t('f.ic')}</option><option value="ticari">{t('c.ticari')}</option>
+          {/* Web3Forms erişim anahtarı (.env → PUBLIC_WEB3FORMS_KEY). Tasarım gereği herkese açıktır. */}
+          {formKey ? <input type="hidden" name="access_key" value={formKey} /> : <span hidden data-placeholder>form-key</span>}
+          <input type="hidden" name="subject" value={`${t('form.subject')} (${lang.toUpperCase()})`} />
+          <input type="hidden" name="from_name" value={site.brand} />
+          <input type="hidden" name="Dil" value={lang.toUpperCase()} />
+          {/* Spam tuzağı: insanlar görmez; dolu gelirse gönderim reddedilir */}
+          <label class="hp" aria-hidden="true"><span>{t('f.hp')}</span><input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" /></label>
+          <label for="f-name"><span>{t('f.name')} *</span><input id="f-name" name="Ad soyad" autocomplete="name" required aria-describedby="form-msg" /></label>
+          <label for="f-phone"><span>{t('f.phone')} *</span><input id="f-phone" name="Telefon" type="tel" autocomplete="tel" inputmode="tel" required /></label>
+          <label for="f-type"><span>{t('f.type')}</span><select id="f-type" name="Proje türü">
+            <option value={ui.tr['c.mustakil-ev']}>{t('c.mustakil-ev')}</option><option value={ui.tr['c.konut']}>{t('c.konut')}</option><option value={ui.tr['f.ic']}>{t('f.ic')}</option><option value={ui.tr['c.ticari']}>{t('c.ticari')}</option>
           </select></label>
-          <label for="f-loc"><span>{t('f.loc')}</span><input id="f-loc" name="loc" /></label>
-          <label class="full" for="f-msg"><span>{t('f.msg')}</span><textarea id="f-msg" name="msg"></textarea></label>
-          <div class="submit"><button class="btn solid" type="submit">{t('f.send')}</button><span id="form-msg" role="status"></span></div>
+          <label for="f-loc"><span>{t('f.loc')}</span><input id="f-loc" name="Konum" /></label>
+          <label class="full" for="f-msg"><span>{t('f.msg')}</span><textarea id="f-msg" name="Mesaj"></textarea></label>
+          <label class="full consent" for="f-consent"><input id="f-consent" name="KVKK onayı" type="checkbox" value="Evet" required />
+            <span>{t('f.consentA')}<a href={privacyPath[lang]} target="_blank" rel="noopener">{t('f.consentLink')}</a>{t('f.consentB')}</span></label>
+          <div class="submit"><button class="btn solid" type="submit">{t('f.send')}</button><span id="form-msg" role="status" aria-live="polite"></span></div>
         </form>
       </div>
       <div class="foot gutter"><span>© {year} {site.brand}</span><a href={privacyPath[lang]}>{t('privacy')}</a></div>

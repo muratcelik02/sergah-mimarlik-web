@@ -241,3 +241,12 @@ a.card { display: block; text-decoration: none; }
 .wa[aria-disabled="true"]:hover { background: var(--navy); }
 /* Hakkımızda metni boşken yer tutucu */
 .a-wrap p[data-placeholder] { font-style: italic; }
+/* Form: spam tuzağı (ekran dışında), KVKK onayı, hata durumu */
+form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+label.consent { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; letter-spacing: 0; text-transform: none; line-height: 1.5; color: var(--text-soft); cursor: pointer; }
+label.consent input { width: 18px; height: 18px; margin: 1px 0 0; padding: 0; flex: 0 0 auto; accent-color: var(--navy); }
+label.consent a { color: var(--navy); text-decoration-color: var(--copper); text-underline-offset: 3px; }
+form [aria-invalid="true"] { border-color: var(--error); }
+label.consent:has([aria-invalid="true"]) { color: var(--error); }
+form button[disabled] { opacity: .6; cursor: progress; }
+#form-msg[data-state="ok"] { color: var(--navy); font-weight: 500; }

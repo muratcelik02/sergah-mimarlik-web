@@ -8,7 +8,7 @@ type Proj = { id: string; name: string; type: string; typeLabel: string; kind: s
 type Data = {
   lang: 'tr' | 'en'; ids: string[]; names: string[]; home: string;
   other: { lang: string; home: string; ids: string[] };
-  t: Record<'images' | 'prev' | 'next' | 'formOk' | 'formErr', string>;
+  t: Record<'images' | 'prev' | 'next' | 'formOk' | 'formErr' | 'formSending' | 'formFail' | 'formOff' | 'errName' | 'errPhone' | 'errConsent', string>;
   hero: string[]; projects: Proj[];
 };
 
@@ -213,13 +213,40 @@ let vx: number | null = null;
 viewer.addEventListener('touchstart', (e) => { vx = e.touches[0].clientX; }, { passive: true });
 viewer.addEventListener('touchend', (e) => { if (vx === null) return; const dx = vx - e.changedTouches[0].clientX; vx = null; if (Math.abs(dx) > 50) showImg(vi + (dx > 0 ? 1 : -1)); }, { passive: true });
 
-/* ---------- Form ve WhatsApp (form servisi Aşama 5'te bağlanacak) ---------- */
-$<HTMLFormElement>('form').addEventListener('submit', function (e) {
+/* ---------- İletişim formu (Web3Forms) ve WhatsApp ---------- */
+const form = $<HTMLFormElement>('form');
+const msg = $('form-msg');
+const say = (text: string, state: 'ok' | 'err' | 'wait') => { msg.textContent = text; msg.setAttribute('data-state', state); };
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  const f = this as HTMLFormElement & { name: HTMLInputElement; phone: HTMLInputElement };
-  const ok = (f.elements.namedItem('name') as HTMLInputElement).value.trim() && (f.elements.namedItem('phone') as HTMLInputElement).value.trim();
-  const m = $('form-msg');
-  m.textContent = ok ? D.t.formOk : D.t.formErr; m.setAttribute('data-state', ok ? 'ok' : 'err');
+  const name = $<HTMLInputElement>('f-name'), phone = $<HTMLInputElement>('f-phone'), consent = $<HTMLInputElement>('f-consent');
+  const checks: [HTMLInputElement, boolean, string][] = [
+    [name, name.value.trim().length >= 2, D.t.errName],
+    [phone, phone.value.replace(/\D/g, '').length >= 10, D.t.errPhone],
+    [consent, consent.checked, D.t.errConsent],
+  ];
+  checks.forEach(([el, ok]) => el.setAttribute('aria-invalid', ok ? 'false' : 'true'));
+  const bad = checks.find(([, ok]) => !ok);
+  if (bad) { say(bad[2], 'err'); bad[0].focus(); return; }
+  if (form.dataset.connected !== 'true') { say(D.t.formOff, 'err'); return; }
+
+  const btn = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+  btn.disabled = true; say(D.t.formSending, 'wait');
+  try {
+    const res = await fetch(form.dataset.endpoint!, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(Object.fromEntries(new FormData(form))),
+    });
+    const json = await res.json().catch(() => ({}));
+    if (!res.ok || json.success === false) throw new Error(json.message || res.statusText);
+    form.reset(); checks.forEach(([el]) => el.removeAttribute('aria-invalid'));
+    say(D.t.formOk, 'ok');
+  } catch {
+    say(D.t.formFail, 'err');
+  } finally {
+    btn.disabled = false;
+  }
 });
 $('wa-link').addEventListener('click', (e) => { if ((e.currentTarget as HTMLElement).getAttribute('aria-disabled') === 'true') e.preventDefault(); });
 

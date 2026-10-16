@@ -62,3 +62,11 @@ API anahtarı / şifre koda yazılmaz. Gerekirse `.env` (Git'e girmez) ve barın
 
 ## Form, barındırma, CMS
 Aşama 5, 7 ve 8'de güncel koşullar kontrol edilerek seçilir (bkz. `RESEARCH_AND_REFERENCES.md`). Kod her iki barındırmada (Netlify / Cloudflare Pages) çalışacak şekilde platformdan bağımsız tutulur.
+
+## İletişim formu (Aşama 5)
+- Servis: **Web3Forms** (`https://api.web3forms.com/submit`). Anahtar `.env` → `PUBLIC_WEB3FORMS_KEY` (örnek: `.env.example`); barındırmada aynı adla ortam değişkeni. Anahtar yoksa form "henüz bağlı değil" der ve `check:launch` yayını durdurur.
+- JavaScript açıkken `fetch` ile JSON gönderilir, sayfadan çıkılmaz; kapalıyken form doğrudan Web3Forms'a gider.
+- Doğrulama: ad (≥2 harf), telefon (≥10 rakam), KVKK onayı zorunlu. Hatalı alan `aria-invalid` ile işaretlenir, odak ilk hatalı alana gider.
+- Spam: görünmez `botcheck` tuzak alanı + Web3Forms spam filtresi. Dış captcha betiği yok (KVKK).
+- E-postadaki alan adları Türkçedir (Ad soyad, Telefon, Proje türü, Konum, Mesaj, KVKK onayı, Dil).
+- WhatsApp: `site.json → whatsapp` (yalnızca rakam, `905…`) dolunca `https://wa.me/<numara>?text=<hazır mesaj>` bağlantısı oluşur; boşken kutu tıklanamaz.

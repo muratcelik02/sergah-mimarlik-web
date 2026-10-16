@@ -31,4 +31,4 @@ hata verir. Geçici adresle deneme yayını yapılabilir; **gerçek alan adına 
 Aşama 7'de seçilen platforma ve alan adının alındığı firmaya göre talimat buraya yazılacak.
 
 ## Gizli bilgiler
-Form anahtarı gibi değerler barındırma panelindeki "Environment variables" bölümüne girilir; depoya yazılmaz.
+Form anahtarı barındırma panelindeki "Environment variables" bölümüne `PUBLIC_WEB3FORMS_KEY` adıyla girilir; depoya yazılmaz.

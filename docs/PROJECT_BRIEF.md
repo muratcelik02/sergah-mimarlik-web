@@ -36,6 +36,7 @@ Telefon · WhatsApp · e-posta · ofis adresi · Hakkımızda metni · kurucu bi
 | 2026-10-16 | İngilizce sayfalarda da marka adı "SerGah Mimarlık" (çevrilmez). |
 | 2026-10-16 | Görüntüleyici açıkken adres çubuğu projenin gerçek sayfasını gösterir (paylaşılabilir). |
 | 2026-10-16 | Form, Aşama 5 bağlanana kadar "henüz bağlı değil" mesajı verir. |
+| 2026-10-16 | İletişim formu: Web3Forms (ayda 250 ücretsiz gönderim, hesap gerekmez); spam için görünmez tuzak alan; KVKK onayı zorunlu. |
 | 2026-10-16 | Açılış ekranı logosu küçültüldü (marka sahibi isteği): işaret 96px, yazı 170px, çizgi 150px; telefonda en çok ekranın %22 / %44 / %40'ı. |
 
 ## Yapılacaklar (marka sahibinden beklenenler)
@@ -45,5 +46,6 @@ Telefon · WhatsApp · e-posta · ofis adresi · Hakkımızda metni · kurucu bi
 - [ ] O.B Evi renderlarının logosuz sürümleri
 - [ ] (İsteğe bağlı) Filigransız renderlar; vektör (SVG/PDF) logo dosyası
 - [ ] (İsteğe bağlı) M.A Evi, Mis Plaza, Mis Elit, Nergis, Torkum için ≥1920px genişlikte render
+- [ ] Web3Forms erişim anahtarı (formun gideceği e-posta ile alınır) → `.env`
 - [ ] Alan adı
 - [ ] KVKK metninin marka sahibi / hukukçu tarafından onayı

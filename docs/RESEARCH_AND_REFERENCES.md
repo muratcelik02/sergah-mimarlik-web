@@ -33,3 +33,14 @@
 - O.B Evi'nin 5 görselinde eski "SM" logosu var.
 - Mis Plaza, Mis Elit, Torkum (belirgin), Karakış, A.Y, F.Y (soluk) görsellerinde yeni SerGah logosu filigran olarak var — şimdilik kabul edildi.
 - Logo PNG'si 4134×4134; beyaz zemin üzerinde. Vektör sürümü yok.
+
+## Form ve barındırma araştırması (2026-10-16, Aşama 5)
+| Seçenek | Ücretsiz koşul | Giriş | Kaynak |
+|---|---|---|---|
+| **Web3Forms** (seçildi) | Ayda 250 gönderim, sınırsız form; gönderim geçmişi 30 gün; dosya yükleme ücretli | Hesap yok — e-posta yazılır, erişim anahtarı e-postayla gelir | web3forms.com/pricing (resmî sayfa erişimi engelledi; arama sonuçları ve karşılaştırma siteleri) |
+| Formspree | Ayda 50 gönderim | Hesap gerekir | formspree.io/plans |
+| Netlify Forms | Kredi tabanlı planlarda "ücretsiz ve sınırsız" | Netlify hesabı; yalnızca Netlify'da | docs.netlify.com/manage/forms/usage-and-billing |
+| Netlify Free plan | Ayda 300 kredi; her yayın 15 kredi (≈20 yayın/ay), 1 GB trafik 20 kredi | GitHub / e-posta | netlify.com/pricing |
+| Cloudflare Pages Free | Ayda 500 derleme, aynı anda 1, site başına 20.000 dosya, dosya başına 25 MiB; trafik limiti belirtilmemiş; form özelliği yok | — | developers.cloudflare.com/pages/platform/limits |
+
+Sonuç: form barındırmadan bağımsız olsun diye Web3Forms. Barındırma kararı Aşama 7'de; Netlify'ın yayın kredisi CMS ile sık güncellemede sınırlayıcı olabilir.
