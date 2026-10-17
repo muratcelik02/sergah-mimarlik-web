@@ -1,27 +1,27 @@
 name:
   tr: H.Ç. Evi
-  en: ""
+  en: ''
 type: mustakil-ev
 gallery:
-  - "@assets/projects/Güneşli Modern Villa.webp"
-  - "@assets/projects/Modern Villası ve Yemyeşil Bahçesi.webp"
-  - "@assets/projects/hc-evi/01.jpg"
-  - "@assets/projects/Güneşli Modern Villa ve Bahçesi.webp"
+  - '@assets/projects/Güneşli Modern Villa.webp'
+  - '@assets/projects/Modern Villası ve Yemyeşil Bahçesi.webp'
+  - '@assets/projects/hc-evi/01.jpg'
+  - '@assets/projects/Güneşli Modern Villa ve Bahçesi.webp'
 galleryAlt:
-  - tr: ""
-    en: ""
-  - tr: ""
-    en: ""
+  - tr: ''
+    en: ''
+  - tr: ''
+    en: ''
   - tr: H.Ç. Evi, geometrik korkuluklu balkonları ve verandalarıyla simetrik ön cephe
     en: H.Ç. Evi, symmetrical front façade with geometric balcony railings and verandas
-  - tr: ""
-    en: ""
+  - tr: ''
+    en: ''
 summary: null
 scope: null
 location: null
-year: null
-area: null
-status: ""
+year: 2026
+area: 1000
+status: ''
 imageType: render
 featured: false
 featuredOrder: null
