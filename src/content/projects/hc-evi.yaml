@@ -1,14 +1,23 @@
-# Proje kaydı. Düzenleme: site /admin paneli (Sveltia CMS) veya bu dosya. Ayrıntı: docs/CONTENT_MODEL.md
-# gallery: görsel yolları (ilki kapak) · galleryAlt: aynı sırada isteğe bağlı açıklamalar (boşsa otomatik)
-# 2026-10-17: Pages CMS denemesiyle marka sahibince eklendi; görsel kayda bağlandı.
 name:
   tr: H.Ç. Evi
+  en: ''
 type: mustakil-ev
 gallery:
-  - "@assets/projects/hc-evi/01.jpg"
+  - '@assets/projects/Güneşli Modern Villa.webp'
+  - '@assets/projects/Modern Villası ve Yemyeşil Bahçesi.webp'
+  - '@assets/projects/hc-evi/01.jpg'
+  - '@assets/projects/Güneşli Modern Villa ve Bahçesi.webp'
 galleryAlt:
   - tr: H.Ç. Evi, geometrik korkuluklu balkonları ve verandalarıyla simetrik ön cephe
     en: H.Ç. Evi, symmetrical front façade with geometric balcony railings and verandas
+summary: null
+scope: null
+location: null
+year: null
+area: null
+status: ''
 imageType: render
 featured: false
+featuredOrder: null
 order: 11
+toVerify: []
