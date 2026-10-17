@@ -1,0 +1,22 @@
+name:
+  tr: R.G Evi
+  en: R.G House
+type: konut
+gallery:
+  - '@assets/projects/Modern Simetrik Lüks Villa Cephesi.webp'
+  - '@assets/projects/Modern Ev ve Yeşil Peyzaj.webp'
+  - '@assets/projects/Modern Konutlarda Ferah Avlu.webp'
+galleryAlt: []
+summary: null
+scope: null
+location:
+  tr: KONYA/KARATAY
+  en: ''
+year: 2026
+area: 800
+status: konsept
+imageType: render
+featured: false
+featuredOrder: null
+order: 100
+toVerify: []
