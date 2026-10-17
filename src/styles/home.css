@@ -326,5 +326,6 @@ form button[disabled] { opacity: .6; cursor: progress; }
   .a-stats { grid-template-columns: 1fr; }
   .a-stats div + div { border-left: 0; border-top: 1px solid rgba(255,255,255,.18); }
 }
-/* Hakkımızda çizimi: saydam zeminli eskiz; panelin lacivert zemini arkadan görünür, bina kırpılmaz */
+/* Hakkımızda: zemin ana sayfa slaytının laciverti (navy-deep); saydam zeminli eskiz bu zemine oturur, bina kırpılmaz */
+#p-about { background: var(--navy-deep); }
 #p-about .a-img img { object-fit: contain; }
