@@ -14,6 +14,11 @@
   --text-soft: #45576A;
   --error: #A3412A;
 
+  /* Hakkımızda paneli: mavi kopya (blueprint) çizimine uyumlu palet */
+  --blueprint: #103F6F;       /* çizimin zemin rengi */
+  --blueprint-ink: #BFD6F0;   /* çizgi tonunda açık mavi vurgu (7.2:1) */
+  --blueprint-line: rgba(191,214,240,.24);
+
   /* Yazı tipleri */
   --serif: "Cormorant Garamond", "Palatino Linotype", Georgia, serif;
   --sans: "Hanken Grotesk Variable", "Hanken Grotesk", "Segoe UI", system-ui, sans-serif;

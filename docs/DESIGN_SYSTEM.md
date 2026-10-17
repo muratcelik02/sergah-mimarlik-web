@@ -18,6 +18,8 @@ Tüm belirteçler **tek dosyada** tanımlıdır: `src/styles/tokens.css`. Bileş
 
 Bakır yalnızca vurgu içindir; büyük alan boyamak için kullanılmaz.
 
+**Hakkımızda paneli (taslak):** zemin `--blueprint` `#103F6F` (çizimin zemini), vurgu `--blueprint-ink` `#BFD6F0` (7.2:1), çizgiler `--blueprint-line`. Görsel `object-fit: contain` ile kırpılmadan zemine kaynaşır.
+
 ## Yazı tipleri
 - **Başlık:** Cormorant Garamond 500 / 600 / 500 italik — `--serif`
 - **Gövde:** Hanken Grotesk 300–600 (değişken) — `--sans`

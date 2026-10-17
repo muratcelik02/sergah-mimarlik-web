@@ -326,3 +326,10 @@ form button[disabled] { opacity: .6; cursor: progress; }
   .a-stats { grid-template-columns: 1fr; }
   .a-stats div + div { border-left: 0; border-top: 1px solid rgba(255,255,255,.18); }
 }
+/* Hakkımızda: zemin, çizimin mavisiyle aynı; görsel kırpılmadan zemine kaynaşır, vurgular açık mavi */
+#p-about { background: var(--blueprint); }
+#p-about .a-img img { object-fit: contain; }
+#p-about .lbl, #p-about .a-text .a-close { color: var(--blueprint-ink); }
+#p-about .a-stats { border-color: var(--blueprint-line); }
+#p-about .a-stats div + div { border-color: var(--blueprint-line); }
+#p-about .a-stats dt { color: rgba(255,255,255,.72); }

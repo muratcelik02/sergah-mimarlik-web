@@ -12,6 +12,7 @@ import mark from '../assets/brand/logo-mark.png';
 import word from '../assets/brand/logo-word.png';
 import markWhite from '../assets/brand/logo-mark-white.png';
 import wordWhite from '../assets/brand/logo-word-white.png';
+import aboutSketch from '../assets/about/hakkimizda-cizim.webp';
 import '../styles/home.css';
 import '../styles/viewer.css';
 
@@ -36,7 +37,8 @@ const previews: Record<string, string[]> = Object.fromEntries(await Promise.all(
 
 // Hizmet ve Hakkımızda görselleri (prototiptekiyle aynı)
 const svcImgs = [byId('karakis').data.cover, byId('me-evi').data.cover, byId('torkum').data.cover];
-const aboutImg = byId('ma-evi').data.gallery[1]?.image ?? byId('ma-evi').data.cover;
+// Hakkımızda görseli: mavi zeminli perspektif çizimi (panel rengi bu zeminle aynıdır)
+const aboutImg = aboutSketch;
 
 // Görüntüleyici verisi (proje sayfasıyla aynı kayıtlar)
 const data = {
@@ -219,7 +221,7 @@ const orgLd = {
     <!-- 4. Hakkımızda -->
     <section class="panel" id="p-about" data-tone="dark" aria-label={t('n3')}>
       <div class="scroller"><div class="a-wrap gutter">
-        <div class="a-img reveal"><Picture src={aboutImg} formats={['avif', 'webp']} fallbackFormat="webp" widths={widthsFor(aboutImg, [640, 960, 1400])} sizes="(max-width: 980px) 100vw, 50vw" alt="" loading="lazy" /></div>
+        <div class="a-img reveal"><Picture src={aboutImg} formats={['avif', 'webp']} fallbackFormat="webp" widths={widthsFor(aboutImg, [640, 960, 1400])} sizes="(max-width: 980px) 100vw, 50vw" alt={lang === 'tr' ? 'Çok katlı bir konut projesinin mavi zemin üzerine perspektif çizimi' : 'Perspective sketch of a multi-storey residential project on a blueprint-blue background'} loading="lazy" /></div>
         <div>
           <p class="lbl reveal" style="--d:1">{t('a.lbl')}</p>
           <h2 class="reveal" style="--d:2">{t('a.h')}</h2>
