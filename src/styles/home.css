@@ -303,3 +303,26 @@ form button[disabled] { opacity: .6; cursor: progress; }
 .card .pv-dots i.on { background: var(--white); }
 .card.has-pv:hover .pv-dots { opacity: 1; }
 .card .cap { z-index: 1; }
+/* Hakkımızda: marka metni (2 paragraf + vurgulu kapanış) ve sayan bilgi kutuları */
+.a-text p { margin: 0 0 12px; font-size: 15px; line-height: 1.6; }
+.a-text .a-close { margin: 16px 0 0; font: italic 500 21px/1.35 var(--serif); color: var(--copper-light); max-width: 46ch; }
+.a-stats { margin: 26px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid rgba(255,255,255,.18); }
+.a-stats div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 6px; padding: 16px 18px; }
+.a-stats div + div { border-left: 1px solid rgba(255,255,255,.18); }
+.a-stats dd { margin: 0; font: 500 34px/1 var(--serif); color: var(--white); font-variant-numeric: tabular-nums; }
+.a-stats dt { font-size: 12px; letter-spacing: .04em; color: rgba(255,255,255,.7); }
+.a-stats div:last-child dd { font-size: 24px; line-height: 1.2; }
+
+@media (min-width: 981px) and (max-height: 820px) {
+  .a-wrap h2 { font-size: clamp(32px, 3.2vw, 46px); margin: 8px 0 12px; }
+  .a-text p { font-size: 14px; line-height: 1.5; margin-bottom: 8px; }
+  .a-text .a-close { font-size: 18px; margin-top: 10px; }
+  .a-stats { margin-top: 16px; }
+  .a-stats div { padding: 12px 14px; }
+  .a-stats dd { font-size: 28px; }
+  .a-stats div:last-child dd { font-size: 20px; }
+}
+@media (max-width: 560px) {
+  .a-stats { grid-template-columns: 1fr; }
+  .a-stats div + div { border-left: 0; border-top: 1px solid rgba(255,255,255,.18); }
+}

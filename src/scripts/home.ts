@@ -320,3 +320,30 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     });
   });
 }
+
+/* ---------- Hakkımızda: sayılar panel açıldıkça 0'dan sayar ---------- */
+const counters = Array.from(document.querySelectorAll<HTMLElement>('[data-count-to]'));
+function runCounters() {
+  counters.forEach((el) => {
+    const to = Number(el.dataset.countTo);
+    if (reduce) { el.textContent = String(to); return; }
+    const start = performance.now(), dur = 1600;
+    const tick = (now: number) => {
+      const p = Math.min(1, (now - start) / dur), eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = String(Math.round(to * eased));
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    el.textContent = '0';
+    requestAnimationFrame(tick);
+  });
+}
+const aboutPanel = document.getElementById('p-about');
+if (aboutPanel && counters.length) {
+  let wasActive = false;
+  new MutationObserver(() => {
+    const on = aboutPanel.classList.contains('active');
+    if (on && !wasActive) runCounters();
+    wasActive = on;
+  })
+    .observe(aboutPanel, { attributes: true, attributeFilter: ['class'] });
+}

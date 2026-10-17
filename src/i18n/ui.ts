@@ -33,9 +33,6 @@ const tr = {
   // Hakkımızda
   'a.lbl': 'Ofis', 'a.h': 'Yere, ihtiyaca ve bütçeye göre tasarım.',
   'a.ph': 'Kurucuların kısa biyografisi ve ofisin çalışma yaklaşımı eklenecek.',
-  t1: 'Tanışma', t1s: 'İhtiyaç, arsa, bütçe', t2: 'Konsept', t2s: 'Kütle ve ilk görseller',
-  t3: 'Avan proje', t3s: 'Planlar netleşir', t4: 'Ruhsat', t4s: 'Belediye onayı',
-  t5: 'Uygulama projesi', t5s: 'Detay ve iç mekân', t6: 'Şantiye takibi', t6s: 'Teslime kadar',
 
   // İletişim
   'k.lbl': 'İletişim', 'k.wa': 'Mesaj gönderin →',
@@ -98,9 +95,6 @@ const en: Record<UIKey, string> = {
 
   'a.lbl': 'Studio', 'a.h': 'Design shaped by site, needs and budget.',
   'a.ph': 'Short founder biographies and the studio’s approach will be added.',
-  t1: 'First meeting', t1s: 'Brief, site, budget', t2: 'Concept', t2s: 'Massing and first images',
-  t3: 'Schematic design', t3s: 'Plans take shape', t4: 'Permit', t4s: 'Municipal approval',
-  t5: 'Construction drawings', t5s: 'Details and interiors', t6: 'Site supervision', t6s: 'Through to handover',
 
   'k.lbl': 'Contact', 'k.wa': 'Send a message →',
   'k.tel': 'Phone', 'k.mail': 'Email', 'k.addr': 'Address',

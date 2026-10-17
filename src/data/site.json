@@ -15,8 +15,35 @@
   },
   "instagram": "https://www.instagram.com/sergahmimarlik/",
   "about": {
-    "tr": null,
-    "en": null
+    "tr": "2008’den bu yana Sergah Mimarlık, mimari tasarım ile yapım pratiğini bir araya getirerek nitelikli mekânlar üretir. Konut, villa ve ticari yapılardan oluşan 300’ü aşkın projelik deneyimimiz, her tasarımın kendi ihtiyaçlarından doğması gerektiğine olan inancımızı yansıtır.\n\nBizim için mimarlık; mekânın oranlarından malzeme seçimlerine, kullanıcı deneyiminden uygulama detaylarına kadar uzanan bir bütündür. Her kararı bu bütünün parçası olarak ele alır, estetik, işlev ve uygulanabilirlik arasında dengeli bir ilişki kurmayı hedefleriz.\n\nMimari tasarım, müteahhitlik ve inşaat süreci yönetimindeki deneyimimizi her projeye aktararak yalnızca iyi görünen değil, düşünülmüş ve özenle hayata geçirilmiş yapılar ortaya koymaya odaklanırız.",
+    "en": "Since 2008, Sergah Mimarlık has brought architectural design and building practice together to create spaces of quality. Our experience across more than 300 housing, villa and commercial projects reflects our belief that every design should grow out of its own needs.\n\nFor us, architecture is a whole that runs from the proportions of a space to its materials, from the user’s experience to the details of construction. We treat every decision as part of that whole, aiming for a balanced relationship between aesthetics, function and buildability.\n\nWe bring our experience in architectural design, contracting and construction management to every project, focusing on buildings that do not just look good but are carefully considered and carefully realised."
   },
+  "stats": [
+    {
+      "value": 2008,
+      "label": {
+        "tr": "Kuruluş yılı",
+        "en": "Founded"
+      }
+    },
+    {
+      "value": 300,
+      "suffix": "+",
+      "label": {
+        "tr": "Proje deneyimi",
+        "en": "Projects of experience"
+      }
+    },
+    {
+      "text": {
+        "tr": "Tasarım + Yapım",
+        "en": "Design + Build"
+      },
+      "label": {
+        "tr": "Bütüncül hizmet yaklaşımı",
+        "en": "Integrated approach"
+      }
+    }
+  ],
   "founders": []
 }
