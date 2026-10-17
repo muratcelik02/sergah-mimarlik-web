@@ -13,6 +13,7 @@
   --white: #FFFFFF;
   --text-soft: #45576A;
   --error: #A3412A;
+  --sketch-blue: #103F6F;     /* Hakkımızda eskizinin zemin mavisi (panel zemini) */
 
   /* Yazı tipleri */
   --serif: "Cormorant Garamond", "Palatino Linotype", Georgia, serif;

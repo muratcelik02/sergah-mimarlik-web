@@ -18,6 +18,8 @@ Tüm belirteçler **tek dosyada** tanımlıdır: `src/styles/tokens.css`. Bileş
 
 Bakır yalnızca vurgu içindir; büyük alan boyamak için kullanılmaz.
 
+`--sketch-blue` `#103F6F`: yalnızca Hakkımızda panelinin zemini (eskiz görselinin zemin mavisiyle aynı; bakır vurgular korunur, kontrast 5.66:1).
+
 ## Yazı tipleri
 - **Başlık:** Cormorant Garamond 500 / 600 / 500 italik — `--serif`
 - **Gövde:** Hanken Grotesk 300–600 (değişken) — `--sans`
