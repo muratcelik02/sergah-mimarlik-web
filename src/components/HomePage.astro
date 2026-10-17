@@ -70,15 +70,13 @@ const data = {
 const json = JSON.stringify(data).replace(/</g, '\\u003c');
 
 // İletişim bilgileri (bilinmiyorsa yer tutucu)
-function formatTr(digits: string) {
-  const m = digits.match(/^90(\d{3})(\d{3})(\d{2})(\d{2})$/);
-  return m ? `+90 ${m[1]} ${m[2]} ${m[3]} ${m[4]}` : `+${digits}`;
-}
 const waHref = site.whatsapp ? `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(site.whatsappMessage[lang])}` : undefined;
 const about = site.about[lang];
 // Hakkımızda metni: paragraflar boş satırla ayrılır; son paragraf vurgulu kapanış olarak gösterilir
 const aboutParas = about ? about.split(/\n\s*\n/).map((s) => s.trim()).filter(Boolean) : [];
 const address = site.address[lang];
+// Adres Google Haritalar'da açılır (Türkçe adresle aranır)
+const mapsHref = site.address.tr ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.address.tr)}` : undefined;
 const year = new Date().getFullYear();
 const formKey = import.meta.env.PUBLIC_WEB3FORMS_KEY as string | undefined;
 
@@ -237,7 +235,7 @@ const orgLd = {
                 <div>
                   <dt>{s.label[lang]}</dt>
                   <dd>{'value' in s && s.value != null
-                    ? <><span data-count-to={s.value}>{s.value}</span>{s.suffix ?? ''}</>
+                    ? <>{s.value}{s.suffix ?? ''}</>
                     : (s.text?.[lang] ?? '').split('&').map((part, j, all) => <>{part.trim()}{j < all.length - 1 && <span class="amp">&amp;</span>}</>)}</dd>
                 </div>
               ))}
@@ -254,15 +252,14 @@ const orgLd = {
           <p class="lbl reveal">{t('k.lbl')}</p>
           <h2 class="sr">{t('n4')}</h2>
           <a class="wa reveal" style="--d:2" id="wa-link" href={waHref ?? '#'} target={waHref ? '_blank' : undefined} rel={waHref ? 'noopener' : undefined} aria-disabled={waHref ? undefined : 'true'}>
-            <span><span class="lbl" style="color:rgba(255,255,255,.7)">WhatsApp</span>
-              {site.whatsapp ? <strong>{formatTr(site.whatsapp)}</strong> : <strong data-placeholder>{t('ph.phone')}</strong>}</span>
+            <strong>WhatsApp</strong>
             <span>{t('k.wa')}</span>
           </a>
           <div class="chan reveal" style="--d:3">
             <div><span class="lbl">{t('k.tel')}</span>{site.phone ? <a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a> : <strong data-placeholder>{t('ph.phone')}</strong>}</div>
             <div><span class="lbl">{t('k.mail')}</span>{site.email ? <a href={`mailto:${site.email}`}>{site.email}</a> : <strong data-placeholder>{t('ph.email')}</strong>}</div>
             <div><span class="lbl">Instagram</span><a href={site.instagram} target="_blank" rel="noopener">@sergahmimarlik</a></div>
-            <div><span class="lbl">{t('k.addr')}</span>{address ? <strong>{address}</strong> : <strong data-placeholder>{t('ph.addr')}</strong>}</div>
+            <div><span class="lbl">{t('k.addr')}</span>{address ? <a href={mapsHref} target="_blank" rel="noopener">{address}</a> : <strong data-placeholder>{t('ph.addr')}</strong>}</div>
           </div>
         </div>
         <form class="reveal" style="--d:3" id="form" novalidate method="post" action="https://api.web3forms.com/submit"
