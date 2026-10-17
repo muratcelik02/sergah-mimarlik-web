@@ -30,8 +30,10 @@ for (const f of files) {
   if (!data?.type) errors.push(`${tag} type eksik`);
   if (!data?.gallery?.length) { errors.push(`${tag} en az bir galeri görseli gerekli`); continue; }
 
-  const cover = at(data.cover || data.gallery[0].image); // kapak yoksa galerinin ilk görseli
-  const gallery = (data.gallery || []).map((g) => ({ ...g, path: at(g.image) }));
+  const first = typeof data.gallery[0] === 'string' ? data.gallery[0] : data.gallery[0].image;
+  const cover = at(data.cover || first); // kapak yoksa galerinin ilk görseli
+  // gallery: yol listesi (panel biçimi) ya da { image, alt }; açıklamalar galleryAlt'ta da olabilir
+  const gallery = (data.gallery || []).map((g, i) => { const image = typeof g === 'string' ? g : g.image; return { image, alt: (typeof g === 'object' && g.alt) || data.galleryAlt?.[i], path: at(image) }; });
   if (!gallery.length) warnings.push(`${tag} galeri boş`);
   else if (gallery[0].path !== cover) errors.push(`${tag} kapak, galerinin ilk görseli olmalı`);
 

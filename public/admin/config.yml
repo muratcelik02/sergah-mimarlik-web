@@ -1,0 +1,187 @@
+# Sveltia CMS ayarı — Sergah Mimarlık içerik paneli (https://<site>/admin/)
+# Her kayıt GitHub'a işlenir; Cloudflare siteyi birkaç dakika içinde otomatik yeniden yayınlar.
+# Kılavuz: docs/CMS_GUIDE.md · İçerik modeli: docs/CONTENT_MODEL.md
+
+backend:
+  name: github
+  repo: muratcelik02/sergah-mimarlik-web
+  branch: main
+  # base_url: GitHub ile giriş için kimlik doğrulama adresi (Cloudflare Worker kurulunca eklenecek)
+
+site_url: https://sergah-mimarlik-web.murat42celik.workers.dev
+display_url: https://sergah-mimarlik-web.murat42celik.workers.dev
+
+# Yüklenen görseller src/assets/projects klasörüne kaydedilir; dosyalara "@assets/projects/..." yazılır
+media_folder: src/assets/projects
+public_folder: "@assets/projects"
+
+# Büyük renderlar yükleme anında tarayıcıda küçültülür: WebP, en uzun kenar 2560 px
+media_libraries:
+  default:
+    config:
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 2560
+          height: 2560
+
+# Dosya adları (proje adresleri) Türkçe karaktersiz olsun
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  - name: projeler
+    label: Projeler
+    label_singular: Proje
+    folder: src/content/projects
+    extension: yaml
+    format: yaml
+    create: true
+    delete: true
+    slug: "{{name.tr}}"
+    summary: "{{name.tr}}"
+    sortable_fields: [order, name.tr]
+    fields:
+      - name: name
+        label: Proje adı
+        widget: object
+        fields:
+          - { name: tr, label: Türkçe, widget: string }
+          - { name: en, label: "İngilizce (boşsa Türkçesi kullanılır)", widget: string, required: false }
+      - name: type
+        label: Proje türü
+        widget: select
+        options:
+          - { label: Konut, value: konut }
+          - { label: Müstakil Ev, value: mustakil-ev }
+          - { label: Ticari, value: ticari }
+      - name: gallery
+        label: "Görseller (sürükleyip bırakın; ilk görsel kapak olur)"
+        widget: image
+        multiple: true
+        min: 1
+      - name: galleryAlt
+        label: "Görsel açıklamaları (isteğe bağlı, görsellerle aynı sırada; boşsa otomatik)"
+        widget: list
+        required: false
+        fields:
+          - { name: tr, label: Türkçe, widget: string, required: false }
+          - { name: en, label: İngilizce, widget: string, required: false }
+      - name: summary
+        label: Kısa açıklama
+        widget: object
+        required: false
+        fields:
+          - { name: tr, label: Türkçe, widget: text, required: false }
+          - { name: en, label: İngilizce, widget: text, required: false }
+      - name: scope
+        label: "Kapsam (ör. Mimari proje, iç mekân tasarımı)"
+        widget: object
+        required: false
+        fields:
+          - { name: tr, label: Türkçe, widget: string, required: false }
+          - { name: en, label: İngilizce, widget: string, required: false }
+      - name: location
+        label: Konum
+        widget: object
+        required: false
+        fields:
+          - { name: tr, label: Türkçe, widget: string, required: false }
+          - { name: en, label: İngilizce, widget: string, required: false }
+      - { name: year, label: Yıl, widget: number, value_type: int, required: false }
+      - { name: area, label: "Alan (m²)", widget: number, value_type: float, required: false }
+      - name: status
+        label: Durum
+        widget: select
+        required: false
+        options:
+          - { label: Konsept, value: konsept }
+          - { label: Proje aşamasında, value: proje }
+          - { label: Ruhsat aşamasında, value: ruhsat }
+          - { label: İnşaat aşamasında, value: insaat }
+          - { label: Tamamlandı, value: tamamlandi }
+      - name: imageType
+        label: Görsel türü
+        widget: select
+        default: render
+        options:
+          - { label: Render, value: render }
+          - { label: Fotoğraf, value: fotograf }
+      - { name: featured, label: Ana sayfa slaytında göster, widget: boolean, default: false, required: false }
+      - { name: featuredOrder, label: "Slayttaki sırası (1 = ilk)", widget: number, value_type: int, required: false }
+      - { name: order, label: "Projeler listesindeki sırası (küçük önce)", widget: number, value_type: int, default: 100, required: false }
+      - name: toVerify
+        label: "Henüz doğrulanmamış bilgiler (doğruysa işareti kaldırın)"
+        widget: select
+        multiple: true
+        required: false
+        options:
+          - { label: Proje türü, value: type }
+
+  - name: ayarlar
+    label: Site bilgileri
+    files:
+      - name: site
+        label: İletişim ve Hakkımızda
+        file: src/data/site.json
+        fields:
+          - { name: brand, label: Marka adı, widget: string }
+          - { name: phone, label: "Telefon (ör. +90 545 871 88 79)", widget: string, required: false }
+          - { name: whatsapp, label: "WhatsApp (yalnızca rakam, ör. 905458718879)", widget: string, required: false }
+          - name: whatsappMessage
+            label: WhatsApp hazır mesajı
+            widget: object
+            fields:
+              - { name: tr, label: Türkçe, widget: string }
+              - { name: en, label: İngilizce, widget: string }
+          - { name: email, label: E-posta, widget: string, required: false }
+          - name: address
+            label: Adres
+            widget: object
+            fields:
+              - { name: tr, label: Türkçe, widget: string, required: false }
+              - { name: en, label: İngilizce, widget: string, required: false }
+          - { name: mapsUrl, label: "Adres bağlantısı (Google Haritalar)", widget: string, required: false }
+          - { name: instagram, label: Instagram adresi, widget: string }
+          - name: about
+            label: "Hakkımızda metni (paragrafları boş satırla ayırın; son paragraf vurgulu görünür)"
+            widget: object
+            fields:
+              - { name: tr, label: Türkçe, widget: text, required: false }
+              - { name: en, label: İngilizce, widget: text, required: false }
+          - name: stats
+            label: Hakkımızda bilgi kutuları
+            widget: list
+            required: false
+            fields:
+              - { name: value, label: "Sayı (ör. 2008)", widget: number, value_type: int, required: false }
+              - { name: suffix, label: "Sayıdan sonra (ör. +)", widget: string, required: false }
+              - name: text
+                label: "Sayı yerine yazı (ör. Tasarım & Takip)"
+                widget: object
+                required: false
+                fields:
+                  - { name: tr, label: Türkçe, widget: string, required: false }
+                  - { name: en, label: İngilizce, widget: string, required: false }
+              - name: label
+                label: Alt yazı
+                widget: object
+                fields:
+                  - { name: tr, label: Türkçe, widget: string }
+                  - { name: en, label: İngilizce, widget: string }
+          - name: founders
+            label: "Kurucular (isteğe bağlı)"
+            widget: list
+            required: false
+            fields:
+              - { name: name, label: Ad soyad, widget: string }
+              - name: title
+                label: Unvan
+                widget: object
+                fields:
+                  - { name: tr, label: Türkçe, widget: string, required: false }
+                  - { name: en, label: İngilizce, widget: string, required: false }
+          - { name: domain, label: "Alan adı (teknik — ör. https://sergahmimarlik.com; dolunca site arama motorlarına açılır)", widget: string, required: false }
+          - { name: previewUrl, label: "Geçici yayın adresi (teknik)", widget: string, required: false }

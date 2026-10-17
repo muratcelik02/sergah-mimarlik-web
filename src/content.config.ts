@@ -21,9 +21,12 @@ const projects = defineCollection({
       name: z.object({ tr: z.string().min(1, 'Proje adı (TR) zorunlu'), en: blank(z.string().optional()) }),
       type: z.enum(PROJECT_TYPES),
       cover: blank(image().optional()), // boşsa galerinin ilk görseli kapak olur
+      // Görseller: yol listesi (panelin toplu yükleme biçimi) ya da { image, alt } (eski biçim); ilki kapaktır
       gallery: z
-        .array(z.object({ image: image(), alt: text }))
+        .array(z.union([image(), z.object({ image: image(), alt: text })]))
         .min(1, 'En az bir görsel gerekli'),
+      // gallery ile aynı sırada isteğe bağlı açıklamalar; boşsa "Proje adı, görsel N" kullanılır
+      galleryAlt: blank(z.array(blank(z.object({ tr: blank(z.string().optional()), en: blank(z.string().optional()) }).optional())).optional()),
       summary: text,
       scope: text,
       location: text,

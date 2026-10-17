@@ -1,11 +1,15 @@
-# Bilinmeyen alanlar (summary, scope, location, year, area, status) bilgi gelene kadar boş bırakılır.
-# toVerify: tür, prototipte dosya adından tahmin edildi; marka sahibi onaylayınca kaldırılır.
-# Kapak = galerinin ilk görseli. Görsel yolları "@assets/projects/..." (src/assets/projects).
-name: { tr: Mis Elit Konutları, en: Mis Elit Residences }
+# Proje kaydı. Düzenleme: site /admin paneli (Sveltia CMS) veya bu dosya. Ayrıntı: docs/CONTENT_MODEL.md
+# gallery: görsel yolları (ilki kapak) · galleryAlt: aynı sırada isteğe bağlı açıklamalar (boşsa otomatik)
+name:
+  tr: Mis Elit Konutları
+  en: Mis Elit Residences
 type: konut
 gallery:
-  - image: "@assets/projects/mis-elit/01.jpg"
-    alt: { tr: "Mis Elit Konutları, ahşap dokulu paneller ve koyu çerçeveli balkonlar", en: "Mis Elit Residences, timber-textured panels and dark-framed balconies" }
+  - "@assets/projects/mis-elit/01.jpg"
+galleryAlt:
+  - tr: Mis Elit Konutları, ahşap dokulu paneller ve koyu çerçeveli balkonlar
+    en: Mis Elit Residences, timber-textured panels and dark-framed balconies
 imageType: render
 order: 8
-toVerify: [type]
+toVerify:
+  - type

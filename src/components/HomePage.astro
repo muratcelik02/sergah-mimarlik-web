@@ -5,7 +5,7 @@ import { Image, Picture, getImage } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import site from '../data/site.json';
 import { useT, ui, sectionIds, homePath, privacyPath, type Lang } from '../i18n/ui';
-import { getProjects, getFeatured, projectUrl, projectName, projectFacts, pick, coverOf, altOf, type Project } from '../lib/projects';
+import { getProjects, getFeatured, projectUrl, projectName, projectFacts, pick, coverOf, altOf, galleryOf, type Project } from '../lib/projects';
 import { viewerImage, widthsFor } from '../lib/images';
 import { PROJECT_TYPES } from '../content.config';
 import mark from '../assets/brand/logo-mark.png';
@@ -32,7 +32,7 @@ for (const ty of PROJECT_TYPES) counts[ty] = projects.filter((p) => p.data.type 
 // Kart önizlemesi: birden fazla görseli olan projelerin diğer görselleri (fare üzerine gelince yüklenir)
 const previews: Record<string, string[]> = Object.fromEntries(await Promise.all(projects.map(async (p) => [
   p.id,
-  await Promise.all(p.data.gallery.slice(1).map((g) => getImage({ src: g.image, width: 720, format: 'webp', quality: 72 }).then((r) => r.src))),
+  await Promise.all(galleryOf(p).slice(1).map((g) => getImage({ src: g.image, width: 720, format: 'webp', quality: 72 }).then((r) => r.src))),
 ])));
 
 // Hizmet ve Hakkımızda görselleri (prototiptekiyle aynı)
@@ -63,7 +63,7 @@ const data = {
       url: projectUrl(p.id, lang),
       summary: pick(p.data.summary, lang) ?? null,
       facts: projectFacts(p, lang),
-      imgs: await Promise.all(p.data.gallery.map((g) => viewerImage(g.image, altOf(g, lang)))),
+      imgs: await Promise.all(galleryOf(p).map((g) => viewerImage(g.image, altOf(g, lang)))),
     })),
   ),
 };
@@ -149,7 +149,7 @@ const orgLd = {
         {featured.map((p, i) => (
           <div class={i === 0 ? 'slide on' : 'slide'} data-id={p.id}>
             <Picture src={coverOf(p)} formats={['avif', 'webp']} fallbackFormat="webp" widths={widthsFor(coverOf(p), [800, 1280, 1920, 2560])} sizes="100vw"
-              alt={altOf(p.data.gallery[0], lang)} loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'low'} />
+              alt={altOf(galleryOf(p)[0], lang)} loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'low'} />
           </div>
         ))}
       </div>

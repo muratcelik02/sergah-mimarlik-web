@@ -33,6 +33,7 @@ const titles = new Map();
 const external = new Set();
 
 for (const [url, html] of pages) {
+  if (url.startsWith("/admin/")) continue; // içerik paneli sayfası (Sveltia) site sayfası değildir
   const is404 = url === '/404.html';
   const tag = `[${url}]`;
 
@@ -86,7 +87,7 @@ for (const [url, html] of pages) {
 // Site haritası: her dizinlenebilir sayfa haritada olmalı
 const sitemap = await readFile(join(DIST, 'sitemap-0.xml'), 'utf8').catch(() => '');
 for (const url of pages.keys()) {
-  if (url === '/404.html') continue;
+  if (url === '/404.html' || url.startsWith('/admin/')) continue;
   if (!sitemap.includes(`${url}</loc>`)) errors.push(`[${url}] site haritasında yok`);
 }
 const robots = await readFile(join(DIST, 'robots.txt'), 'utf8').catch(() => '');

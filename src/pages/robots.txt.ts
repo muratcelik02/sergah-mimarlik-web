@@ -6,7 +6,7 @@ import siteData from '../data/site.json';
 export const GET: APIRoute = ({ site }) =>
   new Response(
     siteData.domain
-      ? `User-agent: *\nAllow: /\n\nSitemap: ${new URL('sitemap-index.xml', site)}\n`
+      ? `User-agent: *\nAllow: /\nDisallow: /admin/\n\nSitemap: ${new URL('sitemap-index.xml', site)}\n`
       : `# Geçici yayın: alan adı henüz yok\nUser-agent: *\nDisallow: /\n`,
     { headers: { 'Content-Type': 'text/plain; charset=utf-8' } },
   );

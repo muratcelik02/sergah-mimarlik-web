@@ -1,21 +1,28 @@
-# Bilinmeyen alanlar (summary, scope, location, year, area, status) bilgi gelene kadar boş bırakılır.
-# toVerify: tür, prototipte dosya adından tahmin edildi; marka sahibi onaylayınca kaldırılır.
-# Kapak = galerinin ilk görseli. Görsel yolları "@assets/projects/..." (src/assets/projects).
-name: { tr: O.B Evi }
+# Proje kaydı. Düzenleme: site /admin paneli (Sveltia CMS) veya bu dosya. Ayrıntı: docs/CONTENT_MODEL.md
+# gallery: görsel yolları (ilki kapak) · galleryAlt: aynı sırada isteğe bağlı açıklamalar (boşsa otomatik)
+name:
+  tr: O.B Evi
 type: mustakil-ev
 gallery:
-  - image: "@assets/projects/ob-evi/01.jpg"
-    alt: { tr: "O.B Evi, sütunlu girişi olan ön cephe", en: "O.B Evi, front façade with a columned entrance" }
-  - image: "@assets/projects/ob-evi/02.jpg"
-    alt: { tr: "O.B Evi, bahçeye bakan geniş saçaklı veranda", en: "O.B Evi, wide covered veranda facing the garden" }
-  - image: "@assets/projects/ob-evi/03.jpg"
-    alt: { tr: "O.B Evi, taş kaplamalı üst katın köşe görünüşü", en: "O.B Evi, corner view of the stone-clad upper floor" }
-  - image: "@assets/projects/ob-evi/04.jpg"
-    alt: { tr: "O.B Evi, çimenli bahçe tarafındaki yan cephe", en: "O.B Evi, side façade on the lawn side" }
-  - image: "@assets/projects/ob-evi/05.jpg"
-    alt: { tr: "O.B Evi, çit boyunca uzanan yan cephe ve üst kat terası", en: "O.B Evi, side elevation along the fence with upper terrace" }
+  - "@assets/projects/ob-evi/01.jpg"
+  - "@assets/projects/ob-evi/02.jpg"
+  - "@assets/projects/ob-evi/03.jpg"
+  - "@assets/projects/ob-evi/04.jpg"
+  - "@assets/projects/ob-evi/05.jpg"
+galleryAlt:
+  - tr: O.B Evi, sütunlu girişi olan ön cephe
+    en: O.B Evi, front façade with a columned entrance
+  - tr: O.B Evi, bahçeye bakan geniş saçaklı veranda
+    en: O.B Evi, wide covered veranda facing the garden
+  - tr: O.B Evi, taş kaplamalı üst katın köşe görünüşü
+    en: O.B Evi, corner view of the stone-clad upper floor
+  - tr: O.B Evi, çimenli bahçe tarafındaki yan cephe
+    en: O.B Evi, side façade on the lawn side
+  - tr: O.B Evi, çit boyunca uzanan yan cephe ve üst kat terası
+    en: O.B Evi, side elevation along the fence with upper terrace
 imageType: render
 featured: true
 featuredOrder: 5
 order: 2
-toVerify: [type]
+toVerify:
+  - type

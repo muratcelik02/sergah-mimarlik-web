@@ -1,13 +1,16 @@
-# Bilinmeyen alanlar (summary, scope, location, year, area, status) bilgi gelene kadar boş bırakılır.
-# toVerify: tür, prototipte dosya adından tahmin edildi; marka sahibi onaylayınca kaldırılır.
-# Kapak = galerinin ilk görseli. Görsel yolları "@assets/projects/..." (src/assets/projects).
-name: { tr: M.E Evi }
+# Proje kaydı. Düzenleme: site /admin paneli (Sveltia CMS) veya bu dosya. Ayrıntı: docs/CONTENT_MODEL.md
+# gallery: görsel yolları (ilki kapak) · galleryAlt: aynı sırada isteğe bağlı açıklamalar (boşsa otomatik)
+name:
+  tr: M.E Evi
 type: mustakil-ev
 gallery:
-  - image: "@assets/projects/me-evi/01.jpg"
-    alt: { tr: "M.E Evi, iki katlı villanın simetrik ön cephesi ve giriş merdiveni", en: "M.E Evi, symmetrical front façade of the two-storey villa with entrance steps" }
+  - "@assets/projects/me-evi/01.jpg"
+galleryAlt:
+  - tr: M.E Evi, iki katlı villanın simetrik ön cephesi ve giriş merdiveni
+    en: M.E Evi, symmetrical front façade of the two-storey villa with entrance steps
 imageType: render
 featured: true
 featuredOrder: 2
 order: 1
-toVerify: [type]
+toVerify:
+  - type

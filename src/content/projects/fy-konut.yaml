@@ -1,15 +1,20 @@
-# Bilinmeyen alanlar (summary, scope, location, year, area, status) bilgi gelene kadar boş bırakılır.
-# toVerify: tür, prototipte dosya adından tahmin edildi; marka sahibi onaylayınca kaldırılır.
-# Kapak = galerinin ilk görseli. Görsel yolları "@assets/projects/..." (src/assets/projects).
-name: { tr: F.Y Konut Projesi, en: F.Y Housing Project }
+# Proje kaydı. Düzenleme: site /admin paneli (Sveltia CMS) veya bu dosya. Ayrıntı: docs/CONTENT_MODEL.md
+# gallery: görsel yolları (ilki kapak) · galleryAlt: aynı sırada isteğe bağlı açıklamalar (boşsa otomatik)
+name:
+  tr: F.Y Konut Projesi
+  en: F.Y Housing Project
 type: konut
 gallery:
-  - image: "@assets/projects/fy-konut/01.jpg"
-    alt: { tr: "F.Y Konut Projesi, köşe parselde dört katlı apartman", en: "F.Y Housing Project, four-storey apartment building on a corner plot" }
-  - image: "@assets/projects/fy-konut/02.jpg"
-    alt: { tr: "F.Y Konut Projesi, cam korkuluklu balkonları olan yüksek blok", en: "F.Y Housing Project, taller block with glass-railed balconies" }
+  - "@assets/projects/fy-konut/01.jpg"
+  - "@assets/projects/fy-konut/02.jpg"
+galleryAlt:
+  - tr: F.Y Konut Projesi, köşe parselde dört katlı apartman
+    en: F.Y Housing Project, four-storey apartment building on a corner plot
+  - tr: F.Y Konut Projesi, cam korkuluklu balkonları olan yüksek blok
+    en: F.Y Housing Project, taller block with glass-railed balconies
 imageType: render
 featured: true
 featuredOrder: 6
 order: 6
-toVerify: [type]
+toVerify:
+  - type

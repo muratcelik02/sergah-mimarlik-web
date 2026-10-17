@@ -1,5 +1,6 @@
 // Proje kayıtlarına erişim: sıralama ve dile göre metin seçimi.
 import { getCollection, type CollectionEntry } from 'astro:content';
+import type { ImageMetadata } from 'astro';
 import { useT } from '../i18n/ui';
 
 export type Lang = 'tr' | 'en';
@@ -19,21 +20,27 @@ export async function getProjects(): Promise<Project[]> {
   const list = await getCollection('projects');
   for (const p of list) {
     p.id = toSlug(p.id);
-    const d = p.data;
-    d.cover ??= d.gallery[0].image;
-    d.gallery.forEach((g, i) => {
+    const d = p.data as any;
+    // Yol listesi biçimini { image, alt } nesnelerine çevir; açıklama galleryAlt'tan ya da otomatik
+    d.gallery = d.gallery.map((g: any, i: number) => {
+      const item = g && typeof g === 'object' && 'image' in g ? g : { image: g };
+      const given = item.alt ?? d.galleryAlt?.[i] ?? {};
       const n = d.gallery.length > 1 ? `, görsel ${i + 1}` : '';
       const nEn = d.gallery.length > 1 ? `, image ${i + 1}` : '';
-      g.alt = { tr: g.alt?.tr ?? `${d.name.tr}${n}`, en: g.alt?.en ?? `${d.name.en ?? d.name.tr}${nEn}` };
+      return { image: item.image, alt: { tr: given.tr ?? `${d.name.tr}${n}`, en: given.en ?? `${d.name.en ?? d.name.tr}${nEn}` } };
     });
+    d.cover ??= d.gallery[0].image;
   }
   return list.sort((a, b) => a.data.order - b.data.order || a.id.localeCompare(b.id));
 }
 
+/** getProjects sonrası her görsel bu biçimdedir. */
+export type GalleryItem = { image: ImageMetadata; alt: { tr: string; en: string } };
+export const galleryOf = (p: Project) => p.data.gallery as unknown as GalleryItem[];
 /** Kapak görseli (her zaman dolu: getProjects tamamlar). */
-export const coverOf = (p: Project) => p.data.cover ?? p.data.gallery[0].image;
+export const coverOf = (p: Project): ImageMetadata => (p.data.cover as ImageMetadata | undefined) ?? galleryOf(p)[0].image;
 /** Görselin dildeki alt metni (her zaman dolu: getProjects tamamlar). */
-export const altOf = (g: Project['data']['gallery'][number], lang: Lang) => g.alt?.[lang] ?? g.alt?.tr ?? '';
+export const altOf = (g: GalleryItem, lang: Lang) => g.alt?.[lang] ?? g.alt?.tr ?? '';
 
 /** Ana sayfa slaytındaki öne çıkan projeler. */
 export async function getFeatured(): Promise<Project[]> {
