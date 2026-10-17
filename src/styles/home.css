@@ -326,5 +326,5 @@ form button[disabled] { opacity: .6; cursor: progress; }
   .a-stats { grid-template-columns: 1fr; }
   .a-stats div + div { border-left: 0; border-top: 1px solid rgba(255,255,255,.18); }
 }
-/* Hakkımızda çizimi: kırpılırsa çatı değil alttaki yol kısmı kırpılsın */
-#p-about .a-img img { object-position: 50% 30%; }
+/* Hakkımızda çizimi: saydam zeminli eskiz; panelin lacivert zemini arkadan görünür, bina kırpılmaz */
+#p-about .a-img img { object-fit: contain; }
