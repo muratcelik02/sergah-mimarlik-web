@@ -1,14 +1,12 @@
 {
   "brand": "Sergah Mimarlık",
-  "domain": null,
-  "previewUrl": "https://sergah-mimarlik-web.murat42celik.workers.dev",
   "phone": "+90 545 871 88 79",
   "whatsapp": "905458718879",
   "whatsappMessage": {
     "tr": "Merhaba, Sergah Mimarlık web sitesinden yazıyorum. Projem hakkında görüşmek istiyorum.",
     "en": "Hello, I'm writing from the Sergah Mimarlık website. I'd like to talk about my project."
   },
-  "email": null,
+  "email": "",
   "address": {
     "tr": "Araplar Mahallesi, Fetih Cd. No:48 Daire:37, Esmira Plaza, Karatay/Konya",
     "en": "Esmira Plaza, Araplar Mahallesi, Fetih Cd. No:48, Flat 37, Karatay/Konya, Türkiye"
@@ -22,6 +20,8 @@
   "stats": [
     {
       "value": 2008,
+      "suffix": "",
+      "text": null,
       "label": {
         "tr": "Kuruluş yılı",
         "en": "Founded"
@@ -30,14 +30,17 @@
     {
       "value": 300,
       "suffix": "+",
+      "text": null,
       "label": {
         "tr": "Proje deneyimi",
         "en": "Projects of experience"
       }
     },
     {
+      "value": null,
+      "suffix": "",
       "text": {
-        "tr": "Tasarım & Takip",
+        "tr": "Tasarım - Uygulama",
         "en": "Design & Supervision"
       },
       "label": {
@@ -46,5 +49,7 @@
       }
     }
   ],
-  "founders": []
+  "founders": [],
+  "domain": "",
+  "previewUrl": "https://sergah-mimarlik-web.murat42celik.workers.dev"
 }
