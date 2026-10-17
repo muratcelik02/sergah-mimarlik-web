@@ -1,12 +1,12 @@
 ---
-// Privacy notice — DRAFT. Needs review by the owner / a lawyer (marked with data-placeholder).
+// Privacy notice — published with the owner's approval (2026-10-17). Update "Who receives it" if a provider changes.
 import SimplePage from '../../components/SimplePage.astro';
 import site from '../../data/site.json';
 ---
 <SimplePage lang="en" title="Privacy" description="How Sergah Mimarlık collects, uses and protects personal data sent through the website, and your rights under KVKK." alternates={{ tr: '/kvkk/', en: '/en/privacy/' }}>
   <p class="lbl">Privacy</p>
   <h1>Personal data and privacy</h1>
-  <p data-placeholder><strong>Draft:</strong> This is a general template. It must be reviewed by the owner and a lawyer, and missing details completed, before launch.</p>
+  <p>Last updated: 17 October 2026</p>
 
   <h2>Data controller</h2>
   <p>{site.brand}<br />
@@ -23,10 +23,17 @@ import site from '../../data/site.json';
   <p>Your data is processed under the legal grounds in Article 5 of the Turkish Personal Data Protection Law No. 6698 (KVKK), in particular because it is directly related to entering into a contract. The contact form also asks for your explicit consent.</p>
 
   <h2>Who receives it</h2>
-  <p>Form submissions are delivered to our inbox through the Web3Forms service (web3forms.com), which may be located outside Türkiye: <span data-placeholder>server location and transfer basis to be confirmed by a lawyer</span>. Apart from legal obligations, data is not shared with third parties.</p>
+  <p>Your data is shared only with the service providers needed to answer your enquiry:</p>
+  <ul>
+    <li><strong>Web3Forms</strong> (web3forms.com): delivers the contact form to our inbox. It runs on Amazon Web Services, its servers are outside Türkiye, and it keeps submissions for at most 30 days.</li>
+    <li><strong>Cloudflare, Inc.</strong> (USA): hosts this website. When you visit, technical connection data such as your IP address is processed to serve the site securely.</li>
+    <li><strong>Turhost</strong> (Türkiye): our business email provider; emails we receive are stored there.</li>
+  </ul>
+  <p>Data sent through the form is transferred abroad on the basis of the explicit consent you give when submitting it (KVKK Art. 9/6-a). Countries outside Türkiye may not offer the same level of protection. If you prefer your data not to be transferred abroad, contact us directly by phone or email instead of using the form. When you write to us on WhatsApp, your messages are processed by WhatsApp (Meta) under its own terms.</p>
+  <p>Apart from these and legal obligations, data is not shared with third parties.</p>
 
   <h2>How long we keep it</h2>
-  <p><span data-placeholder>Retention period to be set by the owner</span></p>
+  <p>We keep your data for at most 2 years after your enquiry is concluded, then delete or anonymise it. If we enter into a contract with you, the statutory retention periods of the applicable legislation apply.</p>
 
   <h2>Cookies</h2>
   <p>This site uses no cookies or visitor tracking. To avoid replaying the intro screen during the same visit, a small marker with no personal data is stored in your browser’s session storage and deleted when you close the browser. Fonts are served from our own site; no requests are made to third-party servers.</p>

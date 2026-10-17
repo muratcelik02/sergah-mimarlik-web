@@ -48,6 +48,7 @@ Telefon · WhatsApp · e-posta · ofis adresi · Hakkımızda metni · kurucu bi
 | 2026-10-16 | Açılış ekranı logosu küçültüldü (marka sahibi isteği): işaret 96px, yazı 170px, çizgi 150px; telefonda en çok ekranın %22 / %44 / %40'ı. |
 | 2026-10-17 | Proje türleri: Konut (müstakil evler dahil) · Ticari · Karma Kullanım (marka sahibi isteği). Tür onayı verildi, `toVerify` işaretleri kaldırıldı. |
 | 2026-10-17 | Kart önizlemesi sağdan sola kayar (yeni görsel sağdan gelir). Hizmet görselleri projelerden bağımsız (`src/assets/services`); İç mekân ve inşaat takibi görselleri marka sahibinin verdiği görsellerle değişti. |
+| 2026-10-17 | KVKK metni tamamlandı (marka sahibi onayı): hizmet sağlayıcılar Web3Forms (AWS, yurt dışı, 30 gün), Cloudflare (ABD), Turhost (Türkiye); yurt dışı aktarım dayanağı açık rıza (md. 9/6-a), form onay kutusu buna göre; saklama süresi talep sonuçlandıktan sonra 2 yıl. Hukukçu incelemesi önerilir. Site arama motorlarına açıldı (`searchEngines: true`). |
 | 2026-10-17 | Alan adı `sergahmimarlik.tr` ve e-posta `info@sergahmimarlik.tr` (Turhost Kurumsal 1); DNS Cloudflare'de. |
 
 ## Yapılacaklar (marka sahibinden beklenenler)

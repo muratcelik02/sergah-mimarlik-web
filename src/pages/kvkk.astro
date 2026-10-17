@@ -1,12 +1,12 @@
 ---
-// KVKK aydınlatma metni — TASLAK. Marka sahibi / hukukçu onayı gerekir (data-placeholder ile işaretli).
+// KVKK aydınlatma metni — marka sahibi onayıyla yayında (2026-10-17). Hizmet sağlayıcı değişirse "Kimlere aktarılır?" güncellenir.
 import SimplePage from '../components/SimplePage.astro';
 import site from '../data/site.json';
 ---
 <SimplePage lang="tr" title="KVKK ve Gizlilik" description="Sergah Mimarlık kişisel verilerin korunması ve gizlilik bilgilendirmesi." alternates={{ tr: '/kvkk/', en: '/en/privacy/' }}>
   <p class="lbl">KVKK</p>
   <h1>Kişisel verilerin korunması ve gizlilik</h1>
-  <p data-placeholder><strong>Taslak:</strong> Bu metin genel bir şablondur. Yayından önce marka sahibi ve bir hukukçu tarafından gözden geçirilmeli; eksik bilgiler tamamlanmalıdır.</p>
+  <p>Son güncelleme: 17 Ekim 2026</p>
 
   <h2>Veri sorumlusu</h2>
   <p>{site.brand}<br />
@@ -23,10 +23,17 @@ import site from '../data/site.json';
   <p>Verileriniz 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun 5. maddesinde sayılan hukuki sebeplere, özellikle bir sözleşmenin kurulmasıyla doğrudan ilgili olmasına dayanılarak işlenir. İletişim formunda ayrıca açık onayınız alınır.</p>
 
   <h2>Kimlere aktarılır?</h2>
-  <p>Form gönderimleri, formu e-postamıza ileten Web3Forms (web3forms.com) hizmeti üzerinden iletilir; bu hizmet yurt dışında bulunabilir: <span data-placeholder>sunucu konumu ve aktarım dayanağı hukukçu tarafından doğrulanacak</span>. Bunun dışında yasal zorunluluklar hariç üçüncü kişilere aktarılmaz.</p>
+  <p>Verileriniz yalnızca talebinizi yanıtlamak için gereken hizmet sağlayıcılarla paylaşılır:</p>
+  <ul>
+    <li><strong>Web3Forms</strong> (web3forms.com): İletişim formunu e-posta adresimize ileten hizmettir. Amazon Web Services altyapısını kullanır, sunucuları yurt dışındadır ve gönderimleri en çok 30 gün saklar.</li>
+    <li><strong>Cloudflare, Inc.</strong> (ABD): Sitemizin barındırıldığı altyapıdır. Siteyi ziyaret ettiğinizde IP adresiniz gibi teknik bağlantı bilgileri, sitenin güvenli biçimde sunulması için işlenir.</li>
+    <li><strong>Turhost</strong> (Türkiye): Kurumsal e-posta hizmet sağlayıcımızdır; bize gelen e-postalar burada tutulur.</li>
+  </ul>
+  <p>Formla gönderilen veriler, formu gönderirken verdiğiniz açık rızaya dayanılarak (Kanun md. 9/6-a) yurt dışına aktarılır. Yurt dışındaki ülkelerde Türkiye'deki ile aynı düzeyde koruma bulunmayabilir. Verilerinizin yurt dışına aktarılmasını istemiyorsanız formu kullanmadan bize telefonla veya e-postayla doğrudan ulaşabilirsiniz. WhatsApp ile yazdığınızda mesajlarınız WhatsApp (Meta) tarafından kendi koşullarına göre işlenir.</p>
+  <p>Bunlar dışında verileriniz, yasal zorunluluklar hariç üçüncü kişilere aktarılmaz.</p>
 
   <h2>Ne kadar süre saklanır?</h2>
-  <p><span data-placeholder>Saklama süresi marka sahibi tarafından belirlenecek</span></p>
+  <p>Verileriniz talebiniz sonuçlandıktan sonra en geç 2 yıl saklanır; bu sürenin sonunda silinir veya anonim hâle getirilir. Sizinle bir sözleşme kurulursa ilgili mevzuattaki yasal saklama süreleri uygulanır.</p>
 
   <h2>Çerezler</h2>
   <p>Bu site çerez ve ziyaretçi izleme aracı kullanmaz. Açılış ekranının aynı ziyarette tekrar gösterilmemesi için tarayıcınızın oturum belleğine kişisel veri içermeyen küçük bir işaret yazılır; tarayıcıyı kapattığınızda silinir. Yazı tipleri sitemizle birlikte sunulur, üçüncü taraf sunuculara istek gönderilmez.</p>
