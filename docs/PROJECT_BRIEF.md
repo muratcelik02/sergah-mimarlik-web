@@ -32,7 +32,7 @@ Telefon · WhatsApp · e-posta · ofis adresi · Hakkımızda metni · kurucu bi
 | 2026-10-16 | O.B Evi renderları (eski "SM" logolu) logosuzları gelene kadar kullanılır → yapılacaklar listesinde. |
 | 2026-10-16 | İngilizce sürüm ayrı adreste (`/en/`); dil düğmesi o adrese gider, bulunulan bölüm korunur. |
 | 2026-10-16 | Yazı tipleri siteyle birlikte barındırılır (Google'a istek gitmez; KVKK ve hız). |
-| 2026-10-17 | Ana sayfa yalnızca görsel slayt: sol metin bloğu (etiket, başlık, açıklama, düğmeler) kaldırıldı; başlık arama motorları için görünmez tutulur. "İç mimarlık" → "İç mekân tasarımı" (marka sahibi isteği). |
+| 2026-10-17 | "İç mimarlık" → "İç mekân tasarımı". Ana sayfa yazısı yenilendi (marka sahibi): başlık "Mekâna anlam, *yaşama değer.*", alt yazı "İhtiyaçlardan ilham alan, bulunduğu yerle bağ kuran ve geleceğe değer katan mekânlar tasarlıyoruz." (Yazı bloğunu kaldırma denemesi geri alındı.) |
 | 2026-10-16 | Hizmetler panelindeki müteahhitlik notu ve proje kartlarındaki "N görsel" etiketi kaldırıldı (marka sahibi isteği). Müteahhitlik ima eden dil yasağı sürer. |
 | 2026-10-16 | Ana sayfa slaytı Mis Plaza ile açılır (marka sahibi isteği), sonra prototip sırası: Mis Plaza → M.E → Karakış → M.A → O.B → F.Y (`featuredOrder`). |
 | 2026-10-16 | Marka adının yazımı **Sergah Mimarlık** (yalnızca baş harf büyük; marka sahibi düzeltmesi). İngilizce sayfalarda da çevrilmez. |

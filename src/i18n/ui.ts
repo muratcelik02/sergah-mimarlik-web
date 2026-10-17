@@ -10,7 +10,10 @@ const tr = {
   sections: 'Bölümler', language: 'Dil', otherLang: 'English', skipToContent: 'İçeriğe geç',
 
   // Ana sayfa paneli
-  'h.now': 'Öne çıkan proje',
+  'h.lbl': 'Mimari tasarım · İç mekân tasarımı · Süreç takibi',
+  'h.a': 'Mekâna anlam,', 'h.b': 'yaşama değer.',
+  'h.p': 'İhtiyaçlardan ilham alan, bulunduğu yerle bağ kuran ve geleceğe değer katan mekânlar tasarlıyoruz.',
+  'h.cta': 'Projeleri inceleyin', 'h.cta2': 'Bize ulaşın →', 'h.now': 'Öne çıkan proje',
   prevImg: 'Önceki görsel', nextImg: 'Sonraki görsel',
 
   // Projeler
@@ -77,7 +80,10 @@ const en: Record<UIKey, string> = {
   homeLabel: 'Sergah Mimarlık — Home', mainMenu: 'Main menu', mobileMenu: 'Mobile menu', menu: 'Menu',
   sections: 'Sections', language: 'Language', otherLang: 'Türkçe', skipToContent: 'Skip to content',
 
-  'h.now': 'Featured project',
+  'h.lbl': 'Architecture · Interior design · Project supervision',
+  'h.a': 'Meaning to space,', 'h.b': 'value to life.',
+  'h.p': 'We design spaces that draw on real needs, connect with their setting and add lasting value for the future.',
+  'h.cta': 'View projects', 'h.cta2': 'Contact us →', 'h.now': 'Featured project',
   prevImg: 'Previous image', nextImg: 'Next image',
 
   'p.lbl': 'Portfolio',
