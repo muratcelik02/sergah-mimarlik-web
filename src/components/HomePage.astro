@@ -75,8 +75,8 @@ const about = site.about[lang];
 // Hakkımızda metni: paragraflar boş satırla ayrılır; son paragraf vurgulu kapanış olarak gösterilir
 const aboutParas = about ? about.split(/\n\s*\n/).map((s) => s.trim()).filter(Boolean) : [];
 const address = site.address[lang];
-// Adres Google Haritalar'da açılır (Türkçe adresle aranır)
-const mapsHref = site.address.tr ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.address.tr)}` : undefined;
+// Adres bağlantısı Google Haritalar'daki Sergah Mimarlık işletme kaydını açar (site.json → mapsUrl)
+const mapsHref = site.mapsUrl;
 const year = new Date().getFullYear();
 const formKey = import.meta.env.PUBLIC_WEB3FORMS_KEY as string | undefined;
 

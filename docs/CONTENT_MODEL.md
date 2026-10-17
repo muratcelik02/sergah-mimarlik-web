@@ -12,6 +12,7 @@ Bilinmeyen her değer **`null`**'dır. Sitede `null` alan için görünür bir "
 | `whatsappMessage.tr/.en` | metin | hazır mesaj |
 | `email` | metin | `null` |
 | `address.tr/.en` | metin | `null` |
+| `mapsUrl` | URL | Adres bağlantısının açtığı Google Haritalar sayfası (şu an "Sergah Mimarlık Konya" araması) |
 | `instagram` | URL | `https://www.instagram.com/sergahmimarlik/` |
 | `about.tr/.en` | metin | `null` |
 | `founders[]` | `{ name, title.tr, title.en }` | `[]` |
