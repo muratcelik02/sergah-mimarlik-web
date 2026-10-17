@@ -4,7 +4,7 @@ import { Image, Picture, getImage } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import site from '../data/site.json';
 import { useT, sectionIds, homePath, type Lang } from '../i18n/ui';
-import { getProjects, projectUrl, projectName, projectFacts, pick, type Project } from '../lib/projects';
+import { getProjects, projectUrl, projectName, projectFacts, pick, coverOf, altOf, type Project } from '../lib/projects';
 import { widthsFor } from '../lib/images';
 import markWhite from '../assets/brand/logo-mark-white.png';
 import wordWhite from '../assets/brand/logo-word-white.png';
@@ -19,9 +19,9 @@ const prevP = all[(k - 1 + all.length) % all.length];
 const nextP = all[(k + 1) % all.length];
 const name = projectName(p, lang);
 const summary = pick(p.data.summary, lang);
-const gallery = p.data.gallery.length ? p.data.gallery : [{ image: p.data.cover, alt: { tr: name, en: name } }];
+const gallery = p.data.gallery;
 const thumbs = await Promise.all(gallery.map((g) => getImage({ src: g.image, width: 192, format: 'webp', quality: 70 })));
-const og = await getImage({ src: p.data.cover, width: 1200, height: 630, fit: 'cover', format: 'jpg', quality: 80 });
+const og = await getImage({ src: coverOf(p), width: 1200, height: 630, fit: 'cover', format: 'jpg', quality: 80 });
 const projectsHash = homePath[lang] + '#' + sectionIds[lang][1];
 const contactHash = homePath[lang] + '#' + sectionIds[lang][4];
 const description = summary ?? t('meta.project.desc', { name, type: t(`c.${p.data.type}`).toLocaleLowerCase(lang === 'tr' ? 'tr-TR' : 'en-GB'), count: gallery.length, kind: t(p.data.imageType).toLocaleLowerCase(lang === 'tr' ? 'tr-TR' : 'en-GB') });
@@ -37,7 +37,7 @@ const description = summary ?? t('meta.project.desc', { name, type: t(`c.${p.dat
         {gallery.map((g, i) => (
           <figure class={i === 0 ? 'on' : undefined} data-i={i}>
             <Picture src={g.image} formats={['avif', 'webp']} fallbackFormat="webp" widths={widthsFor(g.image, [800, 1280, 1920, 2560])}
-              sizes="(max-width: 980px) 100vw, calc(100vw - 380px)" alt={g.alt[lang]}
+              sizes="(max-width: 980px) 100vw, calc(100vw - 380px)" alt={altOf(g, lang)}
               loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} />
           </figure>
         ))}

@@ -21,15 +21,16 @@ const files = (await readdir(CONTENT)).filter((f) => f.endsWith('.yaml'));
 for (const f of files) {
   const slug = f.replace(/\.yaml$/, '');
   const data = parse(await readFile(join(CONTENT, f), 'utf8'));
-  const at = (p) => resolve(dirname(join(CONTENT, f)), p);
+  // "@assets/..." (içerik panelinin yazdığı biçim) → src/assets/...; diğerleri dosyaya göre göreli
+  const at = (p) => p.startsWith('@assets/') ? resolve('src/assets', p.slice('@assets/'.length)) : resolve(dirname(join(CONTENT, f)), p);
   const tag = `[${slug}]`;
 
-  if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(slug)) errors.push(`${tag} dosya adı adres için uygun değil (küçük harf, Türkçe karakter yok, '-' ile)`);
+  if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(slug)) warnings.push(`${tag} dosya adı sadeleştirilerek adres yapılacak (Türkçe karakter/boşluk)`);
   if (!data?.name?.tr) errors.push(`${tag} name.tr eksik`);
   if (!data?.type) errors.push(`${tag} type eksik`);
-  if (!data?.cover) { errors.push(`${tag} cover eksik`); continue; }
+  if (!data?.gallery?.length) { errors.push(`${tag} en az bir galeri görseli gerekli`); continue; }
 
-  const cover = at(data.cover);
+  const cover = at(data.cover || data.gallery[0].image); // kapak yoksa galerinin ilk görseli
   const gallery = (data.gallery || []).map((g) => ({ ...g, path: at(g.image) }));
   if (!gallery.length) warnings.push(`${tag} galeri boş`);
   else if (gallery[0].path !== cover) errors.push(`${tag} kapak, galerinin ilk görseli olmalı`);
@@ -43,15 +44,15 @@ for (const f of files) {
     if (m.width < MIN_WIDTH) errors.push(`${tag} ${rel} çok küçük (${m.width}px < ${MIN_WIDTH}px)`);
     else if (m.width < GOOD_WIDTH) warnings.push(`${tag} ${rel} ${m.width}px — daha büyük sürüm (≥${GOOD_WIDTH}px) tam ekranda daha net olur`);
     if (m.width < m.height) warnings.push(`${tag} ${rel} dikey görsel; kartlarda kırpılabilir`);
-    if (kb > MAX_KB) errors.push(`${tag} ${rel} ${kb} KB (en çok ${MAX_KB} KB) — "npm run assets:renders" ile yeniden işleyin`);
-    if (m.format !== 'jpeg') errors.push(`${tag} ${rel} JPEG değil (${m.format})`);
+    if (kb > MAX_KB) warnings.push(`${tag} ${rel} ${kb} KB (en çok ${MAX_KB} KB) — büyük dosya; site otomatik küçültür ama depo büyür`);
+    if (!['jpeg', 'png', 'webp'].includes(m.format)) errors.push(`${tag} ${rel} desteklenmeyen biçim (${m.format}); JPG, PNG veya WebP olmalı`);
     if (m.space !== 'srgb') errors.push(`${tag} ${rel} renk uzayı sRGB değil (${m.space})`);
   }
 
   gallery.forEach((g, i) => {
     for (const l of ['tr', 'en']) {
       const a = g.alt?.[l]?.trim();
-      if (!a) { errors.push(`${tag} galeri ${i + 1}: alt.${l} eksik`); continue; }
+      if (!a) { warnings.push(`${tag} galeri ${i + 1}: alt.${l} boş (otomatik metin kullanılır)`); continue; }
       if (a.length < 15) warnings.push(`${tag} galeri ${i + 1}: alt.${l} çok kısa`);
       if (BANNED_ALT.test(a)) errors.push(`${tag} galeri ${i + 1}: alt.${l} içinde marka/anahtar kelime var`);
       const k = `${l}:${a.toLocaleLowerCase('tr')}`;

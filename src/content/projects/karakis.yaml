@@ -1,10 +1,10 @@
 # Bilinmeyen alanlar (summary, scope, location, year, area, status) bilgi gelene kadar boş bırakılır.
-# toVerify: tür, prototipte dosya adından tahmin edildi; marka sahibi onaylayınca satır silinir.
+# toVerify: tür, prototipte dosya adından tahmin edildi; marka sahibi onaylayınca kaldırılır.
+# Kapak = galerinin ilk görseli. Görsel yolları "@assets/projects/..." (src/assets/projects).
 name: { tr: Karakış Konutları, en: Karakış Residences }
 type: konut
-cover: ../../assets/projects/karakis/01.jpg
 gallery:
-  - image: ../../assets/projects/karakis/01.jpg
+  - image: "@assets/projects/karakis/01.jpg"
     alt: { tr: "Karakış Konutları, gri ve beyaz cepheli apartman blokları", en: "Karakış Residences, apartment blocks with grey and white façades" }
 imageType: render
 featured: true

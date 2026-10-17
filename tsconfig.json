@@ -1,5 +1,9 @@
 {
   "extends": "astro/tsconfigs/strict",
   "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist", "reference", "assets-source"]
+  "exclude": ["dist", "reference", "assets-source"],
+  "compilerOptions": {
+    // İçerik panelinin (Pages CMS) yazdığı görsel yolları: "@assets/projects/..." → src/assets/projects/...
+    "paths": { "@assets/*": ["./src/assets/*"] }
+  }
 }

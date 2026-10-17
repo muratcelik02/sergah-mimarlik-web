@@ -5,10 +5,35 @@ import { useT } from '../i18n/ui';
 export type Lang = 'tr' | 'en';
 export type Project = CollectionEntry<'projects'>;
 
-/** Tüm projeler, `order` alanına göre sıralı. */
-export async function getProjects(): Promise<Project[]> {
-  return (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order || a.id.localeCompare(b.id));
+/** Dosya adından adres parçası: Türkçe karakterler sadeleşir, boşluklar "-" olur (ör. "Karakış Evi" → "karakis-evi"). */
+export function toSlug(s: string): string {
+  const map: Record<string, string> = { ı: 'i', İ: 'i', ş: 's', Ş: 's', ğ: 'g', Ğ: 'g', ü: 'u', Ü: 'u', ö: 'o', Ö: 'o', ç: 'c', Ç: 'c', â: 'a', î: 'i', û: 'u' };
+  return s.replace(/[ıİşŞğĞüÜöÖçÇâîû]/g, (c) => map[c]).toLowerCase()
+    .normalize('NFKD').replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'proje';
 }
+
+/** Tüm projeler, `order` alanına göre sıralı. İçerik panelinden gelen eksikler tamamlanır:
+ *  kapak yoksa galerinin ilk görseli, alt metin yoksa "Proje adı, görsel N", adres Türkçe karaktersiz. */
+export async function getProjects(): Promise<Project[]> {
+  const list = await getCollection('projects');
+  for (const p of list) {
+    p.id = toSlug(p.id);
+    const d = p.data;
+    d.cover ??= d.gallery[0].image;
+    d.gallery.forEach((g, i) => {
+      const n = d.gallery.length > 1 ? `, görsel ${i + 1}` : '';
+      const nEn = d.gallery.length > 1 ? `, image ${i + 1}` : '';
+      g.alt = { tr: g.alt?.tr ?? `${d.name.tr}${n}`, en: g.alt?.en ?? `${d.name.en ?? d.name.tr}${nEn}` };
+    });
+  }
+  return list.sort((a, b) => a.data.order - b.data.order || a.id.localeCompare(b.id));
+}
+
+/** Kapak görseli (her zaman dolu: getProjects tamamlar). */
+export const coverOf = (p: Project) => p.data.cover ?? p.data.gallery[0].image;
+/** Görselin dildeki alt metni (her zaman dolu: getProjects tamamlar). */
+export const altOf = (g: Project['data']['gallery'][number], lang: Lang) => g.alt?.[lang] ?? g.alt?.tr ?? '';
 
 /** Ana sayfa slaytındaki öne çıkan projeler. */
 export async function getFeatured(): Promise<Project[]> {

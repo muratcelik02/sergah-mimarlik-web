@@ -1,10 +1,10 @@
 # Bilinmeyen alanlar (summary, scope, location, year, area, status) bilgi gelene kadar boş bırakılır.
-# toVerify: tür, prototipte dosya adından tahmin edildi; marka sahibi onaylayınca satır silinir.
+# toVerify: tür, prototipte dosya adından tahmin edildi; marka sahibi onaylayınca kaldırılır.
+# Kapak = galerinin ilk görseli. Görsel yolları "@assets/projects/..." (src/assets/projects).
 name: { tr: Torkum İnşaat Konut Projesi, en: Torkum İnşaat Housing Project }
 type: konut
-cover: ../../assets/projects/torkum/01.jpg
 gallery:
-  - image: ../../assets/projects/torkum/01.jpg
+  - image: "@assets/projects/torkum/01.jpg"
     alt: { tr: "Torkum İnşaat Konut Projesi, koyu taş kaplı dikey şeritli apartman cephesi", en: "Torkum İnşaat Housing Project, apartment façade with dark stone-clad vertical bands" }
 imageType: render
 order: 10

@@ -1,12 +1,12 @@
 # Bilinmeyen alanlar (summary, scope, location, year, area, status) bilgi gelene kadar boş bırakılır.
-# toVerify: tür, prototipte dosya adından tahmin edildi; marka sahibi onaylayınca satır silinir.
+# toVerify: tür, prototipte dosya adından tahmin edildi; marka sahibi onaylayınca kaldırılır.
+# Kapak = galerinin ilk görseli. Görsel yolları "@assets/projects/..." (src/assets/projects).
 name: { tr: M.A Evi }
 type: mustakil-ev
-cover: ../../assets/projects/ma-evi/01.jpg
 gallery:
-  - image: ../../assets/projects/ma-evi/01.jpg
+  - image: "@assets/projects/ma-evi/01.jpg"
     alt: { tr: "M.A Evi, ahşap saçaklı iki katlı evin köşe görünüşü", en: "M.A Evi, corner view of the two-storey house with timber eaves" }
-  - image: ../../assets/projects/ma-evi/02.jpg
+  - image: "@assets/projects/ma-evi/02.jpg"
     alt: { tr: "M.A Evi, cam korkuluklu balkon ve peyzajlı giriş", en: "M.A Evi, glass-railed balcony above a landscaped entrance" }
 imageType: render
 featured: true

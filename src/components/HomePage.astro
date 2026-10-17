@@ -5,7 +5,7 @@ import { Image, Picture, getImage } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import site from '../data/site.json';
 import { useT, ui, sectionIds, homePath, privacyPath, type Lang } from '../i18n/ui';
-import { getProjects, getFeatured, projectUrl, projectName, projectFacts, pick, type Project } from '../lib/projects';
+import { getProjects, getFeatured, projectUrl, projectName, projectFacts, pick, coverOf, altOf, type Project } from '../lib/projects';
 import { viewerImage, widthsFor } from '../lib/images';
 import { PROJECT_TYPES } from '../content.config';
 import mark from '../assets/brand/logo-mark.png';
@@ -36,7 +36,7 @@ const previews: Record<string, string[]> = Object.fromEntries(await Promise.all(
 ])));
 
 // Hizmet ve Hakkımızda görselleri (prototiptekiyle aynı)
-const svcImgs = [byId('karakis').data.cover, byId('me-evi').data.cover, byId('torkum').data.cover];
+const svcImgs = [coverOf(byId('karakis')), coverOf(byId('me-evi')), coverOf(byId('torkum'))];
 // Hakkımızda görseli: saydam zeminli perspektif eskizi (arkasında panelin lacivert zemini görünür)
 const aboutImg = aboutSketch;
 
@@ -63,7 +63,7 @@ const data = {
       url: projectUrl(p.id, lang),
       summary: pick(p.data.summary, lang) ?? null,
       facts: projectFacts(p, lang),
-      imgs: await Promise.all(p.data.gallery.map((g) => viewerImage(g.image, g.alt[lang]))),
+      imgs: await Promise.all(p.data.gallery.map((g) => viewerImage(g.image, altOf(g, lang)))),
     })),
   ),
 };
@@ -148,8 +148,8 @@ const orgLd = {
       <div class="slides" id="slides">
         {featured.map((p, i) => (
           <div class={i === 0 ? 'slide on' : 'slide'} data-id={p.id}>
-            <Picture src={p.data.cover} formats={['avif', 'webp']} fallbackFormat="webp" widths={widthsFor(p.data.cover, [800, 1280, 1920, 2560])} sizes="100vw"
-              alt={p.data.gallery[0]?.alt[lang] ?? ''} loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'low'} />
+            <Picture src={coverOf(p)} formats={['avif', 'webp']} fallbackFormat="webp" widths={widthsFor(coverOf(p), [800, 1280, 1920, 2560])} sizes="100vw"
+              alt={altOf(p.data.gallery[0], lang)} loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'low'} />
           </div>
         ))}
       </div>
@@ -185,7 +185,7 @@ const orgLd = {
         <div class="grid reveal" style="--d:2" id="grid">
           {projects.map((p, i) => (
             <a class={previews[p.id].length ? "card has-pv" : "card"} href={projectUrl(p.id, lang)} data-open={p.id} data-type={p.data.type} style={`--i:${i}`}>
-              <Picture src={p.data.cover} formats={['avif', 'webp']} fallbackFormat="webp" widths={widthsFor(p.data.cover, [400, 640, 960])}
+              <Picture src={coverOf(p)} formats={['avif', 'webp']} fallbackFormat="webp" widths={widthsFor(coverOf(p), [400, 640, 960])}
                 sizes="(max-width: 560px) 100vw, (max-width: 980px) 50vw, 25vw" alt="" loading="lazy" />
               {previews[p.id].length > 0 && <>
                 {previews[p.id].map((s) => <img class="pv" data-src={s} alt="" aria-hidden="true" />)}

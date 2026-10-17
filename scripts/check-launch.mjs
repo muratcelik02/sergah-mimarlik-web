@@ -3,13 +3,14 @@
 // Çalıştırma: npm run build && npm run check:launch
 import { readFile, readdir, stat } from 'node:fs/promises';
 import { join } from 'node:path';
+import { parse } from 'yaml';
 
 const problems = [];
 const site = JSON.parse(await readFile('src/data/site.json', 'utf8'));
 
 // 1) site.json içinde boş kalan alanlar
 (function walk(obj, path) {
-  if (obj === null) return problems.push(`site.json → ${path} boş`);
+  if (obj === null || obj === '') return problems.push(`site.json → ${path} boş`);
   if (Array.isArray(obj)) { if (!obj.length) problems.push(`site.json → ${path} boş liste`); return; }
   if (typeof obj === 'object') for (const [k, v] of Object.entries(obj)) walk(v, path ? `${path}.${k}` : k);
 })(site, '');
@@ -19,8 +20,8 @@ try {
   for (const f of await readdir('src/content/projects')) {
     if (!f.endsWith('.yaml')) continue;
     const txt = await readFile(join('src/content/projects', f), 'utf8');
-    const m = txt.match(/^toVerify:\s*\[(.+)\]/m);
-    if (m) problems.push(`proje ${f} → doğrulanacak: ${m[1].trim()}`);
+    const tv = (parse(txt) || {}).toVerify; // her YAML yazım biçimini okur (panelin yazdığı dahil)
+    if (Array.isArray(tv) && tv.length) problems.push(`proje ${f} → doğrulanacak: ${tv.join(', ')}`);
   }
 } catch { /* henüz proje klasörü yok */ }
 
