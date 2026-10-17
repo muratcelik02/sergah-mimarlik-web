@@ -1,0 +1,24 @@
+name:
+  tr: Torkum İnşaat Karma Kullanımlı Yapı
+  en: ''
+type: konut
+gallery:
+  - '@assets/projects/1düzenlenmiş.webp'
+  - '@assets/projects/2.webp'
+  - '@assets/projects/3.webp'
+  - '@assets/projects/4.webp'
+  - '@assets/projects/5.webp'
+galleryAlt: []
+summary: null
+scope: null
+location:
+  tr: KONYA/MERAM
+  en: ''
+year: 2026
+area: 3600
+status: konsept
+imageType: render
+featured: true
+featuredOrder: 1
+order: 1
+toVerify: []
