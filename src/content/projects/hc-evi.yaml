@@ -1,0 +1,14 @@
+# Proje kaydı. Düzenleme: site /admin paneli (Sveltia CMS) veya bu dosya. Ayrıntı: docs/CONTENT_MODEL.md
+# gallery: görsel yolları (ilki kapak) · galleryAlt: aynı sırada isteğe bağlı açıklamalar (boşsa otomatik)
+# 2026-10-17: Pages CMS denemesiyle marka sahibince eklendi; görsel kayda bağlandı.
+name:
+  tr: H.Ç. Evi
+type: mustakil-ev
+gallery:
+  - "@assets/projects/hc-evi/01.jpg"
+galleryAlt:
+  - tr: H.Ç. Evi, geometrik korkuluklu balkonları ve verandalarıyla simetrik ön cephe
+    en: H.Ç. Evi, symmetrical front façade with geometric balcony railings and verandas
+imageType: render
+featured: false
+order: 11
