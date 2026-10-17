@@ -286,3 +286,37 @@ if (seen) {
   setTimeout(finish, 6000);
   loader.addEventListener('click', finish);
 }
+
+/* ---------- Proje kartı önizlemesi (yalnızca fareyle, birden fazla görselli projelerde)
+   Hareketi azalt açıksa görseller kaymaz, yerinde değişir. ---------- */
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  cards.filter((c) => c.classList.contains('has-pv')).forEach((card) => {
+    const frames = [card.querySelector<HTMLImageElement>('picture img')!, ...card.querySelectorAll<HTMLImageElement>('.pv')];
+    const dots = Array.from(card.querySelectorAll('.pv-dots i'));
+    let k = 0, timer: number | undefined, delay: number | undefined;
+    const place = (el: HTMLElement, x: string, animate: boolean) => {
+      if (!animate || reduce) { el.style.transition = 'none'; el.style.transform = `translateX(${x})`; void el.offsetWidth; el.style.transition = ''; }
+      else el.style.transform = `translateX(${x})`;
+    };
+    const step = () => {
+      const prev = frames[k];
+      k = (k + 1) % frames.length;
+      const cur = frames[k];
+      place(cur, '-100%', false);       // yeni görsel soldan bekler
+      place(prev, '100%', true);        // eskisi sağa kayar
+      place(cur, '0', true);            // yenisi soldan gelir
+      dots.forEach((d, i) => d.classList.toggle('on', i === k));
+    };
+    card.addEventListener('mouseenter', () => {
+      card.querySelectorAll<HTMLImageElement>('.pv[data-src]').forEach((im) => { im.src = im.dataset.src!; im.removeAttribute('data-src'); });
+      clearInterval(timer);
+      timer = window.setInterval(step, 1400);
+      clearTimeout(delay); delay = window.setTimeout(step, 450);
+    });
+    card.addEventListener('mouseleave', () => {
+      clearInterval(timer); clearTimeout(delay); timer = undefined; k = 0;
+      frames.forEach((f, i) => place(f, i === 0 ? '0' : '-100%', false));
+      dots.forEach((d, i) => d.classList.toggle('on', i === 0));
+    });
+  });
+}

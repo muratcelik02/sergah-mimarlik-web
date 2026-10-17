@@ -1,7 +1,7 @@
 ---
 // Ana sayfa: açılış ekranı + 5 tam ekran panel + proje görüntüleyici. Prototipteki yapı aynen korunur.
 // "/" ve "/en/" aynı bileşeni kullanır.
-import { Image, Picture } from 'astro:assets';
+import { Image, Picture, getImage } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import site from '../data/site.json';
 import { useT, ui, sectionIds, homePath, privacyPath, type Lang } from '../i18n/ui';
@@ -27,6 +27,12 @@ const featured = await getFeatured();
 const byId = (id: string) => projects.find((p) => p.id === id) as Project;
 const counts: Record<string, number> = { all: projects.length };
 for (const ty of PROJECT_TYPES) counts[ty] = projects.filter((p) => p.data.type === ty).length;
+
+// Kart önizlemesi: birden fazla görseli olan projelerin diğer görselleri (fare üzerine gelince yüklenir)
+const previews: Record<string, string[]> = Object.fromEntries(await Promise.all(projects.map(async (p) => [
+  p.id,
+  await Promise.all(p.data.gallery.slice(1).map((g) => getImage({ src: g.image, width: 720, format: 'webp', quality: 72 }).then((r) => r.src))),
+])));
 
 // Hizmet ve Hakkımızda görselleri (prototiptekiyle aynı)
 const svcImgs = [byId('karakis').data.cover, byId('me-evi').data.cover, byId('torkum').data.cover];
@@ -82,6 +88,7 @@ const orgLd = {
   sameAs: [site.instagram],
   ...(site.email ? { email: site.email } : {}),
   ...(site.phone ? { telephone: site.phone } : {}),
+  ...(address ? { address: { '@type': 'PostalAddress', streetAddress: site.address.tr, addressLocality: 'Karatay', addressRegion: 'Konya', addressCountry: 'TR' } } : {}),
 };
 ---
 <Base lang={lang} title={t('meta.home.title')} description={t('meta.home.desc')} alternates={{ tr: homePath.tr, en: homePath.en }}>
@@ -165,7 +172,6 @@ const orgLd = {
         <div class="p-side">
           <p class="lbl reveal">{t('p.lbl')}</p>
           <h2 class="reveal" style="--d:1">{t('n1')}</h2>
-          <p class="reveal" style="--d:2">{t('p.p')}</p>
           <div class="filters reveal" style="--d:3" role="group" aria-label={t('projectType')}>
             <button type="button" data-filter="all" aria-pressed="true"><span>{t('c.all')}</span><sup>{counts.all}</sup></button>
             {PROJECT_TYPES.map((ty) => (
@@ -176,9 +182,13 @@ const orgLd = {
         </div>
         <div class="grid reveal" style="--d:2" id="grid">
           {projects.map((p, i) => (
-            <a class="card" href={projectUrl(p.id, lang)} data-open={p.id} data-type={p.data.type} style={`--i:${i}`}>
+            <a class={previews[p.id].length ? "card has-pv" : "card"} href={projectUrl(p.id, lang)} data-open={p.id} data-type={p.data.type} style={`--i:${i}`}>
               <Picture src={p.data.cover} formats={['avif', 'webp']} fallbackFormat="webp" widths={widthsFor(p.data.cover, [400, 640, 960])}
                 sizes="(max-width: 560px) 100vw, (max-width: 980px) 50vw, 25vw" alt="" loading="lazy" />
+              {previews[p.id].length > 0 && <>
+                {previews[p.id].map((s) => <img class="pv" data-src={s} alt="" aria-hidden="true" />)}
+                <span class="pv-dots" aria-hidden="true">{[0, ...previews[p.id]].map((_, k) => <i class={k === 0 ? "on" : undefined}></i>)}</span>
+              </>}
               <span class="cap"><span>{t(`c.${p.data.type}`)}</span><b>{projectName(p, lang)}</b></span>
             </a>
           ))}
@@ -191,7 +201,6 @@ const orgLd = {
       <div class="scroller"><div class="s-wrap gutter">
         <div class="s-head">
           <div><p class="lbl reveal">{t('s.lbl')}</p><h2 class="reveal" style="--d:1">{t('n2')}</h2></div>
-          <p class="reveal" style="--d:2">{t('s.p')}</p>
         </div>
         <div class="svc">
           {(['s1', 's2', 's3'] as const).map((s, i) => (
@@ -225,7 +234,7 @@ const orgLd = {
       <div class="scroller"><div class="c-wrap gutter">
         <div>
           <p class="lbl reveal">{t('k.lbl')}</p>
-          <h2 class="reveal" style="--d:1">{t('k.h')}</h2>
+          <h2 class="sr">{t('n4')}</h2>
           <a class="wa reveal" style="--d:2" id="wa-link" href={waHref ?? '#'} target={waHref ? '_blank' : undefined} rel={waHref ? 'noopener' : undefined} aria-disabled={waHref ? undefined : 'true'}>
             <span><span class="lbl" style="color:rgba(255,255,255,.7)">WhatsApp</span>
               {site.whatsapp ? <strong>{formatTr(site.whatsapp)}</strong> : <strong data-placeholder>{t('ph.phone')}</strong>}</span>
