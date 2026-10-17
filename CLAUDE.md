@@ -6,7 +6,7 @@ Bu dosya, bu projede çalışan her yapay zekâ asistanı ve geliştirici için 
 Marka tarafı web geliştirme bilmiyor ve Windows kullanıyor. Teknik kararları sen ver, her birini tek cümleyle ve basit Türkçeyle açıkla. Komut gerekiyorsa tam olarak yaz ve ne yaptığını söyle.
 
 ## Kesin kurallar
-1. **Müteahhitlik yasağı:** Sergah Mimarlık müteahhitlik, yüklenicilik ve anahtar teslim inşaat hizmeti **vermez**. Hiçbir metin bu hizmetler varmış gibi yazılmaz. Hizmetler panelindeki "müteahhitlik hizmeti vermez" notu marka sahibinin isteğiyle kaldırıldı (2026-10-16); yasak geçerliliğini korur. Verilen hizmetler: mimari tasarım ve projelendirme, iç mimarlık, inşaat süreci takibi ve proje koordinasyonu.
+1. **Müteahhitlik yasağı:** Sergah Mimarlık müteahhitlik, yüklenicilik ve anahtar teslim inşaat hizmeti **vermez**. Hiçbir metin bu hizmetler varmış gibi yazılmaz. Hizmetler panelindeki "müteahhitlik hizmeti vermez" notu marka sahibinin isteğiyle kaldırıldı (2026-10-16); yasak geçerliliğini korur. Verilen hizmetler: mimari tasarım ve projelendirme, iç mekân tasarımı, inşaat süreci takibi ve proje koordinasyonu.
 2. **Yer tutucu kuralı:** Bilinmeyen marka bilgisi (telefon, adres, e-posta, künye, referans, kurucu, hakkımızda) **uydurulmaz**. Site geneli bilgiler `src/data/site.json` içinde `null` olarak durur. Proje alanları boş bırakılır; boş alan sayfada görünmez. Tahmin edilen bilgi `toVerify` ile işaretlenir. Yayından önce `npm run check:launch` temiz olmalıdır.
 3. **Kaynak dosyalar değiştirilmez:** `reference/prototype/` ve `assets-source/`. İşlenmiş kopyaları betikler üretir.
 4. **Prototip esastır:** Görünüm ve davranış `reference/prototype/index.html` ile aynı olmalıdır. Prototipte iyi çalışan bir davranışı değiştirmeden önce kullanıcıya nedenini söyle.

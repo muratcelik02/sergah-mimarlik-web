@@ -14,7 +14,7 @@ Prototipteki sıralama aynen; logo boyutu küçültüldü (işaret 96px, yazı 1
 Geçiş: menü · noktalar · tekerlek · klavye (↑ ↓ PageUp PageDown) · dokunma kaydırması. Panel içeriği taşarsa önce panelin içi kayar, kenara gelince sonraki panele geçilir (prototipteki gibi; mobilde de aynı).
 Adres çubuğu: TR `#anasayfa #projeler #hizmetler #hakkimizda #iletisim`, EN `#home #projects #services #about #contact`.
 
-1. **Ana Sayfa:** öne çıkan projelerin renderları (6 s), öne çıkan proje adı, ← → düğmeleri ve ilerleme çizgisi. İlk görsel öncelikli yüklenir.
+1. **Ana Sayfa:** yalnızca öne çıkan projelerin renderları (6 s) + sağ altta öne çıkan proje adı, ← → ve ilerleme çizgisi. Prototipteki metin bloğu marka sahibi isteğiyle kaldırıldı. İlk görsel öncelikli yüklenir.
 2. **Projeler:** Tümü / Konut / Müstakil Ev / Ticari filtreleri + sayılar; 8 kart (4×2), fazlası sayfalı. Kartta tür ve ad (görsel sayısı etiketi marka sahibi isteğiyle kaldırıldı).
 3. **Hizmetler:** 3 kart (müteahhitlik notu marka sahibi isteğiyle kaldırıldı).
 4. **Hakkımızda:** görsel + metin (yer tutucu, `site.json`) + 6 adımlı süreç.

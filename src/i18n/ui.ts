@@ -10,10 +10,7 @@ const tr = {
   sections: 'Bölümler', language: 'Dil', otherLang: 'English', skipToContent: 'İçeriğe geç',
 
   // Ana sayfa paneli
-  'h.lbl': 'Mimari tasarım · İç mimarlık · Süreç takibi',
-  'h.a': 'Yaşanacak yapıları', 'h.b': 'birlikte tasarlayalım.',
-  'h.p': 'Villa ve konut projelerinde fikirden ruhsata, ruhsattan şantiyeye kadar tasarımın arkasında duruyoruz.',
-  'h.cta': 'Projeleri inceleyin', 'h.cta2': 'Bize ulaşın →', 'h.now': 'Öne çıkan proje',
+  'h.now': 'Öne çıkan proje',
   prevImg: 'Önceki görsel', nextImg: 'Sonraki görsel',
 
   // Projeler
@@ -27,7 +24,7 @@ const tr = {
   's.p': 'Tasarımı çizen ekip uygulamayı da takip eder; böylece fikir ile yapı arasındaki mesafe kısalır.',
   's1.h': 'Mimari tasarım', 's1.p': 'Arsa analizinden ruhsat ve uygulama projelerine kadar mimari projelendirme.',
   's1.a': 'İmar ve arsa analizi', 's1.b': 'Konsept ve avan proje', 's1.c': 'Ruhsat projesi', 's1.d': 'Uygulama projesi',
-  's2.h': 'İç mimarlık', 's2.p': 'Yeni yapılarda ve yenilemelerde iç mekân, sabit mobilya ve aydınlatma tasarımı.',
+  's2.h': 'İç mekân tasarımı', 's2.p': 'Yeni yapılarda ve yenilemelerde iç mekân, sabit mobilya ve aydınlatma tasarımı.',
   's2.a': 'Mekân kurgusu', 's2.b': 'Malzeme ve renk', 's2.c': 'Sabit mobilya', 's2.d': 'Aydınlatma',
   's3.h': 'İnşaat süreci takibi', 's3.p': 'Uygulamanın projeye uygunluğunu işveren adına takip eder, ekipleri koordine ederiz.',
   's3.a': 'Şantiye ziyaretleri', 's3.b': 'Raporlama', 's3.c': 'Koordinasyon', 's3.d': 'Teslim kontrolü',
@@ -37,14 +34,14 @@ const tr = {
   'a.ph': 'Kurucuların kısa biyografisi ve ofisin çalışma yaklaşımı eklenecek.',
   t1: 'Tanışma', t1s: 'İhtiyaç, arsa, bütçe', t2: 'Konsept', t2s: 'Kütle ve ilk görseller',
   t3: 'Avan proje', t3s: 'Planlar netleşir', t4: 'Ruhsat', t4s: 'Belediye onayı',
-  t5: 'Uygulama projesi', t5s: 'Detay ve iç mimari', t6: 'Şantiye takibi', t6s: 'Teslime kadar',
+  t5: 'Uygulama projesi', t5s: 'Detay ve iç mekân', t6: 'Şantiye takibi', t6s: 'Teslime kadar',
 
   // İletişim
   'k.lbl': 'İletişim', 'k.h': 'Projenizi konuşalım.', 'k.wa': 'Mesaj gönderin →',
   'k.tel': 'Telefon', 'k.mail': 'E-posta', 'k.addr': 'Adres',
   'ph.phone': 'Telefon eklenecek', 'ph.email': 'E-posta adresi eklenecek', 'ph.addr': 'Ofis adresi eklenecek',
   'f.h': 'Teklif ve görüşme talebi', 'f.name': 'Ad soyad', 'f.phone': 'Telefon', 'f.type': 'Proje türü',
-  'f.ic': 'İç mimarlık', 'f.loc': 'Arsa / mekân konumu', 'f.msg': 'Kısaca projeniz', 'f.send': 'Gönder',
+  'f.ic': 'İç mekân tasarımı', 'f.loc': 'Arsa / mekân konumu', 'f.msg': 'Kısaca projeniz', 'f.send': 'Gönder',
   'f.consentA': 'Kişisel verilerimin talebime yanıt verilmesi amacıyla işlenmesine ilişkin ', 'f.consentLink': 'KVKK aydınlatma metnini', 'f.consentB': ' okudum ve onaylıyorum.',
   'f.hp': 'Bu alanı boş bırakın',
   'form.ok': 'Teşekkürler, mesajınız bize ulaştı. En kısa sürede dönüş yapacağız.',
@@ -65,8 +62,8 @@ const tr = {
   'st.insaat': 'İnşaat aşamasında', 'st.tamamlandi': 'Tamamlandı',
 
   // Sayfa başlıkları
-  'meta.home.title': 'Sergah Mimarlık — Mimari Tasarım ve İç Mimarlık',
-  'meta.home.desc': 'Sergah Mimarlık: villa, konut ve ticari yapılar için mimari tasarım, iç mimarlık ve inşaat süreci takibi.',
+  'meta.home.title': 'Sergah Mimarlık — Mimari Tasarım ve İç Mekân Tasarımı',
+  'meta.home.desc': 'Sergah Mimarlık: villa, konut ve ticari yapılar için mimari tasarım, iç mekân tasarımı ve inşaat süreci takibi.',
   'meta.project.desc': '{name}: Sergah Mimarlık {type} projesi. {count} {kind} görseli.',
   '404.title': 'Sayfa bulunamadı', '404.p': 'Aradığınız sayfa taşınmış ya da hiç var olmamış olabilir.',
   '404.home': 'Ana sayfaya dön', '404.projects': 'Projeleri inceleyin',
@@ -80,10 +77,7 @@ const en: Record<UIKey, string> = {
   homeLabel: 'Sergah Mimarlık — Home', mainMenu: 'Main menu', mobileMenu: 'Mobile menu', menu: 'Menu',
   sections: 'Sections', language: 'Language', otherLang: 'Türkçe', skipToContent: 'Skip to content',
 
-  'h.lbl': 'Architecture · Interiors · Project supervision',
-  'h.a': 'Let’s design buildings', 'h.b': 'worth living in.',
-  'h.p': 'In villas and housing we stand behind the design from first idea to permit, and from permit to site.',
-  'h.cta': 'View projects', 'h.cta2': 'Contact us →', 'h.now': 'Featured project',
+  'h.now': 'Featured project',
   prevImg: 'Previous image', nextImg: 'Next image',
 
   'p.lbl': 'Portfolio',

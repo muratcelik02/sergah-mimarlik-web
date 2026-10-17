@@ -26,7 +26,7 @@ Dosya adı = adres (`ob-evi.yaml` → `/projeler/ob-evi/`). Küçük harf, Türk
 | `cover` | **evet** | görsel yolu | kart, slayt, paylaşım görseli |
 | `gallery[]` | hayır | `{ image, alt.tr, alt.en }` | kapak dahil sıralı tüm görseller |
 | `summary.tr/.en` | hayır | kısa açıklama (1–2 cümle) | |
-| `scope.tr/.en` | hayır | kapsam (ör. "Mimari proje, iç mimari") | |
+| `scope.tr/.en` | hayır | kapsam (ör. "Mimari proje, iç mekân tasarımı") | |
 | `location.tr/.en` | hayır | metin | |
 | `year` | hayır | sayı | |
 | `area` | hayır | sayı (m²) | |

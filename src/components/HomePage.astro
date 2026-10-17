@@ -145,12 +145,7 @@ const orgLd = {
         ))}
       </div>
       <div class="home-copy gutter">
-        <div>
-          <p class="lbl reveal" style="color:rgba(255,255,255,.8);--d:0">{t('h.lbl')}</p>
-          <h1 class="reveal" style="--d:1"><span>{t('h.a')}</span> <em>{t('h.b')}</em></h1>
-          <p class="reveal" style="--d:2">{t('h.p')}</p>
-          <div class="reveal" style="--d:3;display:flex;gap:12px;flex-wrap:wrap"><button class="btn" type="button" data-go="1">{t('h.cta')}</button><button class="btn" type="button" data-go="4" style="border-color:transparent">{t('h.cta2')}</button></div>
-        </div>
+        <h1 class="sr">{t('meta.home.title')}</h1>
         <div class="now reveal" style="--d:4">
           <button type="button" id="now-open"><span class="lbl">{t('h.now')} · <span id="now-kind">{t(featured[0]?.data.imageType ?? 'render')}</span></span><span class="name" id="now-name">{featured[0] && projectName(featured[0], lang)}</span></button>
           <div class="progress"><i id="prog"></i></div>
