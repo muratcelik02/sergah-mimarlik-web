@@ -46,6 +46,9 @@ Telefon · WhatsApp · e-posta · ofis adresi · Hakkımızda metni · kurucu bi
 | 2026-10-16 | Barındırma: Cloudflare Workers statik site (`wrangler.jsonc`, yalnızca `dist`; statik istekler sınırsız, ayda 3.000 derleme dakikası). Alan adı girilene kadar site arama motorlarına kapalı (noindex + robots Disallow). |
 | 2026-10-16 | Kısa telefon (≤700px yükseklik) ve alçak masaüstü (≤760px) ekranlar için ana sayfa yazısı ve form sıkılaştırıldı (prototipte taşma vardı). Stiller sayfaya gömülür. |
 | 2026-10-16 | Açılış ekranı logosu küçültüldü (marka sahibi isteği): işaret 96px, yazı 170px, çizgi 150px; telefonda en çok ekranın %22 / %44 / %40'ı. |
+| 2026-10-17 | Proje türleri: Konut (müstakil evler dahil) · Ticari · Karma Kullanım (marka sahibi isteği). Tür onayı verildi, `toVerify` işaretleri kaldırıldı. |
+| 2026-10-17 | Kart önizlemesi sağdan sola kayar (yeni görsel sağdan gelir). Hizmet görselleri projelerden bağımsız (`src/assets/services`); İç mekân ve inşaat takibi görselleri marka sahibinin verdiği görsellerle değişti. |
+| 2026-10-17 | Alan adı `sergahmimarlik.tr` ve e-posta `info@sergahmimarlik.tr` (Turhost Kurumsal 1); DNS Cloudflare'de. |
 
 ## Yapılacaklar (marka sahibinden beklenenler)
 - [x] Telefon (+90 545 871 88 79), ofis adresi (Esmira Plaza, Karatay/Konya) — 2026-10-17

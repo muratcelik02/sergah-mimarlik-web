@@ -15,7 +15,7 @@ Geçiş: menü · noktalar · tekerlek · klavye (↑ ↓ PageUp PageDown) · do
 Adres çubuğu: TR `#anasayfa #projeler #hizmetler #hakkimizda #iletisim`, EN `#home #projects #services #about #contact`.
 
 1. **Ana Sayfa:** öne çıkan projelerin renderları (6 s); solda etiket + başlık ("Mekâna anlam, yaşama değer.") + alt yazı + 2 düğme; sağ altta öne çıkan proje adı, ← → ve ilerleme çizgisi. İlk görsel öncelikli yüklenir.
-2. **Projeler:** Tümü / Konut / Müstakil Ev / Ticari filtreleri + sayılar; 8 kart (4×2), fazlası sayfalı. Kartta tür ve ad. Fare üzerine gelince çok görselli projelerin tüm görselleri soldan sağa kayarak gösterilir (üstte ilerleme çizgileri). Bölüm alt metni kaldırıldı.
+2. **Projeler:** Tümü / Konut / Ticari / Karma Kullanım filtreleri (2026-10-17: müstakil ev konuta katıldı) + sayılar; 8 kart (4×2), fazlası sayfalı. Kartta tür ve ad. Fare üzerine gelince çok görselli projelerin tüm görselleri sağdan sola kayarak gösterilir (yeni görsel sağdan gelir) (üstte ilerleme çizgileri). Bölüm alt metni kaldırıldı.
 3. **Hizmetler:** 3 kart, görseller eşit yükseklikte. Bölüm açıklaması ve müteahhitlik notu kaldırıldı.
 4. **Hakkımızda:** görsel + marka metni (`site.json → about`; son paragraf vurgulu kapanış) + 3 bilgi kutusu (`site.json → stats`; sayılar sabit; üçüncü kutu "Tasarım & Takip"). Görünür başlık ve 6 adımlı süreç listesi kaldırıldı. Zemin `#12283A`, görsel saydam zeminli eskiz.
 5. **İletişim:** (görünür başlık kaldırıldı) WhatsApp kutusu (numara yazmaz, telefonla aynı numaraya gider), telefon, e-posta, Instagram, adres; form (+ KVKK onay kutusu, spam koruması); alt bilgide © ve KVKK bağlantısı.

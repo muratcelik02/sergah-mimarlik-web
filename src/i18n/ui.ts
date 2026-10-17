@@ -18,7 +18,7 @@ const tr = {
 
   // Projeler
   'p.lbl': 'Portföy',
-  'c.all': 'Tümü', 'c.konut': 'Konut', 'c.mustakil-ev': 'Müstakil Ev', 'c.ticari': 'Ticari',
+  'c.all': 'Tümü', 'c.konut': 'Konut', 'c.karma': 'Karma Kullanım', 'c.ticari': 'Ticari',
   projectType: 'Proje türü', prevPage: 'Önceki sayfa', nextPage: 'Sonraki sayfa', images: 'görsel',
 
   // Hizmetler
@@ -82,7 +82,7 @@ const en: Record<UIKey, string> = {
   prevImg: 'Previous image', nextImg: 'Next image',
 
   'p.lbl': 'Portfolio',
-  'c.all': 'All', 'c.konut': 'Housing', 'c.mustakil-ev': 'Detached House', 'c.ticari': 'Commercial',
+  'c.all': 'All', 'c.konut': 'Housing', 'c.karma': 'Mixed Use', 'c.ticari': 'Commercial',
   projectType: 'Project type', prevPage: 'Previous page', nextPage: 'Next page', images: 'images',
 
   's.lbl': 'What we do',

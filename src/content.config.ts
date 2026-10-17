@@ -11,7 +11,7 @@ const blank = <T extends z.ZodType>(schema: T) =>
 
 const text = blank(z.object({ tr: blank(z.string().optional()), en: blank(z.string().optional()) }).optional());
 
-export const PROJECT_TYPES = ['konut', 'mustakil-ev', 'ticari'] as const;
+export const PROJECT_TYPES = ['konut', 'ticari', 'karma'] as const;
 export const PROJECT_STATUSES = ['konsept', 'proje', 'ruhsat', 'insaat', 'tamamlandi'] as const;
 
 const projects = defineCollection({

@@ -295,7 +295,7 @@ form button[disabled] { opacity: .6; cursor: progress; }
 }
 /* Proje kartı önizlemesi: fare üzerindeyken projenin tüm görselleri soldan sağa kayarak gösterilir */
 .card .pv { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.card.has-pv .pv, .card.has-pv:hover .pv { transform: translateX(-100%); }
+.card.has-pv .pv, .card.has-pv:hover .pv { transform: translateX(100%); }
 .card.has-pv img { transition: transform .8s var(--ease); }
 .card.has-pv:hover picture img { transform: none; }
 .card .pv-dots { position: absolute; left: 16px; right: 16px; top: 12px; display: flex; gap: 4px; opacity: 0; transition: opacity .3s; z-index: 1; }

@@ -56,7 +56,7 @@ collections:
         widget: select
         options:
           - { label: Konut, value: konut }
-          - { label: Müstakil Ev, value: mustakil-ev }
+          - { label: Karma Kullanım, value: karma }
           - { label: Ticari, value: ticari }
       - name: gallery
         label: "Görseller (sürükleyip bırakın; ilk görsel kapak olur)"

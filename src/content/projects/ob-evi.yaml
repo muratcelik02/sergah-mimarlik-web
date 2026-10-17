@@ -2,7 +2,7 @@
 # gallery: görsel yolları (ilki kapak) · galleryAlt: aynı sırada isteğe bağlı açıklamalar (boşsa otomatik)
 name:
   tr: O.B Evi
-type: mustakil-ev
+type: konut
 gallery:
   - "@assets/projects/ob-evi/01.jpg"
   - "@assets/projects/ob-evi/02.jpg"

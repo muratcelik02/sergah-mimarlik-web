@@ -302,9 +302,9 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
       const prev = frames[k];
       k = (k + 1) % frames.length;
       const cur = frames[k];
-      place(cur, '-100%', false);       // yeni görsel soldan bekler
-      place(prev, '100%', true);        // eskisi sağa kayar
-      place(cur, '0', true);            // yenisi soldan gelir
+      place(cur, '100%', false);        // yeni görsel sağda bekler
+      place(prev, '-100%', true);       // eskisi sola kayar
+      place(cur, '0', true);            // yenisi sağdan gelir
       dots.forEach((d, i) => d.classList.toggle('on', i === k));
     };
     card.addEventListener('mouseenter', () => {
@@ -315,7 +315,7 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     });
     card.addEventListener('mouseleave', () => {
       clearInterval(timer); clearTimeout(delay); timer = undefined; k = 0;
-      frames.forEach((f, i) => place(f, i === 0 ? '0' : '-100%', false));
+      frames.forEach((f, i) => place(f, i === 0 ? '0' : '100%', false));
       dots.forEach((d, i) => d.classList.toggle('on', i === 0));
     });
   });

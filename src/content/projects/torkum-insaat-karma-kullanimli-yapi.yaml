@@ -1,7 +1,7 @@
 name:
   tr: Torkum İnşaat Karma Kullanımlı Yapı
   en: ''
-type: konut
+type: karma
 gallery:
   - '@assets/projects/1düzenlenmiş.webp'
   - '@assets/projects/2.webp'

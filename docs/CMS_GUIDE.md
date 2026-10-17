@@ -57,7 +57,7 @@ GitHub → sağ üst profil → **Settings** → **Applications** → **Installe
 ### Yeni proje eklemek
 1. **Projeler** → sağ üstte **New Proje** (Yeni).
 2. **Proje adı → Türkçe**: örn. `H.Ç. Evi` (zorunlu). İngilizce boşsa Türkçesi kullanılır.
-3. **Proje türü**: Konut / Müstakil Ev / Ticari.
+3. **Proje türü**: Konut (müstakil evler dahil) / Ticari / Karma Kullanım.
 4. **Görseller**: render dosyalarını kutuya **sürükleyip bırakın** (birden fazla seçebilirsiniz). Büyük PNG'ler yüklenirken **otomatik küçültülür** (WebP, en uzun kenar 2560 px) — sizin bir şey yapmanıza gerek yok.
    - **İlk görsel kapaktır.** Sırayı görsellerin yanındaki tutamaçla sürükleyerek değiştirebilirsiniz.
 5. İsteğe bağlı alanlar (boş bırakılan sitede hiç görünmez): Kısa açıklama, Kapsam, Konum, Yıl, Alan (m²), Durum.

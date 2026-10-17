@@ -23,7 +23,7 @@ Dosya adı = adres (`ob-evi.yaml` → `/projeler/ob-evi/`). Küçük harf, Türk
 | Alan | Zorunlu | Tür | Not |
 |---|---|---|---|
 | `name.tr` / `name.en` | **tr zorunlu** | metin | `en` boşsa `tr` kullanılır |
-| `type` | **evet** | `konut` · `mustakil-ev` · `ticari` | |
+| `type` | **evet** | `konut` · `ticari` · `karma` | müstakil evler `konut` sayılır; `karma` = karma kullanımlı yapı |
 | `cover` | **evet** | görsel yolu | kart, slayt, paylaşım görseli |
 | `gallery[]` | hayır | `{ image, alt.tr, alt.en }` | kapak dahil sıralı tüm görseller |
 | `summary.tr/.en` | hayır | kısa açıklama (1–2 cümle) | |
@@ -46,7 +46,7 @@ Menü, düğme, hizmet ve süreç metinleri. Prototipteki çeviriler aynen taş�
 ## Örnek
 ```yaml
 name: { tr: O.B Evi }            # en boş → "O.B Evi" kullanılır
-type: mustakil-ev
+type: konut
 cover: ../../assets/projects/ob-evi/01.jpg
 gallery:
   - image: ../../assets/projects/ob-evi/01.jpg
