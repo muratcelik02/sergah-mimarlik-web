@@ -18,7 +18,7 @@ Tüm belirteçler **tek dosyada** tanımlıdır: `src/styles/tokens.css`. Bileş
 
 Bakır yalnızca vurgu içindir; büyük alan boyamak için kullanılmaz.
 
-Hakkımızda paneli (taslak): zemin `--navy-deep` `#12283A` (ana sayfa slaytıyla aynı; saydam zeminli eskiz bu zemine oturur, bakır vurgular korunur).
+Hakkımızda paneli: zemin `--navy-deep` `#12283A` (ana sayfa slaytıyla aynı; saydam zeminli eskiz bu zemine oturur, bakır vurgular korunur).
 
 ## Yazı tipleri
 - **Başlık:** Cormorant Garamond 500 / 600 / 500 italik — `--serif`

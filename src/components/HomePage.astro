@@ -224,7 +224,7 @@ const orgLd = {
         <div class="a-img reveal"><Picture src={aboutImg} formats={['avif', 'webp']} fallbackFormat="webp" widths={widthsFor(aboutImg, [640, 960, 1400])} sizes="(max-width: 980px) 100vw, 50vw" alt={lang === 'tr' ? 'Çok katlı bir konut projesinin perspektif eskizi' : 'Perspective sketch of a multi-storey residential project'} loading="lazy" /></div>
         <div>
           <p class="lbl reveal" style="--d:1">{t('a.lbl')}</p>
-          <h2 class="reveal" style="--d:2">{t('a.h')}</h2>
+          <h2 class="sr">{t('n3')}</h2>
           {about ? (
             <div class="a-text reveal" style="--d:3">
               {aboutParas.slice(0, -1).map((para) => <p>{para}</p>)}
@@ -238,7 +238,7 @@ const orgLd = {
                   <dt>{s.label[lang]}</dt>
                   <dd>{'value' in s && s.value != null
                     ? <><span data-count-to={s.value}>{s.value}</span>{s.suffix ?? ''}</>
-                    : s.text?.[lang]}</dd>
+                    : (s.text?.[lang] ?? '').split('&').map((part, j, all) => <>{part.trim()}{j < all.length - 1 && <span class="amp">&amp;</span>}</>)}</dd>
                 </div>
               ))}
             </dl>

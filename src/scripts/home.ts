@@ -321,12 +321,12 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
   });
 }
 
-/* ---------- Hakkımızda: sayılar panel açıldıkça 0'dan sayar ---------- */
+/* ---------- Hakkımızda: sayılar panel açıldıkça 0'dan sayar (marka sahibi isteği: hareketi azalt
+   açıkken de çalışır; yalnızca rakam değişir, ekranda kayma yoktur) ---------- */
 const counters = Array.from(document.querySelectorAll<HTMLElement>('[data-count-to]'));
 function runCounters() {
   counters.forEach((el) => {
     const to = Number(el.dataset.countTo);
-    if (reduce) { el.textContent = String(to); return; }
     const start = performance.now(), dur = 1600;
     const tick = (now: number) => {
       const p = Math.min(1, (now - start) / dur), eased = 1 - Math.pow(1 - p, 3);
@@ -346,4 +346,6 @@ if (aboutPanel && counters.length) {
     wasActive = on;
   })
     .observe(aboutPanel, { attributes: true, attributeFilter: ['class'] });
+  // Sayfa doğrudan Hakkımızda'da açıldıysa da say
+  if (aboutPanel.classList.contains('active')) { wasActive = true; runCounters(); }
 }

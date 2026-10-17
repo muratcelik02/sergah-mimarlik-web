@@ -31,7 +31,7 @@ const tr = {
   's3.a': 'Şantiye kontrolleri', 's3.b': 'Raporlama', 's3.c': 'Koordinasyon', 's3.d': 'Teslim kontrolü',
 
   // Hakkımızda
-  'a.lbl': 'Ofis', 'a.h': 'Yere, ihtiyaca ve bütçeye göre tasarım.',
+  'a.lbl': 'Ofis',
   'a.ph': 'Kurucuların kısa biyografisi ve ofisin çalışma yaklaşımı eklenecek.',
 
   // İletişim
@@ -93,7 +93,7 @@ const en: Record<UIKey, string> = {
   's3.h': 'Construction supervision', 's3.p': 'We check on the client’s behalf that construction follows the design, and coordinate the teams.',
   's3.a': 'Site inspections', 's3.b': 'Reporting', 's3.c': 'Coordination', 's3.d': 'Handover check',
 
-  'a.lbl': 'Studio', 'a.h': 'Design shaped by site, needs and budget.',
+  'a.lbl': 'Studio',
   'a.ph': 'Short founder biographies and the studio’s approach will be added.',
 
   'k.lbl': 'Contact', 'k.wa': 'Send a message →',

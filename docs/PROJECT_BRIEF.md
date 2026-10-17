@@ -1,7 +1,7 @@
 # Proje Özeti — Sergah Mimarlık Web Sitesi
 
 ## Amaç
-Yeni kurulan Sergah Mimarlık ofisi için iki dilli (TR varsayılan, EN), hızlı, yayına hazır bir tanıtım sitesi. Sitenin görevi; projeleri göstermek, hizmetleri anlatmak ve ziyaretçiyi iletişime (form / WhatsApp) yönlendirmek.
+Sergah Mimarlık (marka sahibine göre 2008'den beri, 300+ proje deneyimi) için iki dilli (TR varsayılan, EN), hızlı, yayına hazır bir tanıtım sitesi. Sitenin görevi; projeleri göstermek, hizmetleri anlatmak ve ziyaretçiyi iletişime (form / WhatsApp) yönlendirmek.
 
 ## Marka
 - **Ad:** Sergah Mimarlık (İngilizce sayfalarda da marka adı "Sergah Mimarlık" olarak kalır; açıklama metinlerinde "Sergah Architecture" kullanılmaz — bkz. karar kaydı).
@@ -32,6 +32,7 @@ Telefon · WhatsApp · e-posta · ofis adresi · Hakkımızda metni · kurucu bi
 | 2026-10-16 | O.B Evi renderları (eski "SM" logolu) logosuzları gelene kadar kullanılır → yapılacaklar listesinde. |
 | 2026-10-16 | İngilizce sürüm ayrı adreste (`/en/`); dil düğmesi o adrese gider, bulunulan bölüm korunur. |
 | 2026-10-16 | Yazı tipleri siteyle birlikte barındırılır (Google'a istek gitmez; KVKK ve hız). |
+| 2026-10-17 | Hakkımızda (marka sahibi metni): başlık kaldırıldı; 2 paragraf + bakır italik kapanış; bilgi kutuları 2008 · 300+ (0'dan sayar, hareketi azalt açıkken de) · "Tasarım & Takip"; saydam eskiz görseli; zemin slayt laciverti `#12283A`; 6 adımlı süreç listesi kaldırıldı. Metindeki "müteahhitlik deneyimi" ifadesi marka sahibi onayıyla kaldı. |
 | 2026-10-17 | Projeler alt metni ve Hizmetler açıklaması ("Tasarımı çizen ekip…") kaldırıldı; İletişim başlığı ("Projenizi konuşalım.") kaldırıldı. "Sabit mobilya" → "Mobilya", "Şantiye ziyaretleri" → "Şantiye kontrolleri". Hizmet görselleri eşit yükseklikte. Proje kartlarında fareyle önizleme (çok görselli projelerde görseller soldan sağa kayar; hareketi azalt açıksa yerinde değişir). Telefon ve adres eklendi. |
 | 2026-10-17 | "İç mimarlık" → "İç mekân tasarımı". Ana sayfa yazısı yenilendi (marka sahibi): başlık "Mekâna anlam, *yaşama değer.*", alt yazı "İhtiyaçlardan ilham alan, bulunduğu yerle bağ kuran ve geleceğe değer katan mekânlar tasarlıyoruz." (Yazı bloğunu kaldırma denemesi geri alındı.) |
 | 2026-10-16 | Hizmetler panelindeki müteahhitlik notu ve proje kartlarındaki "N görsel" etiketi kaldırıldı (marka sahibi isteği). Müteahhitlik ima eden dil yasağı sürer. |
@@ -48,7 +49,8 @@ Telefon · WhatsApp · e-posta · ofis adresi · Hakkımızda metni · kurucu bi
 ## Yapılacaklar (marka sahibinden beklenenler)
 - [x] Telefon (+90 545 871 88 79), ofis adresi (Esmira Plaza, Karatay/Konya) — 2026-10-17
 - [ ] WhatsApp numarası (telefonla aynı mı?), e-posta
-- [ ] Hakkımızda metni, kurucu bilgileri (TR + EN)
+- [x] Hakkımızda metni (TR; EN çevirisi asistan tarafından) — 2026-10-17
+- [ ] Kurucu bilgileri (isteğe bağlı)
 - [ ] Proje künyeleri (konum, yıl, m², durum, açıklama) ve türlerin onayı
 - [ ] O.B Evi renderlarının logosuz sürümleri
 - [ ] (İsteğe bağlı) Filigransız renderlar; vektör (SVG/PDF) logo dosyası
