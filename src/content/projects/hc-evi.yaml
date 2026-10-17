@@ -1,6 +1,6 @@
 name:
-  tr: H.Ç. Evi
-  en: ''
+  tr: H.C. Evi
+  en: H.C. House
 type: konut
 gallery:
   - '@assets/projects/Güneşli Modern Villa.webp'
@@ -18,7 +18,9 @@ galleryAlt:
     en: ''
 summary: null
 scope: null
-location: null
+location:
+  tr: KONYA/SELÇUKLU
+  en: KONYA/SELÇUKLU
 year: 2026
 area: 1000
 status: ''
