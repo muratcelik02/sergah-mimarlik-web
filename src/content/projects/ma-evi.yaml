@@ -15,5 +15,3 @@ imageType: render
 featured: true
 featuredOrder: 4
 order: 3
-toVerify:
-  - type

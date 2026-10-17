@@ -13,6 +13,9 @@ import word from '../assets/brand/logo-word.png';
 import markWhite from '../assets/brand/logo-mark-white.png';
 import wordWhite from '../assets/brand/logo-word-white.png';
 import aboutSketch from '../assets/about/hakkimizda-eskiz-saydam.webp';
+import svcDesign from '../assets/services/mimari-tasarim.jpg';
+import svcInterior from '../assets/services/ic-mekan.jpg';
+import svcSite from '../assets/services/insaat-takibi.jpg';
 import '../styles/home.css';
 import '../styles/viewer.css';
 
@@ -25,7 +28,6 @@ const navKeys = ['n0', 'n1', 'n2', 'n3', 'n4'] as const;
 
 const projects = await getProjects();
 const featured = await getFeatured();
-const byId = (id: string) => projects.find((p) => p.id === id) as Project;
 const counts: Record<string, number> = { all: projects.length };
 for (const ty of PROJECT_TYPES) counts[ty] = projects.filter((p) => p.data.type === ty).length;
 
@@ -35,8 +37,8 @@ const previews: Record<string, string[]> = Object.fromEntries(await Promise.all(
   await Promise.all(galleryOf(p).slice(1).map((g) => getImage({ src: g.image, width: 720, format: 'webp', quality: 72 }).then((r) => r.src))),
 ])));
 
-// Hizmet ve Hakkımızda görselleri (prototiptekiyle aynı)
-const svcImgs = [coverOf(byId('karakis')), coverOf(byId('me-evi')), coverOf(byId('torkum'))];
+// Hizmet görselleri (prototiptekiyle aynı). Projelerden bağımsız kopyalar: panelden proje silinse de site derlenir.
+const svcImgs = [svcDesign, svcInterior, svcSite];
 // Hakkımızda görseli: saydam zeminli perspektif eskizi (arkasında panelin lacivert zemini görünür)
 const aboutImg = aboutSketch;
 
