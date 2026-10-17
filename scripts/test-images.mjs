@@ -65,11 +65,18 @@ for (const f of files) {
 }
 
 // Hiçbir kayıtta kullanılmayan görsel dosyası
-for (const dir of await readdir(ASSETS)) {
-  if (!files.includes(`${dir}.yaml`)) warnings.push(`[${dir}] görsel klasörü var ama proje kaydı yok`);
-  for (const img of await readdir(join(ASSETS, dir))) {
-    const rel = `${ASSETS}/${dir}/${img}`;
-    if (!referenced.has(rel)) warnings.push(`[${dir}] kullanılmayan görsel: ${rel}`);
+// (Panel yeni görselleri doğrudan src/assets/projects içine, alt klasörsüz kaydeder.)
+for (const name of await readdir(ASSETS)) {
+  const full = join(ASSETS, name);
+  if (!(await stat(full)).isDirectory()) {
+    const rel = `${ASSETS}/${name}`;
+    if (!referenced.has(rel)) warnings.push(`kullanılmayan görsel: ${rel}`);
+    continue;
+  }
+  if (!files.includes(`${name}.yaml`)) warnings.push(`[${name}] görsel klasörü var ama proje kaydı yok`);
+  for (const img of await readdir(full)) {
+    const rel = `${ASSETS}/${name}/${img}`;
+    if (!referenced.has(rel)) warnings.push(`[${name}] kullanılmayan görsel: ${rel}`);
   }
 }
 

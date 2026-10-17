@@ -72,6 +72,8 @@ GitHub → sağ üst profil → **Settings** → **Applications** → **Installe
 - Silmek için proje açıkken menüden **Delete** (Sil). *Silme geri alınabilir ama geliştirici yardımı gerekir.*
 
 ### Görsel açıklamaları (isteğe bağlı)
+⚠ Açıklamalar görsellerle **sırayla** eşleşir. Görsellerin sırasını değiştirir ya da başa yeni görsel eklerseniz açıklamaların sırasını da aynı şekilde düzenleyin (emin değilseniz açıklamaları boş bırakın; otomatik metin her zaman doğrudur).
+
 "Görsel açıklamaları" listesine görsellerle **aynı sırada** kısa açıklamalar yazabilirsiniz (ör. "bahçeden geniş verandalı cephe"). Boş bırakılırsa site "Proje adı, görsel 1" gibi otomatik açıklama kullanır. Açıklamalar arama motorları ve görme engelli ziyaretçiler için faydalıdır.
 
 ### İletişim, adres, Hakkımızda
