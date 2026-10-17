@@ -331,3 +331,5 @@ form button[disabled] { opacity: .6; cursor: progress; }
 #p-about .a-img img { object-fit: contain; }
 /* Bilgi kutusundaki "&": başlık yazı tipinin italik ve işareti, bakır renkte */
 .a-stats .amp { font-style: italic; color: var(--copper-light); margin: 0 .22em; }
+/* İletişim ve Hakkımızda bilgi kutularında rakamlar düz hizalı (Cormorant'ın varsayılan eski stil rakamları satırdan sarkıyor) */
+.chan strong, .chan a, .wa strong, .a-stats dd { font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }

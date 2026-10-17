@@ -15,7 +15,7 @@ Marka tarafı web geliştirme bilmiyor ve Windows kullanıyor. Teknik kararları
 
 ## Tasarım belirteçleri (tek kaynak: `src/styles/tokens.css`)
 - Renkler: paper `#F3F2EE` · navy `#1E3C54` · navy-deep `#12283A` · steel `#6C7880` · copper `#C47A4A` (tek vurgu) · copper-light `#E6B28C` · line `#D8DAD6`
-- Yazı: başlık **Cormorant Garamond** 500/600/500i · gövde **Hanken Grotesk** 300–600
+- Yazı: başlık **Cormorant Garamond** 500/600/500i · gövde **Hanken Grotesk** 300–600 · iletişim bilgileri ve bilgi kutularında düz hizalı rakamlar (`lnum`)
 - Hareket: `cubic-bezier(.7,0,.2,1)`, panel 1.05 s, slayt 6 s; `prefers-reduced-motion` → animasyonsuz
 - Kırılımlar: 1180 / 980 / 560 px. Mobilde de prototipteki panel düzeni korunur.
 
