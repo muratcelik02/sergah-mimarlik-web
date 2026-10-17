@@ -9,7 +9,7 @@ Panelde yaptığınız her kayıt GitHub'a işlenir ve site **3–5 dakika** iç
 
 ## A. Bir kez yapılacak kurulum (giriş sistemi)
 
-Panele "GitHub ile giriş" düğmesiyle girebilmek için küçük, ücretsiz bir giriş aracı kurulur. Toplam ~10 dakika.
+**Durum (2026-10-17): kurulum tamamlandı** — giriş aracı `https://sveltia-cms-auth.murat42celik.workers.dev`, GitHub OAuth uygulaması "Sergah İçerik Paneli". Aşağıdaki adımlar yeniden kurulum gerekirse diye duruyor.
 
 ### 1. Giriş aracını Cloudflare'e kurun
 1. https://github.com/sveltia/sveltia-cms-auth adresine gidin.

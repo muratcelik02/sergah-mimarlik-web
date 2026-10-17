@@ -6,7 +6,8 @@ backend:
   name: github
   repo: muratcelik02/sergah-mimarlik-web
   branch: main
-  # base_url: GitHub ile giriş için kimlik doğrulama adresi (Cloudflare Worker kurulunca eklenecek)
+  # GitHub ile giriş aracı (Cloudflare Worker "sveltia-cms-auth"; GITHUB_CLIENT_ID/SECRET ve ALLOWED_DOMAINS orada)
+  base_url: https://sveltia-cms-auth.murat42celik.workers.dev
 
 site_url: https://sergah-mimarlik-web.murat42celik.workers.dev
 display_url: https://sergah-mimarlik-web.murat42celik.workers.dev
