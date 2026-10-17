@@ -63,3 +63,10 @@ npm run test:images
 npm run check:site
 npm run check:launch
 ```
+
+## Canlı yayın kontrolü (2026-10-17, https://sergah-mimarlik-web.murat42celik.workers.dev)
+- 25 sayfa 200, olmayan adres 404 (özel sayfa), `/projeler/ob-evi` → `/projeler/ob-evi/` yönlendirmesi.
+- Form bağlı (Web3Forms anahtarı Cloudflare derleme değişkeninden), doğrulama mesajları çalışıyor.
+- canonical / Open Graph adresleri canlı adresi gösteriyor; tüm sayfalar `noindex`, `robots.txt` → `Disallow: /` (geçici yayın, bilinçli).
+- Başlıklar: `X-Content-Type-Options: nosniff`, `Referrer-Policy`, `/_astro/*` 1 yıl `immutable` önbellek.
+- Lighthouse (canlı): mobil 99 / 100 / 100 / SEO 69 · masaüstü 100 / 100 / 100 / SEO 69 — SEO puanı yalnızca bilinçli `noindex` yüzünden; alan adıyla açılınca kalkar. Mobil LCP 1.5 s, masaüstü 0.6 s. Tüm görsel istekleri 200 (AVIF/WebP).
