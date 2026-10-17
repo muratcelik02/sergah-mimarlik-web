@@ -92,8 +92,8 @@ for (const url of pages.keys()) {
 }
 const robots = await readFile(join(DIST, 'robots.txt'), 'utf8').catch(() => '');
 const site = JSON.parse(await readFile('src/data/site.json', 'utf8'));
-if (site.domain && !/Sitemap: https?:\/\/\S+sitemap-index\.xml/.test(robots)) errors.push('robots.txt site haritası adresi eksik');
-if (!site.domain) warnings.push('Alan adı yok: geçici yayın arama motorlarına kapalı (robots.txt Disallow + noindex) — beklenen');
+if (site.domain && site.searchEngines && !/Sitemap: https?:\/\/\S+sitemap-index\.xml/.test(robots)) errors.push('robots.txt site haritası adresi eksik');
+if (!site.domain || !site.searchEngines) warnings.push('Site arama motorlarına kapalı (robots.txt Disallow + noindex): alan adı veya searchEngines ayarı kapalı');
 
 console.log(`\n${pages.size} sayfa kontrol edildi. Dış bağlantılar (elle kontrol edilir):`);
 for (const e of external) console.log('  · ' + e);

@@ -9,8 +9,8 @@ backend:
   # GitHub ile giriş aracı (Cloudflare Worker "sveltia-cms-auth"; GITHUB_CLIENT_ID/SECRET ve ALLOWED_DOMAINS orada)
   base_url: https://sveltia-cms-auth.murat42celik.workers.dev
 
-site_url: https://sergah-mimarlik-web.murat42celik.workers.dev
-display_url: https://sergah-mimarlik-web.murat42celik.workers.dev
+site_url: https://sergahmimarlik.tr
+display_url: https://sergahmimarlik.tr
 
 # Yüklenen görseller src/assets/projects klasörüne kaydedilir; dosyalara "@assets/projects/..." yazılır
 media_folder: src/assets/projects
@@ -185,4 +185,5 @@ collections:
                   - { name: tr, label: Türkçe, widget: string, required: false }
                   - { name: en, label: İngilizce, widget: string, required: false }
           - { name: domain, label: "Alan adı (teknik — ör. https://sergahmimarlik.com; dolunca site arama motorlarına açılır)", widget: string, required: false }
+          - { name: searchEngines, label: "Arama motorlarına açık (teknik — KVKK metni onaylanınca açılır)", widget: boolean, default: false, required: false }
           - { name: previewUrl, label: "Geçici yayın adresi (teknik)", widget: string, required: false }

@@ -6,7 +6,7 @@
     "tr": "Merhaba, Sergah Mimarlık web sitesinden yazıyorum. Projem hakkında görüşmek istiyorum.",
     "en": "Hello, I'm writing from the Sergah Mimarlık website. I'd like to talk about my project."
   },
-  "email": "",
+  "email": "info@sergahmimarlik.tr",
   "address": {
     "tr": "Araplar Mahallesi, Fetih Cd. No:48 Daire:37, Esmira Plaza, Karatay/Konya",
     "en": "Esmira Plaza, Araplar Mahallesi, Fetih Cd. No:48, Flat 37, Karatay/Konya, Türkiye"
@@ -50,6 +50,7 @@
     }
   ],
   "founders": [],
-  "domain": "",
+  "domain": "https://sergahmimarlik.tr",
+  "searchEngines": false,
   "previewUrl": "https://sergah-mimarlik-web.murat42celik.workers.dev"
 }

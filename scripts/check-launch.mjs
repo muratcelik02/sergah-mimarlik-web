@@ -8,8 +8,10 @@ import { parse } from 'yaml';
 const problems = [];
 const site = JSON.parse(await readFile('src/data/site.json', 'utf8'));
 
-// 1) site.json içinde boş kalan alanlar
+// 1) site.json içinde boş kalan alanlar (isteğe bağlı olanlar hariç)
+const OPTIONAL = new Set(['founders']);
 (function walk(obj, path) {
+  if (OPTIONAL.has(path)) return;
   if (obj === null || obj === '') return problems.push(`site.json → ${path} boş`);
   if (Array.isArray(obj)) { if (!obj.length) problems.push(`site.json → ${path} boş liste`); return; }
   if (typeof obj === 'object') for (const [k, v] of Object.entries(obj)) walk(v, path ? `${path}.${k}` : k);

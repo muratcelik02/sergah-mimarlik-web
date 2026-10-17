@@ -1,7 +1,7 @@
 # İçerik Paneli Kılavuzu (Sveltia CMS)
 
-Panel adresi: **https://sergah-mimarlik-web.murat42celik.workers.dev/admin/**
-(Alan adı alınınca: `https://<alan-adı>/admin/`)
+Panel adresi: **https://sergahmimarlik.tr/admin/**
+(Yedek adres: https://sergah-mimarlik-web.murat42celik.workers.dev/admin/)
 
 Panelde yaptığınız her kayıt GitHub'a işlenir ve site **3–5 dakika** içinde kendiliğinden güncellenir. Ayrıca bir "yayınla" adımı yoktur.
 
@@ -81,7 +81,8 @@ GitHub → sağ üst profil → **Settings** → **Applications** → **Installe
 - Telefon, WhatsApp (yalnızca rakam: `905458718879`), e-posta, adres, harita bağlantısı.
 - **Hakkımızda metni**: paragrafları **boş satırla** ayırın; **son paragraf** sitede bakır renkli, italik kapanış cümlesi olarak görünür.
 - **Bilgi kutuları**: sayı (ör. 2008) + sonuna ek (ör. `+`) **ya da** sayı yerine yazı (ör. `Tasarım & Takip`), altında alt yazı.
-- **Alan adı** (teknik): alan adı alınıp bağlandıktan sonra doldurulur; doldurulunca site arama motorlarına açılır.
+- **Alan adı** (teknik): `https://sergahmimarlik.tr`.
+- **Arama motorlarına açık** (teknik): KVKK metni onaylanınca işaretlenir. İşaretlenmeden site Google'da görünmez.
 
 ### "Henüz doğrulanmamış bilgiler"
 Bazı projelerde "Proje türü" işaretli: türü tahminen girildi demektir. Tür doğruysa işareti kaldırıp kaydedin. Hepsi temizlenmeden gerçek alan adına geçilmez.
