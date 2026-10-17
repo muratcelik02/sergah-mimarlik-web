@@ -5,7 +5,8 @@ Bilinmeyen her değer **`null`**'dır. Sitede `null` alan için görünür bir "
 
 | Alan | Tür | Şu an |
 |---|---|---|
-| `domain` | metin (`https://…`) | `null` |
+| `domain` | metin (`https://…`) | `null` — dolunca site arama motorlarına açılır |
+| `previewUrl` | metin | geçici yayın adresi (`…workers.dev`); `domain` boşken sayfa adresleri bunu kullanır |
 | `phone` | metin (`+90…`) | `null` |
 | `whatsapp` | metin (yalnızca rakam, `905…`) | `null` |
 | `whatsappMessage.tr/.en` | metin | hazır mesaj |

@@ -2,7 +2,7 @@
 // Bu dosya varken Cloudflare projeye sunucu eklentisi eklemeye çalışmaz.
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "sergah-mimarlik",
+  "name": "sergah-mimarlik-web",
   "compatibility_date": "2026-10-16",
   "assets": {
     "directory": "./dist",

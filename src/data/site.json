@@ -1,6 +1,7 @@
 {
   "brand": "Sergah Mimarlık",
   "domain": null,
+  "previewUrl": "https://sergah-mimarlik-web.murat42celik.workers.dev",
   "phone": null,
   "whatsapp": null,
   "whatsappMessage": {
@@ -8,8 +9,14 @@
     "en": "Hello, I'm writing from the Sergah Mimarlık website. I'd like to talk about my project."
   },
   "email": null,
-  "address": { "tr": null, "en": null },
+  "address": {
+    "tr": null,
+    "en": null
+  },
   "instagram": "https://www.instagram.com/sergahmimarlik/",
-  "about": { "tr": null, "en": null },
+  "about": {
+    "tr": null,
+    "en": null
+  },
   "founders": []
 }

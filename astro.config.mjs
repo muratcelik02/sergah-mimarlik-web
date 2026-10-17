@@ -3,9 +3,10 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import siteData from './src/data/site.json' with { type: 'json' };
 
-// Alan adı henüz yok: site.json → domain dolunca otomatik kullanılır.
-// Geçici yayında barındırma adresi SITE_URL ortam değişkeniyle verilir.
-const site = process.env.SITE_URL || siteData.domain || 'http://localhost:4321';
+// Sayfaların kendi adresi: SITE_URL (barındırma ortam değişkeni) → site.json domain (gerçek alan adı)
+// → site.json previewUrl (geçici yayın adresi) → yerel önizleme.
+
+const site = process.env.SITE_URL || siteData.domain || siteData.previewUrl || 'http://localhost:4321';
 
 export default defineConfig({
   site,

@@ -1,0 +1,8 @@
+# Cloudflare yanıt başlıkları (bu dosyanın kendisi yayınlanmaz)
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Adı içeriğine göre değişen dosyalar (görseller, yazı tipleri, JS): 1 yıl önbellek
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable

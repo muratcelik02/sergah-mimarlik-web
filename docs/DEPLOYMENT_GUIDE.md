@@ -23,12 +23,12 @@ Projede `wrangler.jsonc` var: Cloudflare yalnızca `dist` klasörünü yayınlar
 4. Ayarlar:
    | Alan | Değer |
    |---|---|
-   | Project / Worker name | `sergah-mimarlik` (`wrangler.jsonc` içindeki `name` ile **aynı** olmalı) |
+   | Project / Worker name | `sergah-mimarlik-web` (`wrangler.jsonc` içindeki `name` ile **aynı** olmalı) |
    | Build command | `npm run build` |
    | Deploy command | `npx wrangler deploy` |
-   | Build variables | `PUBLIC_WEB3FORMS_KEY` = Web3Forms anahtarı · `SITE_URL` = yayın adresi (ilk yayından sonra öğrenilir, ör. `https://sergah-mimarlik.<hesap>.workers.dev`) |
+   | Build variables | `PUBLIC_WEB3FORMS_KEY` = Web3Forms anahtarı (zorunlu; yoksa form "bağlı değil" der) |
 5. **Deploy**. Node sürümü `.nvmrc`'den (24) okunur; Cloudflare varsayılanı Astro 7 için yetmez.
-6. Yayın adresi Worker sayfasında görünür (`….workers.dev`). `SITE_URL`'yi bu adresle güncelleyip yeniden derleyin (**Deployments** → **Retry** veya yeni `git push`).
+6. Geçici yayın adresi: **https://sergah-mimarlik-web.murat42celik.workers.dev** — `site.json → previewUrl` içinde kayıtlı (sayfa adresleri ve paylaşım görselleri bunu kullanır).
 
 > Not: Klasik **Pages** akışı da çalışır (Build command `npm run build`, output `dist`); o durumda `wrangler.jsonc` yok sayılır.
 

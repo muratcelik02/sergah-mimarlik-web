@@ -25,6 +25,10 @@ for await (const f of walk(DIST)) {
 
 const attr = (tag, name) => (tag.match(new RegExp(`\\s${name}="([^"]*)"`)) || [])[1];
 const metas = (html, re) => [...html.matchAll(re)].map((m) => m[0]);
+const siteData = JSON.parse(await readFile('src/data/site.json', 'utf8'));
+// Sitenin kendi adresleri (bunlara giden bağlantılar dış bağlantı sayılmaz)
+const internalOrigins = ['http://localhost:4321', siteData.domain, siteData.previewUrl, process.env.SITE_URL]
+  .filter(Boolean).map((u) => new URL(u).origin);
 const titles = new Map();
 const external = new Set();
 
@@ -64,7 +68,7 @@ for (const [url, html] of pages) {
   for (let ref of refs) {
     ref = ref.replace(/&amp;/g, '&');
     if (/^(mailto:|tel:|data:|#$)/.test(ref)) continue;
-    if (/^https?:\/\/localhost/.test(ref)) ref = new URL(ref).pathname + new URL(ref).hash;
+    if (/^https?:/.test(ref) && internalOrigins.includes(new URL(ref).origin)) ref = new URL(ref).pathname + new URL(ref).hash;
     if (/^https?:/.test(ref)) { external.add(ref.split('?')[0]); continue; }
     const [path, hash] = ref.split('#');
     const target = path === '' ? url : posix.resolve(posix.dirname(url.endsWith('/') ? url + 'x' : url), path);
