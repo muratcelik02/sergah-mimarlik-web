@@ -12,7 +12,9 @@ gallery:
 galleryAlt: []
 summary: null
 scope: null
-location: null
+location:
+  tr: KONYA/KARATAY
+  en: KONYA/KARATAY
 year: 2024
 area: 3600
 status: tamamlandi
