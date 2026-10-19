@@ -1,0 +1,23 @@
+name:
+  tr: Torkum İnşaat Konut Projesi
+  en: Torkum İnşaat Residential Project
+type: konut
+gallery:
+  - '@assets/projects/Modern Çatı Altında Şehir Konutu.webp'
+  - '@assets/projects/Modern Apartman Binası ve Peyzaj.webp'
+  - '@assets/projects/Modern Apartman ve Yürüyenler.webp'
+  - '@assets/projects/Modern Apartman Girişi.webp'
+  - '@assets/projects/banyo1.webp'
+  - '@assets/projects/wc.webp'
+galleryAlt: []
+summary: null
+scope: null
+location: null
+year: 2024
+area: 3600
+status: tamamlandi
+imageType: render
+featured: false
+featuredOrder: null
+order: 100
+toVerify: []
