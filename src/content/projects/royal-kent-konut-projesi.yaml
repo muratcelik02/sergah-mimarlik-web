@@ -1,0 +1,23 @@
+name:
+  tr: Royal Kent Konut Projesi
+  en: Royal Kent Residential Project
+type: konut
+gallery:
+  - '@assets/projects/Modern Konut Kompleksi Giriş Kapısı.webp'
+  - '@assets/projects/Gün Işığında Modern Konut Kompleksi.webp'
+  - '@assets/projects/Modern Konut Avlusunda Huzurlu Yaşam.webp'
+  - '@assets/projects/Modern Konut Kompleksi ve Yeşil Avlu.webp'
+galleryAlt: []
+summary: null
+scope: null
+location:
+  tr: KONYA/KARATAY
+  en: KONYA/KARATAY
+year: 2026
+area: 8000
+status: konsept
+imageType: render
+featured: false
+featuredOrder: null
+order: 100
+toVerify: []
