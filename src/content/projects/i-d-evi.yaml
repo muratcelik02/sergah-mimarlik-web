@@ -1,0 +1,21 @@
+name:
+  tr: İ.D Evi
+  en: İ.D House
+type: konut
+gallery:
+  - '@assets/projects/Modern Yuvada Sıcak Gün Işığı.webp'
+  - '@assets/projects/Modern Evin Altın Saat Manzarası.webp'
+galleryAlt: []
+summary: null
+scope: null
+location:
+  tr: KONYA/SELÇUKLU
+  en: KONYA/SELÇUKLU
+year: 2026
+area: 400
+status: tamamlandi
+imageType: render
+featured: false
+featuredOrder: null
+order: 100
+toVerify: []
