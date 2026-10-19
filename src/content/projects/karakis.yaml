@@ -1,15 +1,20 @@
-# Proje kaydı. Düzenleme: site /admin paneli (Sveltia CMS) veya bu dosya. Ayrıntı: docs/CONTENT_MODEL.md
-# gallery: görsel yolları (ilki kapak) · galleryAlt: aynı sırada isteğe bağlı açıklamalar (boşsa otomatik)
 name:
-  tr: Karakış Konutları
-  en: Karakış Residences
+  tr: Karakayış Konutları
+  en: Karakayış Residences
 type: konut
 gallery:
-  - "@assets/projects/karakis/01.jpg"
+  - '@assets/projects/karakis/01.jpg'
 galleryAlt:
   - tr: Karakış Konutları, gri ve beyaz cepheli apartman blokları
     en: Karakış Residences, apartment blocks with grey and white façades
+summary: null
+scope: null
+location: null
+year: null
+area: null
+status: ''
 imageType: render
 featured: true
 featuredOrder: 3
 order: 5
+toVerify: []
