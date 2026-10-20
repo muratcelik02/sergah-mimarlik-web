@@ -1,14 +1,20 @@
-# Proje kaydı. Düzenleme: site /admin paneli (Sveltia CMS) veya bu dosya. Ayrıntı: docs/CONTENT_MODEL.md
-# gallery: görsel yolları (ilki kapak) · galleryAlt: aynı sırada isteğe bağlı açıklamalar (boşsa otomatik)
 name:
   tr: M.E Evi
+  en: ''
 type: konut
 gallery:
-  - "@assets/projects/me-evi/01.jpg"
-galleryAlt:
-  - tr: M.E Evi, iki katlı villanın simetrik ön cephesi ve giriş merdiveni
-    en: M.E Evi, symmetrical front façade of the two-storey villa with entrance steps
+  - '@assets/projects/me-evi/01.jpg'
+galleryAlt: []
+summary: null
+scope: null
+location:
+  tr: KONYA/MERAM
+  en: KONYA/MERAM
+year: 2025
+area: 500
+status: ''
 imageType: render
 featured: true
 featuredOrder: 2
 order: 1
+toVerify: []
