@@ -1,6 +1,6 @@
 name:
   tr: M.E Evi
-  en: ''
+  en: M.E House
 type: konut
 gallery:
   - '@assets/projects/me-evi/01.jpg'
@@ -12,9 +12,9 @@ location:
   en: KONYA/MERAM
 year: 2025
 area: 500
-status: ''
+status: tamamlandi
 imageType: render
 featured: true
 featuredOrder: 2
-order: 1
+order: 489
 toVerify: []
