@@ -14,7 +14,7 @@ year: 2018
 area: 1000
 status: tamamlandi
 imageType: render
-featured: false
+featured: true
 featuredOrder: 5
 order: 490
 toVerify: []
