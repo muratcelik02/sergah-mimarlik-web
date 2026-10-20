@@ -1,13 +1,20 @@
-# Proje kaydı. Düzenleme: site /admin paneli (Sveltia CMS) veya bu dosya. Ayrıntı: docs/CONTENT_MODEL.md
-# gallery: görsel yolları (ilki kapak) · galleryAlt: aynı sırada isteğe bağlı açıklamalar (boşsa otomatik)
 name:
   tr: A.Y Konut Projesi
   en: A.Y Housing Project
 type: konut
 gallery:
-  - "@assets/projects/ay-konut/01.jpg"
+  - '@assets/projects/ay-konut/01.jpg'
 galleryAlt:
   - tr: A.Y Konut Projesi, alacakaranlıkta ahşap ve gri cepheli üç katlı yapı
     en: A.Y Housing Project, three-storey building with timber and grey façade at twilight
+summary: null
+scope: null
+location: null
+year: null
+area: null
+status: ''
 imageType: render
-order: 7
+featured: false
+featuredOrder: null
+order: 500
+toVerify: []
