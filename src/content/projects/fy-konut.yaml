@@ -16,7 +16,7 @@ year: null
 area: null
 status: ''
 imageType: render
-featured: true
-featuredOrder: 6
-order: 6
+featured: false
+featuredOrder: null
+order: 497
 toVerify: []
