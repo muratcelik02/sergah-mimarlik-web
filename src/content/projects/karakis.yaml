@@ -4,15 +4,13 @@ name:
 type: konut
 gallery:
   - '@assets/projects/karakis/01.jpg'
-galleryAlt:
-  - tr: Karakış Konutları, gri ve beyaz cepheli apartman blokları
-    en: Karakış Residences, apartment blocks with grey and white façades
+galleryAlt: []
 summary: null
 scope: null
 location: null
-year: null
-area: null
-status: ''
+year: 2017
+area: 6000
+status: tamamlandi
 imageType: render
 featured: true
 featuredOrder: 3
