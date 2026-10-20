@@ -1,17 +1,23 @@
-# Proje kaydı. Düzenleme: site /admin paneli (Sveltia CMS) veya bu dosya. Ayrıntı: docs/CONTENT_MODEL.md
-# gallery: görsel yolları (ilki kapak) · galleryAlt: aynı sırada isteğe bağlı açıklamalar (boşsa otomatik)
 name:
   tr: M.A Evi
+  en: ''
 type: konut
 gallery:
-  - "@assets/projects/ma-evi/01.jpg"
-  - "@assets/projects/ma-evi/02.jpg"
+  - '@assets/projects/ma-evi/01.jpg'
+  - '@assets/projects/ma-evi/02.jpg'
 galleryAlt:
   - tr: M.A Evi, ahşap saçaklı iki katlı evin köşe görünüşü
     en: M.A Evi, corner view of the two-storey house with timber eaves
   - tr: M.A Evi, cam korkuluklu balkon ve peyzajlı giriş
     en: M.A Evi, glass-railed balcony above a landscaped entrance
+summary: null
+scope: null
+location: null
+year: null
+area: null
+status: ''
 imageType: render
 featured: true
 featuredOrder: 4
-order: 3
+order: 486
+toVerify: []
