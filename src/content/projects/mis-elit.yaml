@@ -1,6 +1,6 @@
 name:
-  tr: Mis Elit Konutları
-  en: Mis Elit Residences
+  tr: Mis Elit 2 Konutları
+  en: Mis Elit 2 Residences
 type: konut
 gallery:
   - '@assets/projects/mis-elit/01.jpg'
