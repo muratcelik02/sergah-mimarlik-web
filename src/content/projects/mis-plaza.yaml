@@ -1,14 +1,20 @@
-# Proje kaydı. Düzenleme: site /admin paneli (Sveltia CMS) veya bu dosya. Ayrıntı: docs/CONTENT_MODEL.md
-# gallery: görsel yolları (ilki kapak) · galleryAlt: aynı sırada isteğe bağlı açıklamalar (boşsa otomatik)
 name:
   tr: Mis Plaza
+  en: ''
 type: ticari
 gallery:
-  - "@assets/projects/mis-plaza/01.jpg"
-galleryAlt:
-  - tr: Mis Plaza, eğik koyu taş kuleler arasında geniş camlı cephe, akşam ışığında
-    en: Mis Plaza, wide glazed façade framed by angled dark stone piers at dusk
+  - '@assets/projects/mis-plaza/01.jpg'
+galleryAlt: []
+summary: null
+scope: null
+location:
+  tr: KONYA/KARATAY
+  en: KONYA/KARATAY
+year: 2018
+area: 1000
+status: tamamlandi
 imageType: render
-featured: true
+featured: false
 featuredOrder: 1
-order: 4
+order: 490
+toVerify: []
