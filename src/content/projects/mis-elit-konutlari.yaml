@@ -1,0 +1,20 @@
+name:
+  tr: Mis Elit Konutları
+  en: Mis Elit Residences
+type: konut
+gallery:
+  - '@assets/projects/Mis Elit Konutları.webp'
+galleryAlt: []
+summary: null
+scope: null
+location:
+  tr: KONYA/KARATAY
+  en: KONYA/KARATAY
+year: 2015
+area: 11500
+status: ''
+imageType: render
+featured: false
+featuredOrder: null
+order: 100
+toVerify: []
