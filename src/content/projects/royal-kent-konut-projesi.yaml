@@ -17,7 +17,7 @@ year: 2026
 area: 8000
 status: konsept
 imageType: render
-featured: false
-featuredOrder: null
+featured: true
+featuredOrder: 4
 order: 482
 toVerify: []
