@@ -13,9 +13,9 @@ location:
   en: KONYA/SELÇUKLU
 year: 2026
 area: 560
-status: ''
+status: tamamlandi
 imageType: render
-featured: true
+featured: false
 featuredOrder: 4
 order: 486
 toVerify: []
