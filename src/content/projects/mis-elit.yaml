@@ -14,7 +14,7 @@ year: 2015
 area: 11500
 status: tamamlandi
 imageType: render
-featured: false
-featuredOrder: null
+featured: true
+featuredOrder: 6
 order: 493
 toVerify: []
