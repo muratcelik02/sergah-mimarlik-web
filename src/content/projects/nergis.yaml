@@ -1,7 +1,7 @@
 name:
   tr: Nergis Konutları
   en: Nergis Residences
-type: konut
+type: karma
 gallery:
   - '@assets/projects/nergis/01.jpg'
 galleryAlt:
