@@ -18,7 +18,7 @@ year: 2025
 area: 600
 status: tamamlandi
 imageType: render
-featured: true
-featuredOrder: 5
+featured: false
+featuredOrder: 0
 order: 487
 toVerify: []
