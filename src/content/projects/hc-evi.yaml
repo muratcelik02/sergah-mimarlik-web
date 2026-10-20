@@ -7,15 +7,7 @@ gallery:
   - '@assets/projects/Modern Villası ve Yemyeşil Bahçesi.webp'
   - '@assets/projects/hc-evi/01.jpg'
   - '@assets/projects/Güneşli Modern Villa ve Bahçesi.webp'
-galleryAlt:
-  - tr: ''
-    en: ''
-  - tr: ''
-    en: ''
-  - tr: H.Ç. Evi, geometrik korkuluklu balkonları ve verandalarıyla simetrik ön cephe
-    en: H.Ç. Evi, symmetrical front façade with geometric balcony railings and verandas
-  - tr: ''
-    en: ''
+galleryAlt: []
 summary: null
 scope: null
 location:
@@ -23,7 +15,7 @@ location:
   en: KONYA/SELÇUKLU
 year: 2026
 area: 1000
-status: ''
+status: tamamlandi
 imageType: render
 featured: false
 featuredOrder: null
