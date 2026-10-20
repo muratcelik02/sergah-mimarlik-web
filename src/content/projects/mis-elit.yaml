@@ -1,13 +1,20 @@
-# Proje kaydı. Düzenleme: site /admin paneli (Sveltia CMS) veya bu dosya. Ayrıntı: docs/CONTENT_MODEL.md
-# gallery: görsel yolları (ilki kapak) · galleryAlt: aynı sırada isteğe bağlı açıklamalar (boşsa otomatik)
 name:
   tr: Mis Elit Konutları
   en: Mis Elit Residences
 type: konut
 gallery:
-  - "@assets/projects/mis-elit/01.jpg"
-galleryAlt:
-  - tr: Mis Elit Konutları, ahşap dokulu paneller ve koyu çerçeveli balkonlar
-    en: Mis Elit Residences, timber-textured panels and dark-framed balconies
+  - '@assets/projects/mis-elit/01.jpg'
+galleryAlt: []
+summary: null
+scope: null
+location:
+  tr: KONYA/KARATAY
+  en: KONYA/KARATAY
+year: 2015
+area: 11500
+status: ''
 imageType: render
+featured: false
+featuredOrder: null
 order: 8
+toVerify: []
