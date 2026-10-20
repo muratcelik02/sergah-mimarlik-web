@@ -19,6 +19,6 @@ area: 600
 status: tamamlandi
 imageType: render
 featured: false
-featuredOrder: 0
+featuredOrder: null
 order: 487
 toVerify: []
