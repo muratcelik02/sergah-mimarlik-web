@@ -1,20 +1,18 @@
 name:
   tr: M.A Evi
-  en: ''
+  en: M.A House
 type: konut
 gallery:
   - '@assets/projects/ma-evi/01.jpg'
   - '@assets/projects/ma-evi/02.jpg'
-galleryAlt:
-  - tr: M.A Evi, ahşap saçaklı iki katlı evin köşe görünüşü
-    en: M.A Evi, corner view of the two-storey house with timber eaves
-  - tr: M.A Evi, cam korkuluklu balkon ve peyzajlı giriş
-    en: M.A Evi, glass-railed balcony above a landscaped entrance
+galleryAlt: []
 summary: null
 scope: null
-location: null
-year: null
-area: null
+location:
+  tr: KONYA/SELÇUKLU
+  en: KONYA/SELÇUKLU
+year: 2026
+area: 560
 status: ''
 imageType: render
 featured: true
