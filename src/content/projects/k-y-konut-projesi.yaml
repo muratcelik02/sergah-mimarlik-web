@@ -1,0 +1,20 @@
+name:
+  tr: K.Y. Konut Projesi
+  en: K.Y.  Residential Project
+type: konut
+gallery:
+  - '@assets/projects/K.Y Konut Projesi.webp'
+galleryAlt: []
+summary: null
+scope: null
+location:
+  tr: KONYA/KARATAY
+  en: KONYA/KARATAY
+year: null
+area: null
+status: ''
+imageType: render
+featured: false
+featuredOrder: null
+order: 100
+toVerify: []
